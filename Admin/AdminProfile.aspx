@@ -42,7 +42,7 @@
                                     <!-- Page-header end -->
                                     <div class="container bootstrap snippet">
                                         <div class="row">
-                                            <div class="col-sm-10"><h1>My Profile</h1></div>
+                                            <div class="col-sm-10"><h1>My Profiles</h1></div>
                                             <div class="col-sm-2">
                                                 <img title="profile image" src="/images/FinalLogo.png" alt="Theme-Logo" style="width:200px">
 
