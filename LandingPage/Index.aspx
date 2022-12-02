@@ -274,7 +274,7 @@
                         <ul class="nav-left">
                             <li>
                                 <div class="text-center">
-                                    <img src="images/secLogo.png" style="width:170px" alt="logo.png">
+                                    <img src="/images/secLogo.png" style="width:170px" alt="logo.png">
                                 </div>
                             </li>
                         </ul>
@@ -292,7 +292,7 @@
                                 <a href="#stations" class="waves-effect waves-light"> Refilling Stations </a>
                             </li>
                             <li class="user-profile header-notification">
-                                <a href="/Account.aspx" class="waves-effect waves-light">
+                                <a href="/LandingPage/Account.aspx" class="waves-effect waves-light">
                                     <span> Account </span>
                                 </a>
 
@@ -329,13 +329,13 @@
                         <div class="row">
 
                             <div class="col-sm-4 text-right">
-                                <img src="images/innovation.png" style="width:70%">
+                                <img src="/images/innovation.png" style="width:70%">
                             </div>
                             <div class="col-sm-4">
-                                <img src="images/FinalLogo.PNG" style="width:110%">
+                                <img src="/images/FinalLogo.PNG" style="width:110%">
                             </div>
                             <div class="col-sm-4">
-                                <img src="images/Growth.PNG" style="width:70%">
+                                <img src="/images/Growth.PNG" style="width:70%">
                             </div>
                         </div>
 
@@ -548,7 +548,7 @@
                                         <div class="">
                                             <div class="text-center">
                                                 <br>
-                                                <img src="images/rhea.PNG" style="width:50%">
+                                                <img src="/images/rhea.PNG" style="width:50%">
                                             </div> <br>
                                             <p class="h4 text-center">RHEA MAE TRINIDAD</p>
                                             <h2 class="texts text-center " style="font-size:16px;">PROJECT MANAGER </h2>
@@ -563,7 +563,7 @@
                                         <div class="">
                                             <div class="text-center">
                                                 <br>
-                                                <img src="images/ja.PNG" style="width:50%">
+                                                <img src="/images/ja.PNG" style="width:50%">
                                             </div> <br>
                                             <p class="h4 text-center">Jeahael Suhot</p>
                                             <h2 class="texts text-center " style="font-size:16px;">SOFTWARE ENGINEER </h2>
@@ -584,7 +584,7 @@
                                         <div class="">
                                             <div class="text-center">
                                                 <br>
-                                                <img src="images/rona.jpg" style="width:50%">
+                                                <img src="/images/rona.jpg" style="width:50%">
                                             </div> <br>
                                             <p class="h4 text-center">RONALYN GIDUCOS</p>
                                             <h2 class="texts text-center " style="font-size:16px;">UI DESIGNER </h2>
@@ -598,7 +598,7 @@
                                         <div class="">
                                             <div class="text-center">
                                                 <br>
-                                                <img src="images/DC.jpg" style="width:50%">
+                                                <img src="/images/DC.jpg" style="width:50%">
                                             </div> <br>
                                             <p class="h4 text-center">DAISY LIMATO</p>
                                             <h2 class="texts text-center " style="font-size:16px;">UI DESIGNER</h2>
@@ -631,7 +631,7 @@
                                     <div class="col-sm-3" style="background-color: pink;">
                                         <div class="">
                                             <div class="text-center">
-                                                <img src="images/delivery.PNG" style="width:50%">
+                                                <img src="/images/delivery.PNG" style="width:50%">
                                             </div>
                                             <p class="h3 text-center">BASIC PLAN</p>
                                             <h2 class="texts text-center " style="font-size:20px;">Provides reliable and efficient service to residential and </h2> <br>
@@ -647,7 +647,7 @@
                                     <div class="col-sm-3" style="background-color: lightskyblue;">
                                         <div class="service-item second-service">
                                             <div class="text-center">
-                                                <img src="images/orders.PNG" style="width:50%">
+                                                <img src="/images/orders.PNG" style="width:50%">
                                             </div>
                                             <p class="h3 text-center">PREMIUM PLAN</p>
                                             <h2 class="texts text-center" style="font-size:20px;">
@@ -676,7 +676,7 @@
                                         <li>
                                             <br>
                                             <div class="text-right">
-                                                <img src="images/water.cartoon.png" style="width:320px" alt="logo.png">
+                                                <img src="/images/water.cartoon.png" style="width:320px" alt="logo.png">
                                             </div>
 
                                         </li>
@@ -689,7 +689,7 @@
                                         <a href="https://play.google.com/store/games" class="button" style="color:darkblue;font-size: 25px;padding: 6px;">
                                             <!-- SUBSCRIBE TO 2BIG NOW!-->
 
-                                            <img src="images/playstore.PNG" style="width:80px"> <br>
+                                            <img src="/images/playstore.PNG" style="width:80px"> <br>
                                             Download <br> 2BiG Mobile ! <br> <br>
                                         </a>
                                     </div>
