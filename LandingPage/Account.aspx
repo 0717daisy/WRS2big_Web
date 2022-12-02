@@ -148,7 +148,7 @@
                                         <div class="form-group">
                                             <label>Birthdate</label>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtbirthdate"></asp:TextBox> 
+                                            <asp:TextBox runat="server" type="calendar" class="form-control" ID="txtbirthdate" Placeholder="YYYY/MM/D"></asp:TextBox> 
 
                                             </div>
                                         </div>
@@ -182,7 +182,7 @@
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" ID="id_passwordreg"></asp:TextBox> 
+                                            <asp:TextBox runat="server" class="form-control" type="password" ID="id_passwordreg" ></asp:TextBox> 
 
                                             </div>
                                         </div>
@@ -268,7 +268,7 @@
                                                 <div class="form-group">
                                                     <label>Password</label>
                                                     <div class="input-group">
-                                            <asp:TextBox runat="server" class="form-control" id="id_password"></asp:TextBox> 
+                                            <asp:TextBox runat="server"  type="password" class="form-control" id="id_password"></asp:TextBox> 
 
                                                     </div>
                                                 </div>

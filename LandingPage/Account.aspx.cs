@@ -46,7 +46,7 @@ namespace WRS2big_Web.LandingPage
                 //ADMIN = tablename, idno = key(PK ? )
                 response = twobigDB.Set("ADMIN/" + data.idno, data);
                 AdminData result = response.ResultAs<AdminData>();
-                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = 'Account.aspx'; </script>");
+                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = 'Admin/AdminIndex.aspx'; </script>");
             }
             catch
             {
