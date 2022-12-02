@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="WRS2big_Web.LandingPage.Account" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>2BiG: WRS Management System </title>
@@ -35,6 +36,7 @@
 </head>
 
 <body themebg-pattern="theme1">
+    <form id="form1" runat="server">
     <!-- Pre-loader start -->
     <div class="theme-loader">
         <div class="loader-track">
@@ -109,23 +111,23 @@
                                 </div> <br />
                                 <br><br>
 <%--                                @*      SIGN UP     *@--%>
-                            <div class="active" id="register" ">
+                            <div class="active" id="register">
                                 <div class="row ">
 <%--                                    @*last name*@--%>
                                     <div class="col">
-                                        <div class="form-group">
-                                            <label>Last Name</label>
-                                            <div class="input-group-sm">
-                                                <input id="txtLname" class="form-control" />
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" Text="Last Name"></asp:Label>
+                                        <asp:TextBox ID="txtlname" class="form-control" runat="server"></asp:TextBox>
+                                    </div>
+
                                     </div>
 <%--                                    @*first name*@--%>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <div class="input-group-sm">
-                                                <input id="txtfname" class="form-control" />
+                                                <asp:TextBox ID="txtfname" runat="server" class="form-control" ></asp:TextBox>    
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +136,8 @@
                                         <div class="form-group">
                                             <label>Middle Name</label>
                                             <div class="input-group-sm">
-                                                <input id="txtmname" class="form-control" />
+                                            <asp:TextBox  ID="txtmname" runat="server" class="form-control"></asp:TextBox> 
+
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +148,8 @@
                                         <div class="form-group">
                                             <label>Birthdate</label>
                                             <div class="input-group-sm">
-                                                <input id="txtbirthdate" type="date" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" ID="txtbirthdate"></asp:TextBox> 
+
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +160,8 @@
                                         <div class="form-group">
                                             <label>Phone Number</label>
                                             <div class="input-group-sm">
-                                                <input id="txtphoneNum" type="number" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" ID="txtphoneNum"></asp:TextBox> 
+
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +170,8 @@
                                         <div class="form-group">
                                             <label>Email</label>
                                             <div class="input-group-sm">
-                                                <input id="txtEmail" type="email" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail"></asp:TextBox> 
+
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +182,8 @@
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div class="input-group-sm">
-                                                <input id="id_passwordreg" type="password" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" ID="id_passwordreg"></asp:TextBox> 
+
                                             </div>
                                         </div>
                                     </div>
@@ -230,7 +237,7 @@
                                     <div class="col-md-12">
 <%--                                        @*buttons*@--%>
                                         <div class="d-flex justify-content-center">
-                                            <button id="btnCreateAcc" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);">
+                                            <button id="btnCreateAcc" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);" OnClick="btnSignup_Click">
                                         
                                                 Sign up
                                             </button>
@@ -249,7 +256,8 @@
                                                 <div class="">
                                                     <label>Email</label>
                                                     <div class="input-group">
-                                                        <input id="txtemail" type="email" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" id="txt_email"></asp:TextBox> 
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -260,7 +268,8 @@
                                                 <div class="form-group">
                                                     <label>Password</label>
                                                     <div class="input-group">
-                                                        <input id="id_password" type="password" class="form-control" />
+                                            <asp:TextBox runat="server" class="form-control" id="id_password"></asp:TextBox> 
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,6 +340,7 @@
     <script type="text/javascript" src="~/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script type="text/javascript" src="/assets/js/common-pages.js"></script>
     <script src="/Scripts/MyScript/Index.js"></script>
+</form>
 </body>
 </html>
 
