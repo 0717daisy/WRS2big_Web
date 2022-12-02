@@ -59,6 +59,9 @@ chart.render();
                         <!-- Page-header end -->
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                            <!-- Main-body start -->
                         <div class="row" >
                                   <div class="col-md-10 col-sm-12 " style="margin-left: 7%" >
                                     <div class="x_panel" style="background-color: #eae8e8">
@@ -157,7 +160,10 @@ chart.render();
                            </br>
                            </br>     
                     <div id="chartContainer" style="height:450px; width: 100%;"></div>
+                            </div>
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

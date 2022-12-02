@@ -32,8 +32,12 @@
                             </div>
                         </div>
                         <!-- Page-header end -->
+                        <!-- Page-header end -->
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -181,6 +185,9 @@
       </div>
     </div>
   </div>
+  </div>
+                                </div>
+                            </div>
 
           
         <!-- /page content -->
