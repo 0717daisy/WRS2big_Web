@@ -33,9 +33,14 @@
                             </div>
                         </div>
                         <!-- Page-header end -->
+
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
