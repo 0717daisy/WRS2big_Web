@@ -4,7 +4,9 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>
+        2BiG: WRS Management System
+    </title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
@@ -42,65 +44,12 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body>
-    <!-- Pre-loader start -->
-    <div class="theme-loader">
-        <div class="loader-track">
-            <div class="preloader-wrapper">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-                <div class="spinner-layer spinner-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
 
-                <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-
-                <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pre-loader end -->
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <nav class="navbar header-navbar pcoded-header">
-                <div class="navbar-wrapper">
+                <div class="navbar-wrapper" >
                     <div class="navbar-logo">
                         <div>
                             <img src="/images/secLogo.png" style="width:180px" alt="logo.png">
@@ -197,27 +146,12 @@
                                 </a>
                                 <ul class="show-notification profile-notification">
                                     <li class="waves-effect waves-light">
-                                        <a href="#!">
-                                            <i class="ti-settings"></i> Settings
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="user-profile.html">
+                                        <a href="/Admin/AdminProfile">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
-                                        <a href="email-inbox.html">
-                                            <i class="ti-email"></i> My Messages
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="auth-lock-screen.html">
-                                            <i class="ti-lock"></i> Lock Screen
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="Index.php">
+                                        <a href="/LandingPage/index">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -232,8 +166,8 @@
 
                                     </asp:ContentPlaceHolder>
                                 </div>
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
+<%--            <div class="pcoded-main-container"  >--%>
+                <div class="pcoded-wrapper" >
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
@@ -279,13 +213,13 @@
                                 </ul>
                                 <div class="pcoded-navigation-label" data-i18n="nav.category.forms">MANAGEMENT</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="">
+<%--                                    <li class="">
                                         <a href="/Admin/AdminProfile" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="fa fa-user"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Profile </span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                     <li>
                                         <a href="/Admin/Employees" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-notepad"></i><b>FC</b></span>
@@ -414,7 +348,6 @@
                             </div>
                     </nav>
                 </div>
-            </div>
         </div>
     </div>
 
