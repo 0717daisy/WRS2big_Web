@@ -328,7 +328,8 @@
 
 
                                         <div class="d-flex justify-content-center">
-                                            <button id="btnLogin" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);">Login</button>
+                                            <button id="btnLogin" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);">
+                                                    <a href="/LandingPage/Subscription"> Login </a> </button>
                                         </div>
   
                                     </div>

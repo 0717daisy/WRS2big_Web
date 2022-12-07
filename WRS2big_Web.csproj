@@ -283,6 +283,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="LandingPage\Account.aspx" />
     <Content Include="LandingPage\Index.aspx" />
+    <Content Include="LandingPage\Subscription.aspx" />
     <Content Include="LandingPage\Terms.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -532,6 +533,13 @@
     </Compile>
     <Compile Include="LandingPage\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage\Subscription.aspx.cs">
+      <DependentUpon>Subscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPage\Subscription.aspx.designer.cs">
+      <DependentUpon>Subscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
