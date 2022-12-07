@@ -142,7 +142,6 @@
     <Content Include="Admin\WaterOrders.aspx" />
     <Content Include="Admin\WaterProduct.aspx" />
     <Content Include="Admin\WaterRefill.aspx" />
-    <Content Include="LandingPage.aspx" />
     <Content Include="assets\css\animate.css\css\animate.css" />
     <Content Include="assets\css\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\css\chartist\chartist.css" />
@@ -284,7 +283,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="LandingPage\Account.aspx" />
     <Content Include="LandingPage\Index.aspx" />
-    <Content Include="Terms.aspx" />
+    <Content Include="LandingPage\Terms.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -519,13 +518,6 @@
       <DependentUpon>WaterRefill.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="LandingPage.aspx.cs">
-      <DependentUpon>LandingPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LandingPage.aspx.designer.cs">
-      <DependentUpon>LandingPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="LandingPage\Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
@@ -548,11 +540,11 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Terms.aspx.cs">
+    <Compile Include="LandingPage\Terms.aspx.cs">
       <DependentUpon>Terms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Terms.aspx.designer.cs">
+    <Compile Include="LandingPage\Terms.aspx.designer.cs">
       <DependentUpon>Terms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -583,6 +575,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="productImages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

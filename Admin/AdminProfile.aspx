@@ -3,6 +3,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form runat="server">
         <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
@@ -39,157 +40,82 @@
                             <div class="main-body">
                                 <div class="page-wrapper">
                                     <!-- Page-body start -->
-                                    <!-- Page-header end -->
-                                    <div class="container bootstrap snippet">
-                                        <div class="row">
-                                            <div class="col-sm-10"><h1>My Profiles</h1></div>
-                                            <div class="col-sm-2">
-                                                <img title="profile image" src="/images/FinalLogo.png" alt="Theme-Logo" style="width:200px">
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <!--left col-->
-                                                <div class="text-center">
-                                                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                                                    <h6>Upload photo here...</h6>
-                                                    <input type="file" class="text-center center-block file-upload">
-                                                </div>
-                                                <br>
-                                            </div><!--/col-3-->
-                                            <div class="col-sm-9">
-                                                <ul class="nav nav-tabs">
-                                                    <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
-                                                    <li><a data-toggle="tab" href="#about">About</a></li>
-                                                    <li><a data-toggle="tab" href="#editprofile">Edit Profile</a></li>
-                                                </ul>
-
-
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="home">
-                                                        <hr>
-                                                        <form class="form" action="##" method="POST" id="registrationForm">
-                                                            <div class="form-group">
-                                                                <div class="col-xs-12">
-                                                                    <h4><strong>Firstname: </h4>  <br>
-                                                                    <h4><strong>Middlename: </h4><br>
-                                                                    <h4><strong>Lastname: </h4><br>
-                                                                    <h4><strong>Contact number: </strong> </h4><br>
-                                                                    <h4><strong>Email Address: </strong> </h4><br>
-                                                                    <h4><strong>Address: </strong> </h4><br>
-                                                                    <h4><strong>Member Since: </strong></h4><br>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-12">
-                                                                    <br>
-                                                                    <button class="btn btn-lg btn-outline-danger pull-right" style=" color: #FA8072; border-color: #FA8072 " type="close"><a href="dashboard.php"><i class="glyphicon glyphicon-backward"></i>Exit  </a> </button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-
-                                                        <hr>
-
-                                                    </div><!--/tab-pane-->
-                                                    <div class="tab-pane" id="about">
-
-                                                        <h2></h2>
-
-                                                        <hr>
-                                                        <form class="form" action="##" method="post" id="registrationForm">
-                                                            <div class="form-group">
-                                                                <div class="col-xs-12">
-                                                                    <h4><strong>Firstname: </strong> </h4>  <br>
-                                                                    <h4><strong>Middlename: </strong></h4><br>
-                                                                    <h4><strong>Lastname: </strong> </h4><br>
-                                                                    <h4><strong>Contact number: </strong> </h4><br>
-                                                                    <h4><strong>Email Address: </strong> </h4><br>
-                                                                    <h4><strong>Address: </strong> </h4><br>
-                                                                    <h4><strong>Member Since: </strong></h4><br>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-12">
-                                                                    <br>
-                                                                    <button class="btn btn-lg btn-outline-danger pull-right" style=" color: #FA8072; border-color: #FA8072 " type="close"><a href="dashboard.php"><i class="glyphicon glyphicon-backward"></i>Exit  </a> </button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-
-
-                                                    </div><!--/tab-pane-->
-                                                    <div class="tab-pane" id="editprofile">
-
-
-                                                        <hr>
-                                                        <form class="form" action="##" method="post" id="registrationForm">
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="firstname"><h4>First name</h4></label>
-                                                                    <input type="text" class="form-control" name="first_name" id="firstname" placeholder="first name" title="enter your first name if any.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="lastname"><h4>Last name</h4></label>
-                                                                    <input type="text" class="form-control" name="last_name" id="lastname" placeholder="last name" title="enter your last name if any.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="mid_name"><h4>Middle Name (Optional)</h4></label>
-                                                                    <input type="text" class="form-control" name="mid_name" id="mid_name" placeholder="enter middle name " title="enter your middle name if any.">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="contactno"><h4>Mobile</h4></label>
-                                                                    <input type="number" class="form-control" name="contact_num" id="contactno" placeholder="enter mobile number" title="enter your mobile number if any.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-
-                                                                <div class="col-xs-6">
-                                                                    <label for="email"><h4>Email</h4></label>
-                                                                    <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="address"><h4>Address</h4></label>
-                                                                    <input type="address" class="form-control" id="address" placeholder="enter address" title="enter your address">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-
-                                                                <div class="col-xs-6">
-                                                                    <label for="password"><h4>Password</h4></label>
-                                                                    <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-6">
-                                                                    <label for="password2"><h4>Verify</h4></label>
-                                                                    <input type="password" class="form-control" name="con_pass" id="password2" placeholder="password2" title="enter your password2.">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="col-xs-12">
-                                                                    <br>
-                                                                    <input type="submit" name="update" value="Update Profile">
-                                                                    <!-- <button class="btn btn-lg btn-success pull-left" type="submit" name="update"><i class="glyphicon glyphicon-ok-sign"></i> Update Profile</button>-->
-                                                                    <button class="btn btn-lg btn-outline-danger pull-right" style=" color: #FA8072; border-color: #FA8072 " type="close"><a href="dashboard.php"><i class="glyphicon glyphicon-backward"></i>Exit  </a> </button>
-                                                                    <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                                                                </div>
-                                                            </div>
-                                                        </form>
+                                             <div class="col-xl-4 col-md-12">
+                                                <div class="card ">
+                                                    <div class="card-header">
+                                                        <h5>My Profile</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                <li><i class="fa fa-trash close-card"></i></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div><!--/tab-pane-->
-                                            </div><!--/tab-content-->
-                                        </div><!--/col-9-->
-                                    </div><!--/row-->
+                                                  <div class="main-menu-header">
+                                                      <img class="img-100 img-radius" style="align-content:center" src="/images/DC.jpg" alt="User-Profile-Image">
+                                                      <div class="user-details">
+                                                          <span id="more-details">ADMIN <i class="fa fa-caret-down"></i></span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="main-menu-content">
+                                                      <ul>
+                                                          <li class="more-details">
+                                                              <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                                              <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                                              <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+
+
+
+                                                    <div class="card-block">
+                                                        <div class="align-middle m-b-30">
+                                                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                            <img src="assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <div class="d-inline-block">
+                                                                <h6>David Jones</h6>
+                                                                <p class="text-muted m-b-0">Developer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="align-middle m-b-30">
+
+                                                            <img src="images/avatar-1.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <div class="d-inline-block">
+                                                                <h6>David Jones</h6>
+                                                                <p class="text-muted m-b-0">Developer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="align-middle m-b-30">
+                                                            <img src="assets/images/avatar-3.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <div class="d-inline-block">
+                                                                <h6>David Jones</h6>
+                                                                <p class="text-muted m-b-0">Developer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="align-middle m-b-30">
+                                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <div class="d-inline-block">
+                                                                <h6>David Jones</h6>
+                                                                <p class="text-muted m-b-0">Developer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="align-middle m-b-10">
+                                                            <img src="assets/images/avatar-5.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <div class="d-inline-block">
+                                                                <h6>David Jones</h6>
+                                                                <p class="text-muted m-b-0">Developer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <a href="#!" class="b-b-primary text-primary">View all Projects</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -199,4 +125,5 @@
 
         </div>
     </div>
+</form>
 </asp:Content>

@@ -222,7 +222,7 @@
                                                 <input type="checkbox" value="">
                                                 <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                                                 <span class="text-inverse">
-                                                    I agree to 2BiG's <a href="/Terms"> Terms and Conditions </a>
+                                                    I agree to 2BiG's <a href="/LandingPage/Terms"> Terms and Conditions </a>
                                                 </span>
 
                                             </label>
@@ -242,10 +242,6 @@
                                                 Sign up
                                             </button>
                                         </div>
-                                        <p>
-                                            <br />
-                                            <a href="/Home/Login" style="font-size:16px;"> Already have an account? Login now.</a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -303,13 +299,7 @@
                                         <div class="d-flex justify-content-center">
                                             <button id="btnLogin" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);">Login</button>
                                         </div>
-                                        <div class="row m-t-30">
-                                            <div class="col-md-12">
-                                                <p>
-                                                    <a href="/Home/CreateAccount" style="font-size:16px;"> No account yet? Create account now.</a>
-                                                </p>
-                                            </div>
-                                        </div>
+  
                                     </div>
                             </div>
                         </div>
