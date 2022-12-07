@@ -55,26 +55,29 @@
                                                         </div>
                                                     </div>
                                                   <div class="main-menu-header">
-                                                      <img class="img-100 img-radius" style="align-content:center" src="/images/DC.jpg" alt="User-Profile-Image">
-                                                      <div class="user-details">
-                                                          <span id="more-details">ADMIN <i class="fa fa-caret-down"></i></span>
-                                                      </div>
+                                                      <center>
+                                                      <img class="img-100 img-radius" style="width:200px    " src="/images/DC.jpg" alt="User-Profile-Image">
+                                                     
+                                                          <br />
+                                                      </center>
                                                   </div>
-                                                  <div class="main-menu-content">
+                                                  <div class="card-block">
+                                                      <center>
+
                                                       <ul>
                                                           <li class="more-details">
-                                                              <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                                                              <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                                              <a href="user-profile.html"><i class="ti-user"></i>View Profile</a> <br />
+                                                              <a href="#!"><i class="ti-settings"></i>Settings</a> <br />
                                                               <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                                           </li>
                                                       </ul>
+                                                      </center>
                                                   </div>
 
 
 
                                                     <div class="card-block">
                                                         <div class="align-middle m-b-30">
-                                                            <asp:FileUpload ID="FileUpload1" runat="server" />
                                                             <img src="assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
                                                             <div class="d-inline-block">
                                                                 <h6>David Jones</h6>
