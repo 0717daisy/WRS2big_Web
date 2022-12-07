@@ -163,8 +163,8 @@
                                 </div>
                                 <h6>I Agree to the <span>Terms of Service</span> and I read the Privacy Notice.</h6>
                                 <div class="buttons">
-                                    <button class="btn  btn-primary waves-effect text-center active"> <a href="/Account" style="color:white">Accept </a></button>
-                                    <button class="btn btn-primary waves-effect text-center active" ><a href="/LandingPage" style="color:white">Decline </a></button>
+                                    <button class="btn  btn-primary waves-effect text-center active"> <a href="/LandingPage/Account" style="color:white">Accept </a></button>
+                                    <button class="btn btn-primary waves-effect text-center active" ><a href="/LandingPage/Index" style="color:white">Decline </a></button>
                                 </div>
                             </div>
                             </div>
