@@ -130,6 +130,7 @@
     <Content Include="Admin\AdminProfile.aspx" />
     <Content Include="Admin\DeliveryDetails.aspx" />
     <Content Include="Admin\DeliveryRecords.aspx" />
+    <Content Include="Admin\EmployeeRecord.aspx" />
     <Content Include="Admin\Employees.aspx" />
     <Content Include="Admin\Gallons.aspx" />
     <Content Include="Admin\ListGraph.aspx" />
@@ -434,6 +435,13 @@
     <Compile Include="Admin\DeliveryRecords.aspx.designer.cs">
       <DependentUpon>DeliveryRecords.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EmployeeRecord.aspx.cs">
+      <DependentUpon>EmployeeRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeRecord.aspx.designer.cs">
+      <DependentUpon>EmployeeRecord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Employees.aspx.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -541,6 +549,8 @@
     <Compile Include="LandingPage\Subscription.aspx.designer.cs">
       <DependentUpon>Subscription.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\EmployeeData.cs" />
+    <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
