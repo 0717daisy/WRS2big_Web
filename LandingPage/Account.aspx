@@ -115,9 +115,9 @@
                                 <div class="row ">
 <%--                                    @*last name*@--%>
                                     <div class="col">
-                                    <div class="form-group">
-                                        
-                                        <asp:Label runat="server" Text="Last Name"></asp:Label> <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtlname" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
+                                    <div class="form-group">  
+                                        <label>Last Name</label>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtlname" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="txtlname" class="form-control" runat="server"></asp:TextBox> 
                                         
                                     </div>
@@ -139,7 +139,6 @@
                                             <label>Middle Name</label>
                                             <div class="input-group-sm">
                                             <asp:TextBox  ID="txtmname" runat="server" class="form-control"></asp:TextBox> 
-
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +149,7 @@
                                         <div class="form-group">
                                             <label>Birthdate</label> <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtbirthdate" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" type="calendar" class="form-control" ID="txtbirthdate" Placeholder="YYYY/MM/D"></asp:TextBox> 
+                                            <asp:TextBox runat="server" TextMode="Date" class="form-control" ID="txtbirthdate" Placeholder="YYYY/MM/D"></asp:TextBox> 
 
                                             </div>
                                         </div>
@@ -162,7 +161,7 @@
                                         <div class="form-group">
                                             <label>Phone Number</label> 
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" Placeholder ="+63" ID="txtphoneNum"></asp:TextBox>  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid phone number." ControlToValidate="txtphoneNum"  ForeColor="Red" ValidationExpression="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" ></asp:RegularExpressionValidator>
+                                            <asp:TextBox runat="server" TextMode="Phone" class="form-control" Placeholder ="+63" ID="txtphoneNum"></asp:TextBox>  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid phone number." ControlToValidate="txtphoneNum"  ForeColor="Red" ValidationExpression="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" ></asp:RegularExpressionValidator>
 
                                             </div>
                                         </div>
@@ -172,7 +171,7 @@
                                         <div class="form-group">
                                             <label>Email</label> 
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail"></asp:TextBox> <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
+                                            <asp:TextBox runat="server" TextMode="Email" placeholder="example@gmail.com" class="form-control" ID="txtEmail"></asp:TextBox> <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
 
                                             </div>
                                         </div>
@@ -198,21 +197,21 @@
                 ErrorMessage="Password is required." ForeColor="Red" Display="Dynamic">
             </asp:RequiredFieldValidator>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" type="password" ID="id_passwordreg" ></asp:TextBox> 
+                                            <asp:TextBox runat="server" class="form-control" TextMode="Password" ID="id_passwordreg" ></asp:TextBox> 
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-<%--                                    @*password*@--%>
+<%--                                    @*Confirm password*@--%>
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Confirm Password</label> <asp:CompareValidator runat="server" ControlToCompare="id_passwordreg" ControlToValidate="conpass"
                 ErrorMessage="Passwords do not match." ForeColor="Red" Display="Dynamic">
             </asp:CompareValidator>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" class="form-control" type="password" ID="conpass" ></asp:TextBox> 
+                                            <asp:TextBox runat="server" class="form-control" TextMode="Password" ID="conpass" ></asp:TextBox> 
 
                                             </div>
                                         </div>
@@ -234,11 +233,20 @@
                                 <script>
                                     const toggleregPassword = document.querySelector('#togglePasswordreg');
                                     const regpassword = document.querySelector('#id_passwordreg');
-
+                                    const con_pass = document.querySelector('#conpass');
+                                    // SHOW PASSWORD
                                     toggleregPassword.addEventListener('click', function (e) {
                                         // toggle the type attribute
                                         const type = regpassword.getAttribute('type') === 'password' ? 'text' : 'password';
-                                        regpassword.setAttribute('type', type);
+                                        regpassword.setAttribute('type', type); 
+                                        // toggle the eye slash icon
+                                        this.classList.toggle('fa-eye-slash');
+                                    });
+                                    // SHOW CONFIRM PASSWORD
+                                    toggleregPassword.addEventListener('click', function (e) {
+                                        // toggle the type attribute
+                                        const type = con_pass.getAttribute('type') === 'password' ? 'text' : 'password';
+                                        con_pass.setAttribute('type', type);
                                         // toggle the eye slash icon
                                         this.classList.toggle('fa-eye-slash');
                                     });
