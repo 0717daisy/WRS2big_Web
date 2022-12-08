@@ -11,7 +11,16 @@ namespace WRS2big_Web.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.RemoveAll();
+            Session["email"] = null;
+            Session["password"] = null;
+            Session.Clear();
+            Response.Redirect("LandingPage/Account.aspx");
         }
     }
 }

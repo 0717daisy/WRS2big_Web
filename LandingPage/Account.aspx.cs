@@ -22,6 +22,7 @@ namespace WRS2big_Web.LandingPage
         IFirebaseClient twoBigDB;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
         }
         public void btnSignup_Click(object sender, EventArgs e)
@@ -41,14 +42,15 @@ namespace WRS2big_Web.LandingPage
                     Bdate = txtbirthdate.Text,
                     Phone = txtphoneNum.Text,
                     Email = txtEmail.Text,
-                    Pass = id_passwordreg.Text
+                    Pass = id_passwordreg.Text,
+                    Proof = ""
                 };
 
                 SetResponse response;
                 //USER = tablename, Idno = key(PK ? )
                 response = twoBigDB.Set("ADMIN/" + data.Idno, data);
                 Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();
-                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = 'Admin/AdminIndex.aspx'; </script>");
+                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = '/LandingPage/Account.aspx'; </script>");
             }
             catch
             {
@@ -59,19 +61,16 @@ namespace WRS2big_Web.LandingPage
         {
             try
             {
-                // SELECT
-                var data = new Model.AdminAccount
-                {
-                    Idno = "",
-                    Email = txtEmail.Text,
-                    Pass = id_passwordreg.Text
-                };
+                // RETRIEVE DATA FROM ADMIN TBL
+                string email = txt_email.Text;
+                string pass = txt_password.Text;
 
-                SetResponse response;
-                //USER = tablename, Idno = key(PK ? )
-                response = twoBigDB.Get("ADMIN/" + data.Idno, data);
-                Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();
-                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = 'Account.aspx'; </script>");
+                FirebaseResponse response;
+                response = twoBigDB.Get("ADMIN/" + txt_email.Text);
+                Session["email"] = email;
+                Session["password"] = pass;
+                Response.Redirect("/Admin/AdminIndex.aspx");
+                
             }
             catch (Exception ex)
             {

@@ -183,8 +183,7 @@
                                         <div class="form-group">
                                             <label>Upload Proof of Legitimacy</label> 
                                             <div class="input-group-sm">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" Font-Size="Medium" Height="38px" Width="301px" />  
-
+                                <asp:FileUpload ID="txtproof" runat="server" Font-Size="Medium" Height="38px" Width="301px"  />  
                                  </div>
                                  </div>
                                 </div>
@@ -274,6 +273,7 @@
                                     <div class="col-md-12">
 <%--                                        @*buttons*@--%>
                                         <div class="d-flex justify-content-center">
+                                            <%--SIGN UP BUTTON--%>
                                             <asp:Button ID="btnSignup" runat="server" Text="Sign Up"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnSignup_Click"/>
                                           <%--  <button id="btnCreateAcc" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);" >
                                         
@@ -283,6 +283,7 @@
                                     </div>
                                 </div>
                             </div>
+                                <%--LOG IN FIELD--%>
                                     <div id="login" style="display:none;">
                                         <div class="row">
 <%--                                            @*email*@--%>
@@ -290,9 +291,9 @@
                                                 <div class="">
                                                     <label>Email:</label>
                                                     <div class="input-group">  
-                                                        <asp:TextBox runat="server" class="form-control" ID="txt_email"> </asp:TextBox>
+                                                        <asp:TextBox runat="server" class="form-control" TextMode="Email" ID="txt_email"> </asp:TextBox>
                                                     </div>
-                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txt_email"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txt_email"  ErrorMessage="Invalid Email Format" ValidationGroup="a" ></asp:RegularExpressionValidator>
 
                                                 </div>
                                             </div>
@@ -303,7 +304,7 @@
                                                 <div class="form-group">
                                                     <label>Password:</label>
                                                     <div class="input-group">
-                                            <asp:TextBox runat="server"  type="password" class="form-control" id="id_password"></asp:TextBox> 
+                                            <asp:TextBox runat="server"  type="password" class="form-control" TextMode="Password" id="txt_password" ValidationGroup="a"></asp:TextBox> 
 
                                                     </div>
                                                 </div>
@@ -321,36 +322,33 @@
                                                 </div>
                                             </div>
                                         </div>
-<%--                                        @*Show Password script*@--%>
-                                        <script>
-                                            const togglePassword = document.querySelector('#togglePassword');
-                                            const password = document.querySelector('#id_password');
+            <%-- @*Show Password script*@--%>
+               <script>
+                 const togglePassword = document.querySelector('#togglePassword');
+                 const password = document.querySelector('#txt_password');
 
-                                            togglePassword.addEventListener('click', function (e) {
-                                                // toggle the type attribute
-                                                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                                                password.setAttribute('type', type);
-                                                // toggle the eye slash icon
-                                                this.classList.toggle('fa-eye-slash');
-                                            });
-                                        </script>
-
-
-                                        <div class="d-flex justify-content-center">
-                                            <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click"/>
-                                           
-                                        </div>
-  
-                                    </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- end of col-sm-12 -->
+                 togglePassword.addEventListener('click', function (e) {
+                    // toggle the type attribute
+                     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                     password.setAttribute('type', type);
+                     // toggle the eye slash icon
+                     this.classList.toggle('fa-eye-slash');
+                 });
+               </script>
+            <div class="d-flex justify-content-center">
+                <%--LOGIN BUTTON--%>
+                <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click" ValidationGroup="a"/>
             </div>
-            <!-- end of row -->
+          </div>
+         </div>
         </div>
-        <!-- end of container-fluid -->
+       </form>
+      </div>
+     <!-- end of col-sm-12 -->
+    </div>
+   <!-- end of row -->
+  </div>
+<!-- end of container-fluid -->
     </section>
     <!-- Required Jquery -->
     <script type="text/javascript" src="/assets/js/jquery/jquery.min.js"></script>

@@ -123,13 +123,13 @@ namespace WRS2big_Web.LandingPage
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmailValid;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// txtproof control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload txtproof;
 
         /// <summary>
         /// id_passwordreg control.
@@ -177,13 +177,13 @@ namespace WRS2big_Web.LandingPage
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
-        /// id_password control.
+        /// txt_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox id_password;
+        protected global::System.Web.UI.WebControls.TextBox txt_password;
 
         /// <summary>
         /// btnLogin control.

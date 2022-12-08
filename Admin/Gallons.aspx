@@ -44,67 +44,73 @@
                                     <div class="right_col" role="main">
                                         <div class="">
 
-                                           <div class="clearfix"><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add</button></div>
-                                            <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog modal-sm">
-                                                    <div class="modal-content">
-          <%--                                              <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-          --%>                                                  <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel2">Add Gallon Product</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
-                                                            </div>
-                                                                                        <div class="modal-body">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                <div class="x_content">
-                                                                                                    <div class="item form-group">
-                                                                                                        <div class="col-md-12 col-sm-12 ">
+       <div class="clearfix">
+           <%--BUTTON ADD--%>
+           <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".add"  Height="47px" Width="126px"><i class="fa fa-plus"></i>Add Gallon Product</button>
+           <%--<asp:Button ID="btnAdd" runat="server" Text="Add"  class="btn btn-success btn-sm fa fa-plus" data-toggle="modal" data-target=".add" Height="47px" Width="126px"/>--%></div>
+      <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <%--<form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">--%>     
+       <div class="modal-header">
+         <h4 class="modal-title" id="myModalLabel">Add Gallon Product</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">X</span> </button>
+          </div>
+             <div class="modal-body">
+              <div class="col-md-12 col-sm-12 ">
+               <div class="x_content">
+               <%-- <div class="item form-group">
+                  <div class="col-md-12 col-sm-12 ">
+                     
                                                                                                             <input required="required" class="form-control " type="text" placeholder="-             Gallon ID          -">
                                                                                                         </div>
-                                                                                                    </div>
-                                                                                                    <div class="item form-group">
-                                                                                                        <div class="col-md-12 col-sm-12 ">
-                                                                                                            <input required="required" class="form-control" type="date" placeholder="-                   Date Added               -">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="item form-group">
-                                                                                                        <div class="col-md-12 col-sm-12 ">
-                                                                                                            <input required="required" class="form-control" type="text" placeholder="-               Quantity           -">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="item form-group">
-                                                                                                        <div class="col-md-12 col-sm-12 ">
-                                                                                                            <input required="required" class="form-control" type="text" placeholder="-         Delivery Price      -">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="item form-group">
-                                                                                                        <div class="col-md-12 col-sm-12 ">
-                                                                                                            <input required="required" class="form-control" type="text" placeholder="-         Pick-up Price      -">
+                                                                                                    </div>--%>
+                                                                                                            <div class="item form-group">
+        <div class="col-md-12 col-sm-12 ">
+            <%--<asp:Label ID="Label2" runat="server" Text="Date Added"></asp:Label>--%>
+         <%--<asp:TextBox ID="txtgalType" runat="server" class="form-control" placeholder="-               Galloon Type           -" ></asp:TextBox>--%>
+            <asp:DropDownList ID="drdgalType" runat="server" lass="form-control" Height="40px" Width="200px" >
+                <asp:ListItem Text="Select Gallon Type" Value="select" Selected="True"></asp:ListItem>
+                   <asp:ListItem Text="Slim" Value="Slim Gallon"></asp:ListItem>
+                   <asp:ListItem Text="Round" Value="RoundGallon" ></asp:ListItem>
+            </asp:DropDownList>                                                                                           <%--<input required="required" class="form-control" type="date" placeholder="-                   Date Added               -">--%>
+                                                                                                        </div>                                                                                                 </div>                                                                                                        <div class="item form-group">                                                                         <div class="col-md-12 col-sm-12">
+         <asp:TextBox ID="txtQty" runat="server" class="form-control" TextMode="Number" placeholder="-               Quantity           -" ></asp:TextBox>
+                                                                                                            <%--<input required="required" class="form-control" type="text" placeholder="-               Quantity           -">--%>
+        </div>                                                                                 </div>
+            <div class="item form-group">
+           <div class="col-md-12 col-sm-12 ">
+                <asp:TextBox ID="txtDeliveryPrice" runat="server" class="form-control" TextMode="Number" placeholder="-         Delivery Price      -"></asp:TextBox>
+ <%--<input required="required" class="form-control" type="text" placeholder="-         Delivery Price      -">--%>
+                                                                                                        </div>                                                                                                   </div>
+                                                                                                            <div class="item form-group">                                                                          <div class="col-md-12 col-sm-12 ">
+                <asp:TextBox ID="txtPickUp_Price" TextMode="Number" runat="server" class="form-control" type="text" placeholder="-         Pick-up Price      -"></asp:TextBox>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div class="item form-group">
                                                                                                         <div class="col-md-12 col-sm-12 ">
                                                                                                                  <label class="small mb-1" ID="Label1" for="imgUpload" runat="server">Product Image</label>
                                                                                                               <asp:FileUpload ID="ImgUpload" runat="server"/> <br/> 
-                                                                                                              <asp:Button ID="Button1" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File" OnClick="btnUpload_Click" />
+                                                                                                              <%--<asp:Button ID="btnUpload" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File" OnClick="btnUpload_Click" />--%>
                                                                                                         </div>
                                                                                                         <div class="col-md-5">
                                                                                                             <asp:Image CssClass="img-fluid img-thumbnail" ID="productImage" runat="server" Visible="False" />
                                                                                                         </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>
-                                                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>
-                                                            </div>
-                                                        <%--</form>--%>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                                                                                                    
+                                                                                                                                                                                                                                </div>
+                     </div>
+                    </div>
+                 </div>
+          <div class="modal-footer">
+           <%--BUTTON SAVE GALLONS DATA--%>
+              <asp:Button ID="btnSave" runat="server" Text="Save Data"  class="btn btn-primary btn-sm" OnClick="btnSave_Click"/>
+              <%--<asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary btn-sm" OnClick="btnSave_Click"/>--%>
+           </div>
+          <%--</form>--%>
+          </div>
+         </div>
+        </div>
 
                                             <div class="row">
 
@@ -202,14 +208,14 @@
                                                                                                                 Update Image
                                                                                                             </label>
                                                                                                               <asp:FileUpload ID="ImgUpdate" runat="server"/>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>
-                                                                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>
+                                                                                                                                </div>                                                                                               </div>
+                        </div>
+                      </div>
+                     </div>
+                    <div class="modal-footer">
+                                                                                           <%-- <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>--%>
+                                                                                            <asp:Button ID="btnEdit" runat="server" Text="Save" class="btn btn-primary btn-sm" data-dismiss="modal" style="margin-right: 46%" OnClick="btnEdit_Click"/>
+                                                                                            <%--<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>--%>
                                                                                         </div>
                                                                                     </form>
                                                                                 </div>
