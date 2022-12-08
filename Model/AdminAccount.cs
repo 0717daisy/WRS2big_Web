@@ -1,10 +1,13 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace WRS2big_Web.Admin
+namespace WRS2big_Web.Model
 {
-    public class AdminData
+    public class AdminAccount
     {
-        public string idno { get; set; }
+        public int Idno { get; set; }
         public string Lname { get; set; }
         public string Fname { get; set; }
         public string Mname { get; set; }

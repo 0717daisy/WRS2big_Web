@@ -274,10 +274,11 @@
                                     <div class="col-md-12">
 <%--                                        @*buttons*@--%>
                                         <div class="d-flex justify-content-center">
-                                            <button id="btnCreateAcc" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);" OnClick="btnSignup_Click">
+                                            <asp:Button ID="btnSignup" runat="server" Text="Sign Up"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnSignup_Click"/>
+                                          <%--  <button id="btnCreateAcc" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);" >
                                         
                                                 Sign up
-                                            </button>
+                                            </button>--%>
                                         </div>
                                     </div>
                                 </div>
@@ -336,8 +337,8 @@
 
 
                                         <div class="d-flex justify-content-center">
-                                            <button id="btnLogin" class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);">
-                                                    <a href="/LandingPage/Subscription"> Login </a> </button>
+                                            <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click"/>
+                                           
                                         </div>
   
                                     </div>

@@ -406,7 +406,6 @@
     <Content Include="Site1.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminData.cs" />
     <Compile Include="Admin\AdminIndex.aspx.cs">
       <DependentUpon>AdminIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -549,8 +548,8 @@
     <Compile Include="LandingPage\Subscription.aspx.designer.cs">
       <DependentUpon>Subscription.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\AdminAccount.cs" />
     <Compile Include="Model\EmployeeData.cs" />
-    <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
