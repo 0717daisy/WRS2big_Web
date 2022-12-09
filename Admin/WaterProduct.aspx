@@ -63,12 +63,23 @@
                  <div class="x_content">
                   <div class="item form-group">
                     <div class="col-md-12 col-sm-12 ">
-                        <asp:TextBox ID="txtwaterType" runat="server" placeholder="-    Water Type     -" class="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="drdwaterType" runat="server" placeholder="-    Water Type     -" class="form-control">
+                        <asp:ListItem Text="Select Water Type" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="Purified" Value="Purified"></asp:ListItem>
+                        <asp:ListItem Text="Distilled" Value="Distilled" ></asp:ListItem>
+                        <asp:ListItem Text="PH9" Value="PH9" ></asp:ListItem>
+                            </asp:DropDownList>
                      </div>
                      </div>
                      <div class="item form-group">
                       <div class="col-md-12 col-sm-12 ">
-                          <asp:TextBox ID="txtdescription" runat="server" class="form-control" placeholder="-  Water Name / Description   -"></asp:TextBox>
+                          <asp:DropDownList ID="drdwaterDescription" runat="server" placeholder="-    Water Type     -" class="form-control">
+                        <asp:ListItem Text="Select Water Description" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="Purified Drinking Water" Value="Purified Drinking Water"></asp:ListItem>
+                        <asp:ListItem Text="Distilled Drinking Water" Value="Distilled Drinking Water" ></asp:ListItem>
+                        <asp:ListItem Text="PH9 Drinking Water" Value="PH9 Drinking Water" ></asp:ListItem>
+                            </asp:DropDownList>
+                          <%--<asp:TextBox ID="txtdescription" runat="server" class="form-control" placeholder="-  Water Name / Description   -"></asp:TextBox>--%>
                           </div>
                         </div>
                        </div>

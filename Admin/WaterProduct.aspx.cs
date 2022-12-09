@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Newtonsoft.Json;
 
 namespace WRS2big_Web.Admin
 {
@@ -28,7 +29,7 @@ namespace WRS2big_Web.Admin
 
 
             //RETRIEVE DATA FROM DATABASE = twoBigDB
-            var idnum = 6275;
+            var idnum = 6275; /*by calling a certain id only*/
 
             var result = twoBigDB.Get("WATERPRODUCT/" + idnum);
             Model.WaterProduct obj = result.ResultAs<Model.WaterProduct>();
@@ -37,8 +38,29 @@ namespace WRS2big_Web.Admin
             desc.Text = obj.Description;
             type.Text = obj.waterType;
             dateAdded.Text = obj.DateAdded.ToString();
+
+            //try
+            //{ 
+            //FirebaseResponse response = twoBigDB.Get(@"WATERPRODUCT");
+            //    ////Dictionary<string, Model.WaterProduct> obj = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(response.Body.ToString());
+            //    Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+
+            //    //Model.WaterProduct obj = JsonConvert.DeserializeObject<Model.WaterProduct>(response.Body);
+
+            //    water_idno.Text = obj.water_id.ToString();
+            //    desc.Text = obj.Description;
+            //    type.Text = obj.waterType;
+            //    dateAdded.Text = obj.DateAdded.ToString();
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    Response.Write("<pre>" + ex.ToString() + "</pre>");
+
+            //}
+
         }
-        public void btnAdd_Click(object sender, EventArgs e)
+            public void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -49,8 +71,8 @@ namespace WRS2big_Web.Admin
                 var data = new Model.WaterProduct
                 {
                     water_id = idnum,
-                    waterType = txtwaterType.Text,
-                    Description = txtdescription.Text,
+                    waterType = drdwaterType.Text,
+                    Description = drdwaterDescription.Text,
                     DateAdded = DateTime.UtcNow
 
                 };
