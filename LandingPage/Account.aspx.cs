@@ -30,7 +30,7 @@ namespace WRS2big_Web.LandingPage
             try
             {
                 // INSERT
-                var data = new AdminData
+                var data = new Model.AdminAccount
                 {
                     idno = "",
                     Lname = txtlname.Text,
@@ -45,7 +45,7 @@ namespace WRS2big_Web.LandingPage
                 SetResponse response;
                 //ADMIN = tablename, idno = key(PK ? )
                 response = twobigDB.Set("ADMIN/" + data.idno, data);
-                AdminData result = response.ResultAs<AdminData>();
+                Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();
                 Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = 'Admin/AdminIndex.aspx'; </script>");
             }
             catch

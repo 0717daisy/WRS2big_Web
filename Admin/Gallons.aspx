@@ -167,7 +167,7 @@
                                                                         <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
                                                                             <div class="modal-dialog modal-sm">
                                                                                 <div class="modal-content">
-                                                                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                                                                                    <div id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
                                                                                         <div class="modal-header">
                                                                                             <h4 class="modal-title" id="myModalLabel2">Edit Gallon Information</h4>
                                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -218,7 +218,7 @@
                                                                                             <asp:Button ID="btnEdit" runat="server" Text="Save" class="btn btn-primary btn-sm" data-dismiss="modal" style="margin-right: 46%" OnClick="btnEdit_Click"/>
                                                                                             <%--<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>--%>
                                                                                         </div>
-                                                                                    </form>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
