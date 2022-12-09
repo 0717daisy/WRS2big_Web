@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
@@ -59,11 +58,11 @@ namespace WRS2big_Web.Admin
                 //USER = tablename, Idno = key(PK ? )
                 response = twoBigDB.Set("WATERPRODUCT/" + data.water_id, data);
                 Model.WaterProduct result = response.ResultAs<Model.WaterProduct>();
-                Response.Write("<script>alert ('Water Product successfully Added'); location.reload(); window.location.href = '/Admin/Gallons.aspx'; </script>");
+                Response.Write("<script>alert ('Water Product successfully Added'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
             }
             catch
             {
-                Response.Write("<script>alert('Data already exist'); window.location.href = '/Admin/Gallons.aspx';");
+                Response.Write("<script>alert('Data already exist'); window.location.href = '/Admin/WaterProduct.aspx';");
             }
         }
         public void btnEdit_Click(object sender, EventArgs e)
