@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WRS2big_Web.Model
 {
-    public class ProductData
+    public class WaterGallon
     {
        // public Guid gallon_id { get; private set; } = Guid.NewGuid();
         public int gallon_id { get; set; }

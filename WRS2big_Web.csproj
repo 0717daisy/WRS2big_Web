@@ -258,13 +258,11 @@
   <ItemGroup>
     <Content Include="Admin\AdminIndex.aspx" />
     <Content Include="Admin\AdminProfile.aspx" />
-    <Content Include="Admin\DeliveryDetails.aspx" />
     <Content Include="Admin\DeliveryRecords.aspx" />
     <Content Include="Admin\EmployeeRecord.aspx" />
-    <Content Include="Admin\Employees.aspx" />
-    <Content Include="Admin\Gallons.aspx" />
     <Content Include="Admin\ListGraph.aspx" />
     <Content Include="Admin\POS.aspx" />
+    <Content Include="Admin\ProductGallon.aspx" />
     <Content Include="Admin\Reports.aspx" />
     <Content Include="Admin\Reservations.aspx" />
     <Content Include="Admin\Reviews.aspx" />
@@ -550,13 +548,6 @@
     <Compile Include="Admin\AdminProfile.aspx.designer.cs">
       <DependentUpon>AdminProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\DeliveryDetails.aspx.cs">
-      <DependentUpon>DeliveryDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\DeliveryDetails.aspx.designer.cs">
-      <DependentUpon>DeliveryDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\DeliveryRecords.aspx.cs">
       <DependentUpon>DeliveryRecords.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -571,20 +562,6 @@
     <Compile Include="Admin\EmployeeRecord.aspx.designer.cs">
       <DependentUpon>EmployeeRecord.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees.aspx.cs">
-      <DependentUpon>Employees.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Employees.aspx.designer.cs">
-      <DependentUpon>Employees.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Gallons.aspx.cs">
-      <DependentUpon>Gallons.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Gallons.aspx.designer.cs">
-      <DependentUpon>Gallons.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\ListGraph.aspx.cs">
       <DependentUpon>ListGraph.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -598,6 +575,13 @@
     </Compile>
     <Compile Include="Admin\POS.aspx.designer.cs">
       <DependentUpon>POS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductGallon.aspx.cs">
+      <DependentUpon>ProductGallon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductGallon.aspx.designer.cs">
+      <DependentUpon>ProductGallon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Reports.aspx.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
@@ -681,7 +665,8 @@
     <Compile Include="Model\AdminAccount.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
-    <Compile Include="Model\ProductData.cs" />
+    <Compile Include="Model\WaterGallon.cs" />
+    <Compile Include="Model\WaterProduct.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
