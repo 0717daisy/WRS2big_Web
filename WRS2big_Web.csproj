@@ -262,7 +262,6 @@
     <Content Include="Admin\DeliveryRecords.aspx" />
     <Content Include="Admin\EmployeeRecord.aspx" />
     <Content Include="Admin\Employees.aspx" />
-    <Content Include="Admin\Gallons.aspx" />
     <Content Include="Admin\ListGraph.aspx" />
     <Content Include="Admin\POS.aspx" />
     <Content Include="Admin\Reports.aspx" />
@@ -578,13 +577,6 @@
     <Compile Include="Admin\Employees.aspx.designer.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Gallons.aspx.cs">
-      <DependentUpon>Gallons.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Gallons.aspx.designer.cs">
-      <DependentUpon>Gallons.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\ListGraph.aspx.cs">
       <DependentUpon>ListGraph.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -681,7 +673,8 @@
     <Compile Include="Model\AdminAccount.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
-    <Compile Include="Model\ProductData.cs" />
+    <Compile Include="Model\WaterGallon.cs" />
+    <Compile Include="Model\WaterProduct.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -30,8 +30,8 @@ namespace WRS2big_Web.LandingPage
             try
             {
                 // INSERT
-                //Random rnd = new Random();
-                //int idnum = rnd.Next(1, 10000);
+                Random rnd = new Random();
+                int idnum = rnd.Next(1, 10000);
 
                 var data = new Model.AdminAccount
                 {
