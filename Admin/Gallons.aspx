@@ -36,14 +36,13 @@
                         </div>
                         <!-- Page-header end -->
 
-                        <div class="pcoded-inner-content">
+                        <%--<div class="pcoded-inner-content">
                             <!-- Main-body start -->
                             <div class="main-body">
-                                <div class="page-wrapper">
+                                <div class="page-wrapper">--%>
                                    <!-- page content -->
-                                    <div class="right_col" role="main">
-                                        <div class="">
-
+             <div class="right_col" role="main">
+           <div class="">
        <div class="clearfix">
            <%--BUTTON ADD--%>
            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".add"  Height="47px" Width="126px"><i class="fa fa-plus"></i>Add Gallon Product</button>
@@ -92,7 +91,7 @@
                                                                                                         <div class="col-md-12 col-sm-12 ">
                                                                                                                  <label class="small mb-1" ID="Label1" for="imgUpload" runat="server">Product Image</label>
                                                                                                               <asp:FileUpload ID="ImgUpload" runat="server"/> <br/> 
-                                                                                                              <%--<asp:Button ID="btnUpload" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File" OnClick="btnUpload_Click" />--%>
+                                                                                                              <asp:Button ID="btnUpload" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File" OnClick="btnUpload_Click" />
                                                                                                         </div>
                                                                                                         <div class="col-md-5">
                                                                                                             <asp:Image CssClass="img-fluid img-thumbnail" ID="productImage" runat="server" Visible="False" />
@@ -101,12 +100,12 @@
                                                                                                                                                                                                                                 </div>
                      </div>
                     </div>
-                 </div>
-          <div class="modal-footer">
+                  <div class="modal-footer">
            <%--BUTTON SAVE GALLONS DATA--%>
               <asp:Button ID="btnSave" runat="server" Text="Save Data"  class="btn btn-primary btn-sm" OnClick="btnSave_Click"/>
               <%--<asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary btn-sm" OnClick="btnSave_Click"/>--%>
-           </div>
+                </div>
+              </div>
           <%--</form>--%>
           </div>
          </div>
@@ -221,25 +220,22 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                 
                                             </div>
                                         </div>
                                     </div>
+                          </form>
                                 </div>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
-            </div>
-
+            <%--</div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>

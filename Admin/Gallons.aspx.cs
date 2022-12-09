@@ -46,59 +46,59 @@ namespace WRS2big_Web.Admin
             // Connection to database
             twoBigDB = new FireSharp.FirebaseClient(config);
         }
-        //protected void btnUpload_Click(object sender, EventArgs e)
-        //{
-            //    uploadImg();
-            //}
-            //public void uploadImg()
-            //{
-            //    string saveDIR = Server.MapPath("/productImages");
-            //    try
-            //    {
-            //        if (ImgUpload.HasFile)
-            //        {
-            //            string filename = Server.HtmlEncode(ImgUpload.FileName);
-            //            string extension = System.IO.Path.GetExtension(filename);
-            //            int filesize = ImgUpload.PostedFile.ContentLength;
-            //            if (File.Exists(Path.Combine(saveDIR, filename)))
-            //            {
-            //                Label1.InnerText = "File already exist";
-            //            }
-            //            else
-            //            {
-            //                if ((extension == ".jpg") || (extension == ".jpeg") || (extension == ".png") || (extension == ".JPG") || (extension == ".JPEG") || (extension == ".PNG"))
-            //                {
-            //                    if (filesize < 2100000)
-            //                    {
-            //                        string savePath = Path.Combine(saveDIR, filename);
-            //                        ImgUpload.SaveAs(savePath);
-            //                        productImage.Visible = true;
-            //                        productImage.ImageUrl = Path.Combine("/productImages/", filename);
-            //                        Session["imgPath"] = Path.Combine("/productImages/", filename);
-            //                        Session["filename"] = filename;
-            //                        Label1.InnerText = "Your file was uploaded successfully.";
-            //                    }
-            //                    else
-            //                    {
-            //                        Label1.InnerText = "Your file was not uploaded because image size is more than 2MB";
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    Label1.InnerText = "Your file was not uploaded because it does not have a .jpg or .jpeg or .png extension.";
-            //                }
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Label1.InnerText = "Upload Failed: Try again";
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Response.Write("<pre style='background: white;'>" + ex.ToString() + "</pre><script>alert('" + ex.Message + "');</script>");
-            //    }
-        //}
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            uploadImg();
+        }
+        public void uploadImg()
+        {
+            string saveDIR = Server.MapPath("/productImages");
+            try
+            {
+                if (ImgUpload.HasFile)
+                {
+                    string filename = Server.HtmlEncode(ImgUpload.FileName);
+                    string extension = System.IO.Path.GetExtension(filename);
+                    int filesize = ImgUpload.PostedFile.ContentLength;
+                    if (File.Exists(Path.Combine(saveDIR, filename)))
+                    {
+                        Label1.InnerText = "File already exist";
+                    }
+                    else
+                    {
+                        if ((extension == ".jpg") || (extension == ".jpeg") || (extension == ".png") || (extension == ".JPG") || (extension == ".JPEG") || (extension == ".PNG"))
+                        {
+                            if (filesize < 2100000)
+                            {
+                                string savePath = Path.Combine(saveDIR, filename);
+                                ImgUpload.SaveAs(savePath);
+                                productImage.Visible = true;
+                                productImage.ImageUrl = Path.Combine("/productImages/", filename);
+                                Session["imgPath"] = Path.Combine("/productImages/", filename);
+                                Session["filename"] = filename;
+                                Label1.InnerText = "Your file was uploaded successfully.";
+                            }
+                            else
+                            {
+                                Label1.InnerText = "Your file was not uploaded because image size is more than 2MB";
+                            }
+                        }
+                        else
+                        {
+                            Label1.InnerText = "Your file was not uploaded because it does not have a .jpg or .jpeg or .png extension.";
+                        }
+                    }
+                }
+                else
+                {
+                    Label1.InnerText = "Upload Failed: Try again";
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<pre style='background: white;'>" + ex.ToString() + "</pre><script>alert('" + ex.Message + "');</script>");
+            }
+        }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -118,7 +118,7 @@ namespace WRS2big_Web.Admin
 
                 SetResponse response;
                 // GALLONS = tablename, emp_id = key ( PK? )
-                response = twoBigDB.Set("GALLONS/" + data.gallon_id, data);
+                response = twoBigDB.Set("WATER_GALLONS/" + data.gallon_id, data);
                 Model.ProductData result = response.ResultAs<Model.ProductData>();
                 Response.Write("<script> alert ('Data successfully added'); location.reload(); window.location.href = 'WaterProduct.aspx' </script>");
 

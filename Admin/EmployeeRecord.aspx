@@ -424,8 +424,12 @@
                     </div>
                 </div>
             </div>
-   <%-- @*Page-header end
-             page content*@--%>
+   <%-- @*Page-header end--%>
+       <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+             <%--page content*@--%>
   <div class="right_col" role="main">
     <div class="">
      <div class="clearfix">
@@ -722,13 +726,16 @@
                 </div>
               </div>
             </div>
-   <%-- /page content--%>
          </div>
        </div>
+        <%-- /page content--%>
+        </div>
+       </div>
+      </div>
      </div>
     </div>
+   </div>
   </div>
-</div>
     <%-- Warning Section Ends
      Required Jquery--%>
     <script type="text/javascript" src="../assets/js/jquery/jquery.min.js"></script>
