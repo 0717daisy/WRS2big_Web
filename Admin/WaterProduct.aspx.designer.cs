@@ -24,22 +24,22 @@ namespace WRS2big_Web.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtwaterType control.
+        /// drdwaterType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtwaterType;
+        protected global::System.Web.UI.WebControls.DropDownList drdwaterType;
 
         /// <summary>
-        /// txtdescription control.
+        /// drdwaterDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdescription;
+        protected global::System.Web.UI.WebControls.DropDownList drdwaterDescription;
 
         /// <summary>
         /// btnAdd control.
