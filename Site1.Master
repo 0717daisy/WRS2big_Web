@@ -234,33 +234,33 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class=" pcoded-hasmenu">
+<%--                                    <li class=" pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-receipt"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Deliveries</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                        <ul class="pcoded-submenu">
+                                        <ul class="pcoded-submenu">--%>
                                             <li class=" ">
                                                 <a href="/Admin/DeliveryRecords" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon">
-                                                        <i class="ti-angle-left"></i>
+                                                         <i class="fa fa-bar-chart-o"></i>
                                                     </span>
                                                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">
-                                                        Delivery Record
+                                                        Deliveries
                                                     </span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-                                            <li class="">
+<%--                                            <li class="">
                                                 <a href="/Admin/DeliveryDetails" class="waves-effect waves-dark">
 
                                                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Delivery Details</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                            </li>--%>
+<%--                                        </ul>
+                                    </li>--%>
                                     <li>
                                         <a href="/Admin/Reservations" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="fa fa-book"></i><b>FC</b></span>
@@ -283,7 +283,7 @@
                                         </a>
                                         <ul class="pcoded-submenu ">
                                             <li class=" ">
-                                                <a href="/Admin/Gallons" class="waves-effect waves-dark">
+                                                <a href="/Admin/ProductGallon" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon">
                                                         <i class="ti-angle-right"></i>
                                                     </span>
@@ -301,24 +301,24 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+<%--                                    <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-settings"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Services</span>
                                             <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
+                                        </a>--%>
+<%--                                        <ul class="pcoded-submenu">--%>
                                             <li class="">
                                                 <a href="/Admin/WaterRefill" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon">
-                                                        <i class="fa fa-bar-chart-o"></i><i class="ti-angle-right"></i>
+                                                        <i class="fa fa-bar-chart-o"></i>
                                                     </span>
                                                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Water Refill</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-                                        </ul>
-                                    </li>
+<%--                                        </ul>
+                                    </li>--%>
                                 </ul>
 
                                 <div class="pcoded-navigation-label" data-i18n="nav.category.forms">CUSTOMER</div>

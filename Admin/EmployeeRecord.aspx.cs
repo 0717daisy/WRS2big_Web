@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -12,7 +12,7 @@ using FireSharp.Response;
 
 namespace WRS2big_Web.Admin
 {
-    public partial class EmployeeRecord : System.Web.UI.Page
+    public partial class Employees : System.Web.UI.Page
     {
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -26,12 +26,7 @@ namespace WRS2big_Web.Admin
             // Connection to database
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            //if (Session["emp_id"] == null)
-            //{
-            //    Response.Redirect("EmployeeRecord.aspx");
-            //}
-
-            var idnum = 685;
+            var idnum = 8912;
 
             var result = twoBigDB.Get("EMPLOYEERECORD/" + idnum);
             Model.EmployeeData obj = result.ResultAs<Model.EmployeeData>();
@@ -47,63 +42,16 @@ namespace WRS2big_Web.Admin
             emergencycontact.Text = obj.emp_emergencycontact;
             role.Text = obj.emp_role;
 
-            //try
-            //{
-            //    FirebaseResponse response;
-            //    //response = twoBigDB.GetAll("EmployeeRecords");
-            //    EmployeeData obj1 = new EmployeeData();
-            //    response = twoBigDB.Get("EmployeeRecords/" + idnum);
-            //    //Dictionary<string, EmployeeData> obj = JsonConvert.DeserializeObject<Dictionary<string, EmployeeData>>(response.Body.ToString());
-            //    EmployeeData obj = response.ResultAs<EmployeeData>();
-            //    //EmployeeData obj = JsonConvert.DeserializeObject<EmployeeData>(response.Body);
+            //FirebaseResponse res = twoBigDB.Get(@"EMPLOYEERECORD");
+            //Dictionary<string, Model.EmployeeData> data = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(res.Body.ToString());
 
-            //    idno.Text = obj.emp_id.ToString();
-            //fullname.Text = obj.emp_firstname.ToString() + " " + obj.emp_midname.ToString() + " " + obj.emp_lastname.ToString();
-            //dob.Text = obj.emp_birthdate.ToString();
-            //gender.Text = obj.emp_gender.ToString();
-            //address.Text = obj.emp_address.ToString();
-            //contact.Text = obj.emp_contactnum.ToString();
-            //emailadd.Text = obj.emp_email.ToString();
-            //datehired.Text = obj.emp_dateHired.ToString();
-            //emergencycontact.Text = obj.emp_emergencycontact.ToString();
-            //role.Text = obj.emp_role.ToString();
+            ////GridView1.Columns.Clear();
+            ////GridView1.Columns.Add("");
 
 
-            //    //EmployeeData obj = response.ResultAs<EmployeeData>();
 
-            //    //var list = new List<EmployeeData>();
-            //    //if (obj != null)
-            //    //{
-            //    //    foreach (var item in obj)
-            //    //    {
-            //    //        EmployeeData list2 = response.ResultAs<EmployeeData>();
-            //    //        idno.Text = list2.emp_id.ToString();
-            //    //        idno.Text = list2.emp_id.ToString();
-            //    //        fullname.Text = list2.emp_firstname.ToString() + " " + list2.emp_midname.ToString() + " " + list2.emp_lastname.ToString();
-            //    //        dob.Text = list2.emp_birthdate.ToString();
-            //    //        gender.Text = list2.emp_gender.ToString();
-            //    //        address.Text = list2.emp_address.ToString();
-            //    //        contact.Text = list2.emp_contactnum.ToString();
-            //    //        emailadd.Text = list2.emp_email.ToString();
-            //    //        datehired.Text = list2.emp_dateHired.ToString();
-            //    //        emergencycontact.Text = list2.emp_emergencycontact.ToString();
-            //    //        role.Text = list2.emp_role.ToString();
-            //    //        //list.Add(JsonConvert.DeserializeObject<EmployeeData>(((JProperty)item).Value.ToString()));
-
-            //    //    }
-            //    //}
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Write("<pre>" + ex.ToString() + "</pre>");
-
-            //}
 
         }
-
-        //add employee records
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
