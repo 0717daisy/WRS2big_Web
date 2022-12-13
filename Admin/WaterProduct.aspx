@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
-           <div id="pcoded" class="pcoded">
+
+      <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <div class="pcoded-main-container">
@@ -156,7 +156,7 @@
                        <%--input textbox starts here--%>
             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12 ">
-                                    <asp:DropDownList ID="drdwaterType" runat="server" placeholder="-    Water Type     -" class="form-control">
+                                    <asp:DropDownList ID="water_Type" runat="server" placeholder="-    Water Type     -" class="form-control">
                                     <asp:ListItem Text="Select Water Type" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Purified" Value="Purified"></asp:ListItem>
                                     <asp:ListItem Text="Distilled" Value="Distilled" ></asp:ListItem>
@@ -166,7 +166,7 @@
                                  </div>
                                  <div class="item form-group">
                                   <div class="col-md-12 col-sm-12 ">
-                                      <asp:DropDownList ID="drdwaterDescription" runat="server" placeholder="-    Water Type     -" class="form-control">
+                                      <asp:DropDownList ID="waterDescription" runat="server" placeholder="-    Water Type     -" class="form-control">
                                     <asp:ListItem Text="Select Water Description" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Purified Drinking Water" Value="Purified Drinking Water"></asp:ListItem>
                                     <asp:ListItem Text="Distilled Drinking Water" Value="Distilled Drinking Water" ></asp:ListItem>
@@ -198,116 +198,16 @@
                                                </div>
                                              </div>
                                             </div>
-                                             <div class="modal-footer">
-                                                <%--Button Add ni diri--%>
-                                                 <asp:Button ID="btnAdd" runat="server" Text="Add Product" class="btn btn-primary btn-sm" OnClick="btnAdd_Click"/>
-                                             </div>
                                             </form>
                                            </div>
                                           </div>
                                          </div>
                                     <%--//</div>--%>
                                         <br /><br />
-                                          <div class="row">
-                                           <div class="col-md-12 col-sm-12 ">
-                                           <div class="x_panel">
-                                           <div class="x_title">
-                                           <h2>Water Products</h2>
-                                           <div class="clearfix"></div>
-                                           </div>
-                                           <div class="x_content">
-                                           <div class="row">
-                                          <div class="col-sm-12">
-                                           <div class="card-box table-responsive">
-                                               <%--display table ni diring dapita--%>
-                                          <table id="datatable" class="table table-striped table-bordered" style="width:100%;text-align:center">
-
-                                         <thead>
-                                         <tr id="trialtable" class="border-secondary">
-                                          <th style="width:10%;text-align:center">Water ID No.</th>
-                                          <th style="text-align:center">Description</th>
-                                          <th style="text-align:center">Type</th>
-                                          <th style="text-align:center">Date Recorded</th>
-                                          <th style="text-align:center">Action</th>
-                                          </tr>
-                                          </thead>
-                                             <%-- tble body--%>
-                                          <tbody id="waterproduct">
-                                          <tr>
-                                          <td style="text-align:center"> 
-                                          <asp:TextBox ID="water_idno" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox>
-                                           </td>               
-                                          <td style="text-align:center"> 
-                                              <asp:TextBox ID="desc" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox>
-                                          </td>
-                                          <td style="text-align:center"> 
-                                              <asp:TextBox ID="type" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox>
-                                           </td>
-                                          <td style="text-align:center"> 
-                                           <asp:TextBox ID="dateAdded" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox>
-                                          </td>
-                                            <td align="center">
-                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit" title="Edit Record"><i class="fa fa-edit"></i></button> 
-                                             <button type="button" class="btn btn-danger btn-sm" title="Delete Record"><i class="fa fa-trash"></i></button>
-                                            </td>
-                                            </tr>
-                                          <%-- </center>--%>
-                                               </tbody>
-                                           </table>
-                                           <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
-                                           <div class="modal-dialog modal-sm">
-                                           <div class="modal-content">
-                                           <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                           <div class="modal-header">
-                                               <%--title ni diri sa edit information--%>
-                                           <h4 class="modal-title" id="myModalLabel2">Edit Product Information</h4>
-                                               <%--close button ni diring dapita--%>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                             <span aria-hidden="true">×</span> </button>
-                                           </div>
-                                           <div class="modal-body">
-                                               <div class="col-md-12 col-sm-12 ">
-                                                   <div class="x_content">
-                                                       <%--input textbox starts here--%>
-                                                    <div class="item form-group">
-                                                        <div class="col-md-12 col-sm-12 ">
-                                                            <asp:TextBox ID="WaterType" runat="server" placeholder="-    Water Type     -" class="form-control"></asp:TextBox>
-                                                         </div>
-                                                     </div>
-                                                         <div class="item form-group">
-                                                          <div class="col-md-12 col-sm-12 ">
-                                                              <asp:TextBox ID="description" runat="server" class="form-control" placeholder="-  Water Name / Description   -"></asp:TextBox>
-                                                           </div>
-                                                         </div>
-                                                   </div>
-                                               </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                 <%--Button Edit ni diri--%>
-                                                 <asp:Button ID="btnEdit" runat="server" Text="Edit Product" class="btn btn-primary btn-sm" OnClick="btnEdit_Click"/>
-                                          <%--  <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>
-                                                                                                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>--%>
-                                            </div>
-                                          </form>
-                                          </div>
-                                         </div>
-                                        </div>
-                                      </div>
-                                     </div>
-                                    </div>
-                                   </div>
-                                  </div>
-                               </div>
-                              </div>
                              </div>
                            </div>
                           </div>
                          </div>
                        </div>
-                      </div>
-                     </div>
-          </div>
-       </div>
-     </div>
-    </form>
+
 </asp:Content>

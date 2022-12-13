@@ -37,7 +37,7 @@
                             <!-- Main-body start -->
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                    <form runat="server">
+                                   <%-- <form runat="server">--%>
                                    <!-- page content -->
                                     <div class="right_col" role="main">
                                         <div class="">
@@ -239,7 +239,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </form>
+                                    <%--</form>--%>
                                 </div>
                             </div>
                         </div>
