@@ -176,7 +176,7 @@
                 <div class="pcoded-wrapper" >
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                        <div class="pcoded-inner-navbar main-menu">
+                        <div class="pcoded-inner-navbar main-menu" <%-- style="background-color:#deffea"--%>>
                             <div class="">
                                 <div>
                                     <img class="img-fluid" src="/images/FinalLogo.png" alt="Theme-Logo" style="width:200px">

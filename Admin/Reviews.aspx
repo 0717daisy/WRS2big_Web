@@ -15,7 +15,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">CUSTOMER REVIEWS </h5>
+                                            <h5 class="m-b-10">CUSTOMER RATE and REVIEWS </h5>
                                             <h6 class="m-b-0">2BiG: Water Refilling Station Management System</h6>
                                         </div>
                                     </div>
