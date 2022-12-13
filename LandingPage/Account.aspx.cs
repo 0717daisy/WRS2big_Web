@@ -65,12 +65,32 @@ namespace WRS2big_Web.LandingPage
                 string email = txt_email.Text;
                 string pass = txt_password.Text;
 
-                FirebaseResponse response;
-                response = twoBigDB.Get("ADMIN/" + txt_email.Text);
-                Session["email"] = email;
-                Session["password"] = pass;
+                Session["Email"] = email;
+                Session["Pass"] = pass;
                 Response.Redirect("/Admin/AdminIndex.aspx");
-                
+
+                //FirebaseResponse response;
+                //response = twoBigDB.Get(@"ADMIN/" + txt_email.Text);
+                //Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();//Database Result
+
+                //Model.AdminAccount curResult = new Model.AdminAccount //User Given Info
+                //{
+                //    Email = txt_email.Text,
+                //    Pass = txt_password.Text
+                //};
+
+                //if (Model.AdminAccount.isEqual(result, curResult))
+                //{
+                //    AdminIndex index= new AdminIndex();
+
+                //    index.ShowDialog();
+
+                //}
+                //else 
+
+
+
+
             }
             catch (Exception ex)
             {

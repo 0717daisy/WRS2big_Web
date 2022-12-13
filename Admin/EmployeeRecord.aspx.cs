@@ -5,10 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using System.Threading.Tasks;
+
 
 namespace WRS2big_Web.Admin
 {
@@ -21,17 +24,24 @@ namespace WRS2big_Web.Admin
 
         };
         IFirebaseClient twoBigDB;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+          
             // Connection to database
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            var idnum = 8912;
-
-            var result = twoBigDB.Get("EMPLOYEERECORD/" + idnum);
+            //var idnum = 8912;
+            //Use the Get() method to retrieve all data from the EMPLOYEERECORD location in the database
+            //var result = twoBigDB.Get("EMPLOYEERECORD/" + idnum);
+            //Model.EmployeeData obj = result.ResultAs<Model.EmployeeData>();
+            var result = twoBigDB.Get(@"EMPLOYEERECORD/");
+            //Dictionary<string, Model.EmployeeData> obj = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(result.Body.ToString());
+            //List<Model.EmployeeData> obj = result.ResultAs<List<Model.EmployeeData>>();
             Model.EmployeeData obj = result.ResultAs<Model.EmployeeData>();
 
-            idno.Text = obj.emp_id.ToString();
+            idno.Text = obj.emp_id.ToString(); 
             fullname.Text = obj.emp_firstname + " " + obj.emp_midname + " " + obj.emp_lastname;
             dob.Text = obj.emp_birthdate;
             gender.Text = obj.emp_gender;
@@ -42,6 +52,9 @@ namespace WRS2big_Web.Admin
             emergencycontact.Text = obj.emp_emergencycontact;
             role.Text = obj.emp_role;
 
+
+            
+
             //FirebaseResponse res = twoBigDB.Get(@"EMPLOYEERECORD");
             //Dictionary<string, Model.EmployeeData> data = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(res.Body.ToString());
 
@@ -50,8 +63,9 @@ namespace WRS2big_Web.Admin
 
 
 
-
         }
+
+
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -96,7 +110,7 @@ namespace WRS2big_Web.Admin
                 //insert data
                 var data = new Model.EmployeeData
                 {
-                    //emp_id = employee_id,
+                   // emp_id = ,
                     emp_lastname = txtlname.Text,
                     emp_firstname = txtfname.Text,
                     emp_midname = txtmname.Text,
@@ -115,7 +129,7 @@ namespace WRS2big_Web.Admin
                 //EmployeeData result = response.ResultAs<EmployeeData>();
                 //Response.Write("<script> alert ('Record successfully added'); location.reload(); window.location.href = 'EmployeeRecord.aspx' </script>");
                 FirebaseResponse response;
-                response = twoBigDB.Update("EMPLOYEERECORD/" + data.emp_id, data);
+                response = twoBigDB.Update(@"EMPLOYEERECORD/" + data.emp_id, data);
                 Model.EmployeeData result = response.ResultAs<Model.EmployeeData>();
                 //var update = twoBigDB.Update("EmployeeRecords/" + data.emp_id, data);
                 Response.Write("<script> alert ('Data Updated Successfully'</script>");
