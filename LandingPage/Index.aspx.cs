@@ -11,14 +11,14 @@ namespace WRS2big_Web.LandingPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
-            {
-                Response.Redirect("Account.aspx");
-            }
-            else
-            {
-                // lblname.Text = "Welcome " + Session["lname"].ToString() + Session["fname"].ToString() ;
-            }
+            //if (Session["email"] == null)
+            //{
+            //    Response.Redirect("Account.aspx");
+            //}
+            //else
+            //{
+            //    // lblname.Text = "Welcome " + Session["lname"].ToString() + Session["fname"].ToString() ;
+            //}
         }
     }
 }

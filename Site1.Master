@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body>
-
+     <form id="form1" runat="server">
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
@@ -147,13 +147,19 @@
                                 <ul class="show-notification profile-notification">
                                     <li class="waves-effect waves-light">
                                         <a href="/Admin/AdminProfile">
-                                            <i class="ti-user"></i> Profile
+                                            <i class="ti-user"></i> PROFILE
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
-                                        <a href="/LandingPage/index">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
-                                        </a>
+                                       <%-- Logout--%>
+<%--                                         <a href="/LandingPage/index">
+                                            <i class="ti-layout-sidebar-left"></i> LOGOUT
+                                        </a>--%>
+                                        <%--<a href="/LandingPage/index">--%>
+                                            <i class="ti-layout-sidebar-left">
+                                                <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="LOGOUT" BorderColor="Transparent" BackColor="Transparent"/>
+                                            </i>
+                                      <%--  </a>--%>
                                     </li>
                                 </ul>
                             </li>
@@ -301,14 +307,8 @@
                                             </li>
                                         </ul>
                                     </li>
-<%--                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-settings"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Services</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>--%>
-<%--                                        <ul class="pcoded-submenu">--%>
                                             <li class="">
+                                               <%-- Admin Refill--%>
                                                 <a href="/Admin/WaterRefill" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon">
                                                         <i class="fa fa-bar-chart-o"></i>
@@ -382,5 +382,6 @@
     <!-- custom js -->
     <script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="/assets/js/script.js "></script>
+         </form>
 </body>
 </html>

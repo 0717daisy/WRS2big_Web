@@ -11,7 +11,7 @@
  
                     <div class="pcoded-content">
                         <!-- Page-header start -->
-                        <div class="page-header">
+                        <div class="page-header"> 
                             <div class="page-block">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
@@ -102,7 +102,7 @@
                                                </asp:DropDownList>
                                            <%--</div>--%>
                                            </div>
-                                          <%-- <div class="item form-group">--%>
+                                          <%-- <div class="item form-group">--%> 
                                            <div class="col-md-12 col-sm-12">
                                                <%--address--%>
                                            <strong>Address:</strong>
@@ -204,7 +204,7 @@
                                                   <tbody id="emprecords">
                                                   <tr>
                                                   <td> <asp:TextBox ID="idno" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>               
-                                                  <td> <asp:TextBox ID="fullname" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
+                                                  <td> <asp:TextBox ID="fullname" runat="server" BorderColor="red" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="dob" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="gender" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="address" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
