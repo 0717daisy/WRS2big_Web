@@ -50,7 +50,7 @@ namespace WRS2big_Web.Admin
                 // GALLONS = tablename, emp_id = key ( PK? )
                 response = twoBigDB.Set("WATER_GALLONS/" + data.gallon_id, data);
                 Model.WaterGallon result = response.ResultAs<Model.WaterGallon>();
-                Response.Write("<script> alert ('Data successfully added'); location.reload(); window.location.href = 'ProductGallon.aspx' </script>");
+                Response.Write("<script> alert ('New Gallon added successfully'); location.reload(); window.location.href = 'ProductGallon.aspx' </script>");
 
             }
             catch (Exception ex)
