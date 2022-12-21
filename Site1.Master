@@ -141,7 +141,9 @@
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <img src="/images/rhea.png" class="img-radius" alt="User-Profile-Image">
-                                    <span>ADMIN 1</span>
+                                   <%-- <span>ADMIN 1</span>--%>
+                                    <%--ADMIN  LABEL NI DIRI--%>
+                                    <asp:Label ID="lblAdmin" runat="server" Text=""></asp:Label>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace WRS2big_Web.Model
 {
     public class AdminAccount
@@ -12,6 +13,7 @@ namespace WRS2big_Web.Model
         public string Fname { get; set; }
         public string Mname { get; set; }
         public string Bdate { get; set; }
+        public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Pass { get; set; }
@@ -19,6 +21,10 @@ namespace WRS2big_Web.Model
 
         //private static string error = "There are some error!";
 
+        //public static void showError()
+        //{
+        //    Console.WriteLine(error);
+        //}
         //public static bool isEqual(AdminAccount user1, AdminAccount user2)
         //{
         //    if (user1 == null || user2 == null)
@@ -38,8 +44,9 @@ namespace WRS2big_Web.Model
         //    }
 
         //    return true;
-        }
+        //}
     }
+}
 
     
 

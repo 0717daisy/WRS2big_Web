@@ -162,7 +162,8 @@
                                         <div class="modal-footer">
                                            <%-- add data button--%>
                                            <asp:Button ID="btnAdd" class="btn btn-primary" runat="server" Text="Add Data" ValidationGroup="a" OnClick="btnAdd_Click"/>
-                                            </div>
+                                            <%--<asp:Button ID="btnupdate" class="btn btn-primary" runat="server" Text="Update Data" ValidationGroup="a" OnClick="btnupdate_Click" />
+                                            --%></div>
                                            </form>
                                          </div>
                                         </div>
@@ -173,20 +174,56 @@
                                         <div class="col-md-12 col-sm-12">
                                          <div class="x_panel">
                                          <div class="x_title">
-                                           <h2>Employee Records' <small>List</small></h2>
+                                             <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                             <br />
+                                           <h2>Employee Records' <small>LList</small></h2>
                                             <div class="clearfix"></div>
                                             </div>
                                              <div class="x_content">
                                               <div class="row">
                                                <div class="col-sm-12">
                                                 <div class="card-box table-responsive">
-                                                <table id="datatable1" class="table table-striped table-bordered" style="width:100%">
-                                                   <%-- display table--%>
+                                                    <asp:ListView ID="dis_Record" runat="server">
 
-                                                  <%--  table head--%>
+                                                    </asp:ListView>
+                                                   <%--<asp:GridView ID="vwEmpRecords" runat="server" CellPadding="4" ForeColor="#333333"
+                                                        GridLines="None" AutoGenerateColumns="false" style="font-size: medium" EmptyDataText="No records 
+                                                        found!" EmptyDataRowStyle-ForeColor="Red" Width="1059px">
+                                                         <Columns> 
+                                                         <asp:BoundField DataField="idno" HeaderText="Employee ID" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         <asp:BoundField DataField="lastname" HeaderText="Last Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
+                                                         <asp:BoundField DataField="firstname" HeaderText="First Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
+                                                         <asp:BoundField DataField="midname" HeaderText="Middle Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
+                                                         <asp:BoundField DataField="dob" HeaderText="Date of birth" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         <asp:BoundField DataField="gender" HeaderText="Gender" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
+                                                         <asp:BoundField DataField="address" HeaderText="Address" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         <asp:BoundField DataField="contact" HeaderText="Contact" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         <asp:BoundField DataField="email" HeaderText="Email Address" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center" />
+                                                         <asp:BoundField DataField="dateHired" HeaderText="Date hired" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
+                                                         <asp:BoundField DataField="Emergencycontact" HeaderText="In case of emergency, contact:" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
+                                                         <asp:BoundField DataField="role" HeaderText="Role" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         <asp:BoundField DataField="action" HeaderText="Action" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
+                                                         </Columns>
+                                                         <AlternatingRowStyle BackColor="White" />
+                                                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                                         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                                         <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                                         <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                                         <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                                         <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                                         <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                                         <SortedDescendingHeaderStyle BackColor="#820000" />
+                                                         </asp:GridView> --%>
+                                                  
+                                                    <%--<asp:Table ID="DataTable" runat="server" class="table table-striped table-bordered" style="width:100%">--%>
+                                                <table id="DataTable" class="table table-striped table-bordered" style="width:100%">
+                                                   <%--<%--commentDiri display table--%>
+
+                                                  <%--<%--commentDiri  table head--%>
                                                  <thead>
                                                  <tr id="trialtable">
-                                                  <th>Employee ID</th>
+                                                  <th>Employee ID/th>
                                                   <th>Full Name</th>
                                                   <th style="width:10%">Date of birth</th>
                                                   <th>Gender</th>
@@ -200,11 +237,11 @@
                                                   </tr>
                                                   </thead>
 
-                                                   <%-- tble body--%>
+                                                   <%--<%-- commentDiri tble body--%>
                                                   <tbody id="emprecords">
                                                   <tr>
                                                   <td> <asp:TextBox ID="idno" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>               
-                                                  <td> <asp:TextBox ID="fullname" runat="server" BorderColor="red" BackColor="transparent"></asp:TextBox> </td>
+                                                  <td> <asp:TextBox ID="fullname" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="dob" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="gender" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
                                                   <td> <asp:TextBox ID="address" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
@@ -220,10 +257,9 @@
                                                   </td>
                                                 </tr>
                                                </tbody>
-                                             </table>
-                                                    <asp:GridView ID="GridView1" runat="server">
-
-                                                    </asp:GridView>
+                                                    </table>
+                                            <%-- </asp:Table>--%>
+                                                  <%-- edit ni diri nga modal--%>
                                     <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
                                       <div class="modal-dialog modal-dialog-centered modal-md">
                                         <div class="modal-content">
@@ -239,6 +275,7 @@
                                         <div class="col-md-12 col-sm-12 ">
                                             <%--MODIFY RECORDS--%>
                                             <%--input lastname--%>
+                                        <asp:Label ID="Lbl_result" runat="server" Text="" ForeColor="Red"></asp:Label>
                                         <strong>Lastname:</strong>
                                         <asp:TextBox ID="txtlname" runat="server" class="form-control" placeholder="Employees' Lastname"></asp:TextBox>
                                         </div>
@@ -305,6 +342,7 @@
                                                <asp:TextBox ID="txtEmContactnum" runat="server" class="form-control" placeholder="Employees' emergencey contact" TextMode="Phone" Value=""></asp:TextBox>
                                             </div>
                                            <%-- <div class="item form-group">--%>
+                                            <br />
                                             <div class="col-md-12 col-sm-12">
                                                  <%-- role--%>
                                                 <strong>Role:</strong>
@@ -322,7 +360,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <%--button save --%>
-                                            <asp:Button ID="btnUpdate" class="btn btn-primary" runat="server" Text="Save" OnClick="btnUpdate_Click" />
+                                            <asp:Button ID="btnUpdate" class="btn btn-primary" runat="server" Text="Update Data" OnClick="btnUpdate_Click" />
                                         </div>
                                      </form>
                                     </div>

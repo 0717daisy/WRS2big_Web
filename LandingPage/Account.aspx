@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="WRS2big_Web.LandingPage.Account" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="WRS2big_Web.LandingPage.Account" Async="true" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +105,11 @@
                             <div class="card-block">
                                 <div class="button-box">
                                     <center>
-                                        <div id="bttn"></div>
+                                        <div id="bttn">
+                                            <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                             <br />
+                                             <br />
+                                        </div>
                                         <button type="button" id="btnregister" class="togglebtn btn btn-primary waves-effect text-center active" onclick="register()">Sign Up</button>
                                         <button type="button" id="btnlogin" class="togglebtn btn btn-primary waves-effect text-center active" onclick="login()">Login</button>                                   
                                         </center>
@@ -118,18 +123,18 @@
                                     <div class="form-group">  
                                         <label>Last Name</label>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtlname" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
+                                         <div class="input-group-sm">
                                         <asp:TextBox ID="txtlname" class="form-control" runat="server"></asp:TextBox> 
-                                        
+                                        </div>
                                     </div>
-
                                     </div>
 <%--                                    @*first name*@--%>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>First Name</label> <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtfname" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
+                                            <label>First Name</label> 
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtfname" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
                                             <div class="input-group-sm">
-                                                <asp:TextBox ID="txtfname" runat="server" class="form-control" ></asp:TextBox>    
-                                                
+                                                <asp:TextBox ID="txtfname" runat="server" class="form-control" ></asp:TextBox>                       
                                             </div>
                                         </div>
                                     </div>
@@ -155,24 +160,36 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                 <div class="row">
+                                <%--@*Address*@--%>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Address</label> 
+                                            <div class="input-group-sm">
+                                            <asp:TextBox runat="server" class="form-control" Placeholder ="Address" ID="txtaddress"></asp:TextBox>  
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtaddress" ForeColor="Red" ErrorMessage="***" Font-Bold="true"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
 <%--                                    @*Phone Number*@--%>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Phone Number</label> 
                                             <div class="input-group-sm">
                                             <asp:TextBox runat="server" TextMode="Phone" class="form-control" Placeholder ="+63" ID="txtphoneNum"></asp:TextBox>  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid phone number." ControlToValidate="txtphoneNum"  ForeColor="Red" ValidationExpression="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" ></asp:RegularExpressionValidator>
-
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
 <%--                                    @*email*@--%>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Email</label> 
                                             <div class="input-group-sm">
                                             <asp:TextBox runat="server" TextMode="Email" placeholder="example@gmail.com" class="form-control" ID="txtEmail"></asp:TextBox> <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
-
                                             </div>
                                         </div>
                                     </div>
@@ -322,6 +339,9 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        
+
             <%-- @*Show Password script*@--%>
                <script>
                  const togglePassword = document.querySelector('#togglePassword');
@@ -337,7 +357,7 @@
                </script>
             <div class="d-flex justify-content-center">
                 <%--LOGIN BUTTON--%>
-                <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click" ValidationGroup="a"/>
+                <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click" ValidationGroup="a"/> 
             </div>
           </div>
          </div>

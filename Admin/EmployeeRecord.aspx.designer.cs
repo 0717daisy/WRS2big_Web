@@ -204,6 +204,24 @@ namespace WRS2big_Web.Admin
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
+        /// lblResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResult;
+
+        /// <summary>
+        /// dis_Record control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView dis_Record;
+
+        /// <summary>
         /// idno control.
         /// </summary>
         /// <remarks>
@@ -303,13 +321,13 @@ namespace WRS2big_Web.Admin
         protected global::System.Web.UI.WebControls.Button btnDelete;
 
         /// <summary>
-        /// GridView1 control.
+        /// Lbl_result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label Lbl_result;
 
         /// <summary>
         /// txtlname control.

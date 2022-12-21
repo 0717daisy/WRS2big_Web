@@ -28,20 +28,19 @@ namespace WRS2big_Web
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Session.Clear();
-            // if ((Session["userfirstname"].ToString()) && (Session["userlastname"].ToString()) && (Session["user_bal"].ToString()) == null)
-            if (Session["Email"] == null)
-            {
-                Response.Redirect("/LandingPage/Index.aspx");
-            }
-
             //Session.Abandon();
-            //Session.RemoveAll();
-            //Session["Email"] = null;
-            //Session["Pass"] = null;
             //Session.Clear();
-            //Response.Redirect("/LandingPage/Index.aspx");
+            //if (Session["Email"] == null)
+            //{
+            //    Response.Redirect("/LandingPage/Index.aspx");
+            //}
+
+            Session.Abandon();
+            Session.RemoveAll();
+            Session["Email"] = null;
+            Session["Pass"] = null;
+            Session.Clear();
+            Response.Redirect("/LandingPage/Index.aspx");
         }
     }
 }
