@@ -17,6 +17,7 @@ namespace WRS2big_Web.Admin
 {
     public partial class Employees : System.Web.UI.Page
     {
+        //Initialize the FirebaseClient with the database URL and secret key.
         IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "LIBhNTkVW1ksKJsiuR2RHCKB8xlllL98S0sBVTSS",
@@ -25,82 +26,55 @@ namespace WRS2big_Web.Admin
         };
         IFirebaseClient twoBigDB;
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
 
-
-        //    // Connection to database
-        //    twoBigDB = new FireSharp.FirebaseClient(config);
-
-
-        //    //if (twoBigDB != null)
-        //    //    lblResult.Text = "Connected!";
-        //    var idnum = 1585;
-        //    //Use the Get() method to retrieve all data from the EMPLOYEERECORD location in the database
-        //    var result = twoBigDB.Get("EMPLOYEERECORD/" + idnum);
-        //    //var json = result.Body;
-        //    //Model.EmployeeData obj = result.ResultAs<Model.EmployeeData>();
-        //    //var result = twoBigDB.Get(@"EMPLOYEERECORD/");
-        //    //Dictionary<string, Model.EmployeeData> obj = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
-        //    //List<Model.EmployeeData> obj = result.ResultAs<List<Model.EmployeeData>>();
-        //    Model.EmployeeData obj = result.ResultAs<Model.EmployeeData>();
-
-        //    //foreach(KeyValuePair<string, Model.EmployeeData> entry in emprecords)
-        //    //{
-        //        idno.Text = obj.emp_id.ToString();
-        //        fullname.Text = obj.emp_firstname + " " + obj.emp_midname + " " + obj.emp_lastname;
-        //        dob.Text = obj.emp_birthdate;
-        //        gender.Text = obj.emp_gender;
-        //        address.Text = obj.emp_address;
-        //        contact.Text = obj.emp_contactnum;
-        //        emailadd.Text = obj.emp_email;
-        //        datehired.Text = obj.emp_dateHired;
-        //        emergencycontact.Text = obj.emp_emergencycontact;
-        //        role.Text = obj.emp_role;
-        ////}
-
-
-
-        //    //FirebaseResponse res = twoBigDB.Get(@"EMPLOYEERECORD");
-        //    //Dictionary<string, Model.EmployeeData> data = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(res.Body.ToString());
-
-        //    ////GridView1.Columns.Clear();
-        //    ////GridView1.Columns.Add("");
-
-
-
-        //}
         protected void Page_Load(object sender, EventArgs e)
         {
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            RetrieveEmployeeRecords();
+            //RetrieveEmployeeRecords();
 
 
         }
-
-        private void RetrieveEmployeeRecords()
+        //RETRIEVE DATA
+        protected void ViewID_Click(object sender, EventArgs e)
         {
-            //Retrieve Data
-            FirebaseResponse response = twoBigDB.Get("WATER_GALLONS");
-            Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
+            FirebaseResponse response;
+            response = twoBigDB.Get("EMPLOYEERECORD");
+            Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
             var json = response.Body;
-            Dictionary<string, Model.WaterGallon> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterGallon>>(json);
+            Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
 
-            foreach (KeyValuePair<string, Model.WaterGallon> item in list)
+            foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
             {
-                //LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString());
-                //LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString()
-                // + " " + item.Value.gallonType.ToString()
-                // + " " + item.Value.Quantity.ToString()
-                // + " " + item.Value.DeliveryPrice.ToString()
-                // + " " + item.Value.PickUp_Price.ToString()
-                //// + " " + item.Value.Image.ToString()
-                // + " " + item.Value.DateAdded.ToString());
+                ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
             }
         }
+        //SEARCH DATA
+        protected void btnDisplay_Click(object sender, EventArgs e)
+        {
+            String slected;
+            slected = ListBoxEmployeeRecord.SelectedValue;
 
+            FirebaseResponse response;
+            response = twoBigDB.Get("EMPLOYEERECORD/" + slected);
+            Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
+
+            LblID.Text = obj.emp_id.ToString();
+            firstname.Text = obj.emp_firstname.ToString();
+            midname.Text = obj.emp_midname.ToString();
+            lastname.Text = obj.emp_lastname.ToString();
+            LblDOB.Text = obj.emp_birthdate.ToString();
+            LblGender.Text = obj.emp_gender.ToString();
+            address.Text = obj.emp_address.ToString();
+            contactnum.Text = obj.emp_contactnum.ToString();
+            email.Text = obj.emp_email.ToString();
+            LbldateHired.Text = obj.emp_dateHired.ToString();
+            emergencycontact.Text = obj.emp_emergencycontact.ToString();
+            drdPosition.Text = obj.emp_role.ToString();
+        }
+
+        // STORE/ADD DATA
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -125,10 +99,19 @@ namespace WRS2big_Web.Admin
                 };
                 SetResponse response;
                 // Employee Records = tablename, emp_id = key ( PK? )
-                response = twoBigDB.Set("EMPLOYEERECORD/" + data.emp_id, data);
-                Model.EmployeeData result = response.ResultAs<Model.EmployeeData>();
-                //lblResult.Text = "Record successfully added! Wait for the verification approval before you login.... ";
-                Response.Write("<script> alert ('Record successfully added! Wait for the verification approval before you login....'); location.reload(); window.location.href = 'EmployeeRecord.aspx' </script>");
+                response = twoBigDB.Set("EMPLOYEERECORD/" + data.emp_id, data);//Store Data to database     
+
+                //FirebaseResponse result = twoBigDB.Get("EMPLOYEERECORD");//Retrieve data from the database
+                Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();//Database Result
+                //var json = response.Body;
+                //Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
+
+                //foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
+                //{
+                //    ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+                //}
+
+                Response.Write("<script> alert ('Employee record successfully added! </script>");
             }
             catch (Exception ex)
             {
@@ -136,140 +119,80 @@ namespace WRS2big_Web.Admin
 
             }
         }
-        //protected void btnupdate_Click(object sender, EventArgs e)
-        //{
+        //UPDATE DATA
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            String deleteStr;
+            deleteStr = ListBoxEmployeeRecord.SelectedValue;
 
-        //    var data = new Model.EmployeeData();
-
-        //    // emp_id = ,
-        //    data.emp_lastname = txtlastname.Text;
-        //    data.emp_firstname = txtfirstname.Text;
-        //    data.emp_midname = txtmidname.Text;
-        //    data.emp_birthdate = txtbirthdate.Text;
-        //    data.emp_gender = drdgender.Text;
-        //    data.emp_address = txtaddress.Text;
-        //    data.emp_contactnum = txtcontactnum.Text;
-        //    data.emp_email = txtemail.Text;
-        //    data.emp_dateHired = txtdateHired.Text;
-        //    data.emp_emergencycontact = txtemergencycontact.Text;
-        //    data.emp_role = drdrole.Text;
-
-        //    //SetResponse response;
-        //    // Employee Records = tablename, emp_id = key ( PK? )
-        //    //response = (SetResponse)twoBigDB.Update("EmployeeRecords/" + data.emp_id, data);
-        //    //EmployeeData result = response.ResultAs<EmployeeData>();
-        //    //Response.Write("<script> alert ('Record successfully added'); location.reload(); window.location.href = 'EmployeeRecord.aspx' </script>");
-        //    FirebaseResponse response;
-        //    response = twoBigDB.Update("EMPLOYEERECORD/" + txtlastname.Text, data);
-        //    Model.EmployeeData result = response.ResultAs<Model.EmployeeData>();//Database Result
-        //                                                                        //Lbl_result.Text = "Data Updated Successfully";
-        //                                                                        ////var update = twoBigDB.Update("EmployeeRecords/" + data.emp_id, data);
-        //    if(result != null)
-        //    Response.Write("<script> alert ('Data Updated Successfully'</script>");
-        //    else
-        //        Response.Write("<script> alert ('Data not Found'</script>");
-        //}
-            protected void btnUpdate_Click(object sender, EventArgs e)
-            {
-
-            Random rnd = new Random();
-            int employee_id = rnd.Next(1, 10000);
-
-            //Update data
             var data = new Model.EmployeeData();
 
-                data.emp_id = employee_id;
-                data.emp_lastname = txtlname.Text;
-                data.emp_firstname = txtfname.Text;
-                data.emp_midname = txtmname.Text;
-                data.emp_birthdate = txtdob.Text;
-                data.emp_gender = drd_Gender.Text;
-                data.emp_address = txt_Address.Text;
-                data.emp_contactnum = txt_Contactnum.Text;
-                data.emp_email = txtemailAdd.Text;
-                data.emp_dateHired = txtD8hired.Text;
-                data.emp_emergencycontact = txtEmContactnum.Text;
-                data.emp_role = drd_Role.Text;
+            data.emp_id = int.Parse(LblID.Text);
+            data.emp_firstname = firstname.Text;
+            data.emp_midname = midname.Text;
+            data.emp_lastname = lastname.Text;
+            data.emp_birthdate = LblDOB.Text;
+            data.emp_gender = LblGender.Text;
+            data.emp_address = address.Text;
+            data.emp_contactnum = contactnum.Text;
+            data.emp_email = email.Text;
+            data.emp_dateHired = LbldateHired.Text;
+            data.emp_emergencycontact = emergencycontact.Text;
+            data.emp_role = drdPosition.Text;
 
-                //SetResponse response;
-                // Employee Records = tablename, emp_id = key ( PK? )
-                //response = (SetResponse)twoBigDB.Update("EmployeeRecords/" + data.emp_id, data);
-                //EmployeeData result = response.ResultAs<EmployeeData>();
-                //Response.Write("<script> alert ('Record successfully added'); location.reload(); window.location.href = 'EmployeeRecord.aspx' </script>");
-                FirebaseResponse response;
-                response = twoBigDB.Update("EMPLOYEERECORD/" + employee_id, data);
-                Model.EmployeeData result = response.ResultAs<Model.EmployeeData>();//Database Result
-                                                                                    //Lbl_result.Text = "Data Updated Successfully";
-                                                                                    ////var update = twoBigDB.Update("EmployeeRecords/" + data.emp_id, data);
-            if (result != null)
-                Response.Write("<script> alert ('Data Updated Successfully'</script>");
-            else
-                Response.Write("<script> alert ('Data not Found'</script>");
+            FirebaseResponse response;
+            response = twoBigDB.Update("EMPLOYEERECORD/" + deleteStr, data);//Update Product Data 
+
+            var result = twoBigDB.Get("EMPLOYEERECORD/" + deleteStr);//Retrieve Updated Data From WATERPRODUCT TBL
+            Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();//Database Result
+
+            LblID.Text = obj.emp_id.ToString();
+            firstname.Text = obj.emp_firstname.ToString();
+            midname.Text = obj.emp_midname.ToString();
+            lastname.Text = obj.emp_lastname.ToString();
+            LblDOB.Text = obj.emp_birthdate.ToString();
+            LblGender.Text = obj.emp_gender.ToString();
+            address.Text = obj.emp_address.ToString();
+            contactnum.Text = obj.emp_contactnum.ToString();
+            email.Text = obj.emp_email.ToString();
+            LbldateHired.Text = obj.emp_dateHired.ToString();
+            emergencycontact.Text = obj.emp_emergencycontact.ToString();
+            drdPosition.Text = obj.emp_role.ToString();
 
 
-
-            //try
-            //{
-            //    var data = new EmployeeData();
-            //    data.emp_lastname = txtlname.Text;
-            //    data.emp_firstname = txtfname.Text;
-            //    data.emp_midname = txtmname.Text;
-            //    data.emp_birthdate = txtdob.Text;
-            //    data.emp_gender = drd_Gender.Text;
-            //    data.emp_address = txt_Address.Text;
-            //    data.emp_contactnum = txt_Contactnum.Text;
-            //    data.emp_email = txtemailAdd.Text;
-            //    data.emp_dateHired = txtD8hired.Text;
-            //    data.emp_emergencycontact = txtEmContactnum.Text;
-            //    data.emp_role = drd_Role.Text;
-
-            //    FirebaseResponse response;
-            //    response = twoBigDB.Update("EmployeeRecords/" + txtlname.Text, data);
-            //    EmployeeData result = response.ResultAs<EmployeeData>();
-            //    Response.Write("<script>alert ('Records updated'); location.reload(); window.location.href = 'EmployeeRecord.aspx';</script>");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Write("<pre>" + ex.ToString() + "</pre>");
-            //    //Response.Write("<script>alert ('Failed to update record'); location.reload(); window.location.href = 'EmployeeRecord.aspx';</script>");
-            //}
+            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully updated!');</script>");
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        //DELETE DATA
+        protected void DeleteBtn_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    FirebaseResponse response;
-            //    response = twoBigDB.Get("EmployeeRecords/" + txtidno.Text);
-            //    EmployeeData obj = response.ResultAs<EmployeeData>();
+            String deleteStr;
+            deleteStr = ListBoxEmployeeRecord.SelectedValue;
+            FirebaseResponse response = twoBigDB.Delete("EMPLOYEERECORD/" + deleteStr);
 
-            //    //txtlastname.Text = obj.emp_lastname.ToString();
-            //    //txtfirstname.Text = obj.emp_firstname.ToString();
-            //    //txtidno.Text = obj.emp_id.ToString();
-            //}
-            //catch
-            //{
-            //    Response.Write("<script>alert('Employee ID not found'); window.location.href = 'EmployeeRecord.aspx';</script>");
-            //}
-        }
-        //DELETE Record
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
+            //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
+            int selected = ListBoxEmployeeRecord.SelectedIndex;
+            if (selected != 1)
             {
-                FirebaseResponse response;
-                //response = twoBigDB.Delete("EMPLOYEERECORD/" + idno.Text);
-                lblResult.Text = "Employee Records deleted!";
-                //Response.Write("<script>alert ('Records deleted'); location.reload(); window.location.href = 'EmployeeRecord.aspx';</script>");
+                ListBoxEmployeeRecord.Items.RemoveAt(selected);
             }
-            catch (Exception ex)
-            {
-                Response.Write("<pre>" + ex.ToString() + "</pre>");
-                //Response.Write("<script>alert('Failed to delete'); window.location.href = 'EmployeeRecord.aspx';</script>");
-            }
+            //clears the textbox
+            LblID.Text = "";
+            firstname.Text = "";
+            midname.Text = "";
+            lastname.Text = "";
+            LblDOB.Text = "";
+            LblGender.Text = "";
+            address.Text = "";
+            contactnum.Text = "";
+            email.Text = "";
+            LbldateHired.Text = "";
+            emergencycontact.Text = "";
+            drdPosition.Text = "";
+
+            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully deleted ! ');</script>");
 
         }
 
-        
     }
 }

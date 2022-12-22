@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <%--  <form id="form1" runat="server">--%>
+    <%--  <form id="form1" runat="server">--%>
            <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
@@ -43,12 +43,10 @@
                                      <div class="clearfix">
                                         <%-- add employee button--%>
                                          <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add Employee</button>
-                                         <%--input employee id to search record--%>  
-                                          <%--<div class="input-group form-group md-6 sm-6">                                                                                  
-                                          <asp:TextBox ID="txtidno" class="form-control" runat="server" placeholder="Employee ID" style="position:relative; float:right; margin-right:50px; width:auto"></asp:TextBox>    --%>    
-                                          <%-- search button--%>         
-                                           <%-- <asp:Button ID="btnSearch" class="btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"  style="position:relative; float:right; margin-right:63px;" />--%>
-    
+                                         <%--VIEW BUTTON --%>
+                                          &nbsp;
+                                          <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Employee IDs" Height="41px" />
+                                       <%-- MODAL FOR ADD EMPLOYEE--%>
                                        <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
                                        <div class="modal-dialog modal-dialog-centered modal-md">
                                         <div class="modal-content">
@@ -96,8 +94,8 @@
                                                <%--gender--%>
                                            <strong>Gender:</strong>
                                                <asp:DropDownList ID="drdgender" runat="server" Height="40px" Width="364px">
-                                                   <asp:ListItem Text="Select" Value="select" Selected="True"></asp:ListItem>
-                                                   <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+                                                   <%--<asp:ListItem Text="Select" Value="select" Selected="True"></asp:ListItem>--%>
+                                                   <asp:ListItem Text="Male" Value="Male" Selected="True"></asp:ListItem>
                                                    <asp:ListItem Text="Female" Value="Female" ></asp:ListItem>
                                                </asp:DropDownList>
                                            <%--</div>--%>
@@ -145,10 +143,10 @@
                                            <%-- <div class="item form-group">--%>
                                             <div class="col-md-12 col-sm-12">
                                                 <%--role--%>
-                                                <strong>Role:</strong>
+                                                <strong>Position:</strong>
                                                <asp:DropDownList ID="drdrole" runat="server" Height="40px" Width="364px">
-                                                   <asp:ListItem Text="-----Choose One-----" Value="select" Selected="True"></asp:ListItem>
-                                                   <asp:ListItem Text="Cashier" Value="Cashier"></asp:ListItem>
+                                                   <%--<asp:ListItem Text="-----Choose One-----" Value="select" Selected="True"></asp:ListItem>--%>
+                                                   <asp:ListItem Text="Cashier" Value="Cashier" Selected="True"></asp:ListItem>
                                                    <asp:ListItem Text="Driver" Value="Driver" ></asp:ListItem>
                                                    <asp:ListItem Text="Water Refiller" Value="Water Refiller" ></asp:ListItem>
                                                    <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
@@ -169,200 +167,100 @@
                                         </div>
                                       </div>
                                         <%-- end add employee--%>
-                                         <%--display table starts--%>
-                                       <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                         <div class="x_panel">
-                                         <div class="x_title">
-                                             <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                             <br />
-                                           <h2>Employee Records' <small>LList</small></h2>
-                                            <div class="clearfix"></div>
-                                            </div>
-                                             <div class="x_content">
-                                              <div class="row">
-                                               <div class="col-sm-12">
-                                                <div class="card-box table-responsive">
-                                                    <asp:ListView ID="dis_Record" runat="server">
+                                           <br />
+                                         <br />
+                                         <%--PAGE CONTENTS FOR LISTBOX--%> 
+                                               <div class="row">
+                                                   <div class="col-xl-3 col-md-12">
+                                                    <div class="card ">
+                                                        <div class="card-header">
+                                                            <div class="card-header-right">
+                                                                <ul class="list-unstyled card-option">
+                                                                    <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                    <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                    <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                    <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                    <li><i class="fa fa-trash close-card"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <h5>EMPLOYEE ID:</h5>
+                                                        </div>
+                                                        <div class="card-block">        
+                                                           <asp:ListBox ID="ListBoxEmployeeRecord" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="273px" Height="179px">
+                                                           </asp:ListBox> 
+                                                            <asp:Button ID="btnDisplay" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
+                                                        </div>
+                                                    <div class="card-footer">
+                                                        <%--<button onclick="btnDisplay_Click" type="button" id="displaybtn" style="font-size:14px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display"><i class="ti-notepad"></i>View Complete Details</button>  <br /> <br />--%>
+                                                        
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                         <%--TAB FOR DISPLAY, UPDATE DATA --%>
+                                               <div class="col-xl-9 col-md-12">
+                                                <div class="card" style="background-color:#f2e2ff">
+                                                    <div class="card-header">
+                                                        <h5>EMPLOYEE INFORMATION</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                <li><i class="fa fa-trash close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="table-responsive">
+                                                            <div class="tab-content">
+                                                            <div class="tab-pane active">
+                                                                      <div class="form-group">                
+                                                                        <div class="col-xs-12" style="font-size:16px">
+                                                                           <h5>Employee ID:</h5> 
+                                                                            <asp:Label ID="LblID" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                            <h5>First Name: </h5>
+                                                                            <asp:TextBox  ID="firstname" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                            <h5>Middle Name: </h5>
+                                                                              <asp:TextBox  ID="midname" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                            <h5>Last Name: </h5>
+                                                                              <asp:TextBox  ID="lastname" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                             <h5>Birthdate:  </h5>
+                                                                            <asp:Label ID="LblDOB" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <h5>Gender: </h5>
+                                                                              <asp:Label ID="LblGender" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                             <h5>Address: </h5>
+                                                                            <asp:TextBox  ID="address" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                             <h5>Contact Number: </h5>
+                                                                            <asp:TextBox  ID="contactnum" runat="server" TextMode="Phone"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                             <h5>Email: </h5>
+                                                                            <asp:TextBox  ID="email" TextMode="Email" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                             <h5>Date Hired: </h5>
+                                                                             <asp:Label ID="LbldateHired" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                             <h5>Emergency Contact: </h5>
+                                                                            <asp:TextBox  ID="emergencycontact" TextMode="Phone" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                            <h5>Position: </h5>
+                                                                            <asp:DropDownList ID="drdPosition" runat="server" CssClass="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"> 
+                                                                           <asp:ListItem Text="Cashier" Value="Cashier" Selected="True"></asp:ListItem>
+                                                                           <asp:ListItem Text="Driver" Value="Driver" ></asp:ListItem>
+                                                                           <asp:ListItem Text="Water Refiller" Value="Water Refiller" ></asp:ListItem>
+                                                                           <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
+                                                                       </asp:DropDownList>
+                                                                          </div>
+                                                                      </div>
+                                                              </div><!--/tab-pane-->
+                                                          </div><!--/tab-content-->
+                                                            <%--TAB end --%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                                     <asp:Button ID="EditBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="Update Records" OnClick="btnEdit_Click"/>
+                                                                       <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="Delete Records" OnClick="DeleteBtn_Click" /> 
+                                                    </div>
+                                                </div>
 
-                                                    </asp:ListView>
-                                                   <%--<asp:GridView ID="vwEmpRecords" runat="server" CellPadding="4" ForeColor="#333333"
-                                                        GridLines="None" AutoGenerateColumns="false" style="font-size: medium" EmptyDataText="No records 
-                                                        found!" EmptyDataRowStyle-ForeColor="Red" Width="1059px">
-                                                         <Columns> 
-                                                         <asp:BoundField DataField="idno" HeaderText="Employee ID" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         <asp:BoundField DataField="lastname" HeaderText="Last Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
-                                                         <asp:BoundField DataField="firstname" HeaderText="First Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
-                                                         <asp:BoundField DataField="midname" HeaderText="Middle Name" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" />
-                                                         <asp:BoundField DataField="dob" HeaderText="Date of birth" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         <asp:BoundField DataField="gender" HeaderText="Gender" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
-                                                         <asp:BoundField DataField="address" HeaderText="Address" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         <asp:BoundField DataField="contact" HeaderText="Contact" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         <asp:BoundField DataField="email" HeaderText="Email Address" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center" />
-                                                         <asp:BoundField DataField="dateHired" HeaderText="Date hired" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
-                                                         <asp:BoundField DataField="Emergencycontact" HeaderText="In case of emergency, contact:" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/> 
-                                                         <asp:BoundField DataField="role" HeaderText="Role" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         <asp:BoundField DataField="action" HeaderText="Action" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
-                                                         </Columns>
-                                                         <AlternatingRowStyle BackColor="White" />
-                                                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                                         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                                         <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                                                         <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                                                         <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                                                         <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                                                         <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                                                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                                                         <SortedDescendingHeaderStyle BackColor="#820000" />
-                                                         </asp:GridView> --%>
-                                                  
-                                                    <%--<asp:Table ID="DataTable" runat="server" class="table table-striped table-bordered" style="width:100%">--%>
-                                                <table id="DataTable" class="table table-striped table-bordered" style="width:100%">
-                                                   <%--<%--commentDiri display table--%>
-
-                                                  <%--<%--commentDiri  table head--%>
-                                                 <thead>
-                                                 <tr id="trialtable">
-                                                  <th>Employee ID</th>
-                                                  <th>Full Name</th>
-                                                  <th style="width:10%">Date of birth</th>
-                                                  <th>Gender</th>
-                                                  <th style="width:15%">Address</th>
-                                                  <th>Contact</th>
-                                                  <th>Email Address</th>
-                                                  <th>Date hired</th>
-                                                  <th>In case of emergency, contact:</th>
-                                                  <th>Role</th>
-                                                  <th width="280px">Action</th>
-                                                  </tr>
-                                                  </thead>
-
-                                                   <%--<%-- commentDiri tble body--%>
-                                                  <tbody id="emprecords">
-                                                  <tr>
-                                                  <td> <asp:TextBox ID="idno" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>               
-                                                  <td> <asp:TextBox ID="fullname" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="dob" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="gender" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="address" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="contact" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="emailadd" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="datehired" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td> <asp:TextBox ID="emergencycontact" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                  <td align="center"> <asp:TextBox ID="role" runat="server" BorderColor="transparent" BackColor="Transparent"> </asp:TextBox> </td>
-                                                  <td align="center">
-
-                                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit" title="Edit Employee Record"><i class="fa fa-edit">Edit</i></button>
-                                                   <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" class="btn btn-danger btn-sm" title="Delete Employee Record"/>       
-                                                  </td>
-                                                </tr>
-                                               </tbody>
-                                                    </table>
-                                            <%-- </asp:Table>--%>
-                                                  <%-- edit ni diri nga modal--%>
-                                    <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered modal-md">
-                                        <div class="modal-content">
-                                         <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                             <div class="modal-header">
-                                              <h4 class="modal-title" id="myModalLabel2">Edit Employee Details</h4>
-                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">X</span></button>
-                                            </div>
-                                        <div class="modal-body">
-                                        <div class="col-md-12 col-sm-12 ">
-                                        <div class="x_content">
-                                        <div class="item form-group">
-                                        <div class="col-md-12 col-sm-12 ">
-                                            <%--MODIFY RECORDS--%>
-                                            <%--input lastname--%>
-                                        <asp:Label ID="Lbl_result" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                        <strong>Lastname:</strong>
-                                        <asp:TextBox ID="txtlname" runat="server" class="form-control" placeholder="Employees' Lastname"></asp:TextBox>
-                                        </div>
-                                        </div>
-                                        <div class="item form-group">
-                                         <div class="col-md-12 col-sm-12">
-                                             <%--firstname--%>
-                                         <strong>Firstname:</strong>
-                                          <asp:TextBox ID="txtfname" runat="server" class="form-control" placeholder="Employees' Firstname"></asp:TextBox>
-                                          </div>
-                                          </div>
-                                            <div class="item form-group">
-                                         <div class="col-md-12 col-sm-12">
-                                             <%--middlename--%>
-                                         <strong>Middlename (Optional):</strong>
-                                          <asp:TextBox ID="txtmname" runat="server" class="form-control" placeholder="Employees' Middlename"></asp:TextBox>   
-                                          </div>
-                                          </div>
-                                          <%--<div class="item form-group">--%>
-                                          <div class="col-md-12 col-sm-12">
-                                              <%--date of birth--%>
-                                          <strong>Date of Birth:</strong>
-                                            <asp:TextBox ID="txtdob" runat="server" class="form-control" placeholder="Employees' Date of Birth" TextMode="Date"></asp:TextBox>
-                                           </div>
-                                           <%--<div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                               <%--gender--%>
-                                           <strong>Gender:</strong>
-                                               <asp:DropDownList ID="drd_Gender" runat="server" Height="40px" Width="364px">
-                                                   <asp:ListItem Text="Select" Value="select" Selected="True"></asp:ListItem>
-                                                   <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
-                                                   <asp:ListItem Text="Female" Value="Female" ></asp:ListItem>
-                                               </asp:DropDownList>
-                                           <%--</div>--%>
-                                           </div>
-                                           <%--<div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                               <%--address--%>
-                                           <strong>Address:</strong>
-                                               <asp:TextBox ID="txt_Address" runat="server" class="form-control" placeholder="Employees' Address"></asp:TextBox>
-                                           </div>
-                                          <%--<div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                               <%--contact number--%>
-                                           <strong>Contact Number:</strong>
-                                                <asp:TextBox ID="txt_Contactnum" runat="server" class="form-control" placeholder="Employees' Contact number" TextMode="Phone" Value=""></asp:TextBox>
-                                           </div>
-                                           <%--<div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                              <%-- email--%>
-                                           <strong>Email Address:</strong>
-                                               <asp:TextBox ID="txtemailAdd"  runat="server" class="form-control" placeholder="Employees' email@example.com"></asp:TextBox>
-                                           </div>
-                                           <%--<div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                                <%-- date hired--%>
-                                           <strong>Date Hired:</strong>
-                                               <asp:TextBox ID="txtD8hired" TextMode="Date" runat="server" class="form-control" placeholder="Employees' Date Hired"></asp:TextBox>
-                                            </div>
-                                          <%-- <div class="item form-group">--%>
-                                           <div class="col-md-12 col-sm-12">
-                                                <%-- emergency contact--%>
-                                           <strong>In case of emergency, Contact:</strong>
-                                               <asp:TextBox ID="txtEmContactnum" runat="server" class="form-control" placeholder="Employees' emergencey contact" TextMode="Phone" Value=""></asp:TextBox>
-                                            </div>
-                                           <%-- <div class="item form-group">--%>
-                                            <br />
-                                            <div class="col-md-12 col-sm-12">
-                                                 <%-- role--%>
-                                                <strong>Role:</strong>
-                                               <asp:DropDownList ID="drd_Role" runat="server" Height="40px" Width="364px">
-                                                   <asp:ListItem Text="-----Choose One-----" Value="select" Selected="True"></asp:ListItem>
-                                                   <asp:ListItem Text="Cashier" Value="Cashier"></asp:ListItem>
-                                                   <asp:ListItem Text="Driver" Value="Driver" ></asp:ListItem>
-                                                   <asp:ListItem Text="Water Refiller" Value="Water Refiller" ></asp:ListItem>
-                                                   <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
-                                               </asp:DropDownList>
-                                                <%--</div>--%>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <%--button save --%>
-                                            <asp:Button ID="btnUpdate" class="btn btn-primary" runat="server" Text="Update Data" OnClick="btnUpdate_Click" />
-                                        </div>
-                                     </form>
+                                               </div> 
                                     </div>
                                  </div>
                                </div>
@@ -374,16 +272,5 @@
                             </div>
                             </div>
                               </div>
-                             </div>
-                               </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-<%--         </form>--%>
+                             </div>                             
 </asp:Content>

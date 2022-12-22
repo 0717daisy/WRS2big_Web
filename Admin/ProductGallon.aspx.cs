@@ -87,7 +87,7 @@ namespace WRS2big_Web.Admin
                 response = twoBigDB.Set("WATER_GALLONS/" + data.gallon_id, data);
                 Model.WaterGallon result = response.ResultAs<Model.WaterGallon>();
 
-                Response.Write("<script>alert ('Water Product with Id number:" + data.gallon_id + " is successfully added!'); location.reload(); window.location.href = '/Admin/ProductGallon.aspx'; </script>");
+                Response.Write("<script>alert ('Water Gallon with Id number:" + data.gallon_id + " is successfully added!'); location.reload(); window.location.href = '/Admin/ProductGallon.aspx'; </script>");
                 //Response.Write("<script> alert ('New Gallon added successfully'); location.reload(); window.location.href = 'ProductGallon.aspx' </script>");
 
             }
@@ -154,7 +154,7 @@ namespace WRS2big_Web.Admin
             DeliveryPrice.Text = obj.DeliveryPrice.ToString();
             DateAdded.Text = obj.DateAdded.ToString();
 
-            Response.Write("<script>alert ('Product ID : " + deleteStr + " successfully updated!');</script>");
+            Response.Write("<script>alert ('Gallon ID : " + deleteStr + " successfully updated!');</script>");
 
         }
         //DELETE
@@ -164,7 +164,7 @@ namespace WRS2big_Web.Admin
             String deleteStr;
             deleteStr = ListBox1.SelectedValue;
             FirebaseResponse response = twoBigDB.Delete("WATER_GALLONS/" + deleteStr);
-            Response.Write("<script>alert ('Successfully deleted product ID : " + deleteStr + "');</script>");
+            Response.Write("<script>alert ('Successfully deleted gallons ID : " + deleteStr + "');</script>");
 
             //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
             int selected = ListBox1.SelectedIndex;
