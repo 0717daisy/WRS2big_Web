@@ -92,7 +92,7 @@ namespace WRS2big_Web.Admin
                 //USER = tablename, Idno = key(PK ? )
                 response = twoBigDB.Set("WATERPRODUCT/" + data.water_id, data);
                 Model.WaterProduct result = response.ResultAs<Model.WaterProduct>();
-                Response.Write("<script>alert ('Water Product successfully Added'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
+                Response.Write("<script>alert ('Water Product Id number" + data.water_id + " successfully added!'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
             }
             catch
             {

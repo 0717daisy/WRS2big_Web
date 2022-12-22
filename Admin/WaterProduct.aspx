@@ -142,7 +142,6 @@
                                                                         <div class="col-xs-12" style="font-size:16px">
                                                                            <h5>Product ID:</h5> 
                                                                             <asp:Label ID="LabelID" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
-<%--                                                                             <asp:TextBox  ID="ProdID" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>--%>
                                                                             <br>
                                                                             <h5>Water Name: </h5>
                                                                             <asp:TextBox  ID="waterName" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
@@ -152,8 +151,6 @@
                                                                            
                                                                              <h5>Date Added:  </h5>
                                                                             <asp:Label ID="LblDate" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
-                                                                              <%--<asp:TextBox  ID="ProdDate" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>--%>
-                                                                               
                                                                           </div>
                                                                       </div>
                                                               </div><!--/tab-pane-->
