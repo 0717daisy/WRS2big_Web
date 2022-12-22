@@ -26,6 +26,7 @@ namespace WRS2big_Web.Admin
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
 
+            //Retrieve Data
             FirebaseResponse response = twoBigDB.Get("WATER_GALLONS");
             Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
             var json = response.Body;
@@ -33,16 +34,21 @@ namespace WRS2big_Web.Admin
 
             foreach (KeyValuePair<string, Model.WaterGallon> item in list)
             {
-
-               LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString());
+                //LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString());
+                LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString()
+                 + " " + item.Value.gallonType.ToString()
+                 + " " + item.Value.Quantity.ToString()
+                 + " " + item.Value.DeliveryPrice.ToString()
+                 + " " + item.Value.PickUp_Price.ToString()
+                // + " " + item.Value.Image.ToString()
+                 + " " + item.Value.DateAdded.ToString());
             }
-            lbl_result.Text = "Choose employee id in a listbox you want to view and click the button view details to view records' details....";
+           // lbl_result.Text = "Choose employee id in a listbox you want to view and click the button view details to view records' details....";
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 String searchStr;
                 searchStr = LstBoxProductGallon.SelectedValue;
                 FirebaseResponse response;
@@ -57,20 +63,6 @@ namespace WRS2big_Web.Admin
                 //image.Text = obj.Image.ToString();
                 d8Added.Text = obj.DateAdded.ToString();
 
-                //Response.Write("<script>alert ('Records successfully retrieved!');</script>");
-               // Response.Redirect("ProductGallon.aspx");
-
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<pre>" + ex.ToString() + "</pre>");
-                //Response.Write("<script>alert('Failed to delete'); window.location.href = 'EmployeeRecord.aspx';</script>");
-            }
-
-
-            //===== Execute Query and bind data to ListView.
-            //lstViewProductGallon.DataSource = list;
-            //lstViewProductGallon.DataBind();
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -107,25 +99,29 @@ namespace WRS2big_Web.Admin
         }
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            Random rnd = new Random();
+            int idnum = rnd.Next(1, 10000);
             Model.WaterGallon data = new Model.WaterGallon()
             {
-                gallonType = DrdGallonType.Text,
-                Quantity = quantity.Text,
-                DeliveryPrice = DelPrice.Text,
-                PickUp_Price = PickUp_Price.Text,
+                gallon_id = idnum,              
+                gallonType = gal_Type.Text,
+                Quantity = qty.Text,
+                DeliveryPrice = deliveryPrice.Text,
+                PickUp_Price = pickUpPrice.Text,
                 //Image = FileUpload.Text,
                 DateAdded = DateTime.UtcNow
             };
-            FirebaseResponse response = twoBigDB.Update("WATER_GALLONS/" + DrdGallonType.Text, data);
-            lbResult.Text = "Record successfully updated!";
-            //var result = twoBigDB.Get("WATER_GALLONS/" + DrdGallonType.Text);
-            Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
-            //gal_Type.Text = obj.gallonType;
-            //qty.Text = obj.Quantity;
-            //deliveryPrice.Text = obj.DeliveryPrice;
-            //pickUpPrice.Text = obj.PickUp_Price;
+            twoBigDB.Update("WATER_GALLONS/" + data.gallon_id, data);
+            //lbResult.Text = "Record successfully updated!";
+            var result = twoBigDB.Get("WATER_GALLONS/" + gal_idno.ToString());
+            Model.WaterGallon obj = result.ResultAs<Model.WaterGallon>();
+            DrdGallonType.Text = obj.gallonType;
+            quantity.Text = obj.Quantity;
+            DelPrice.Text = obj.DeliveryPrice;
+            PickUp_Price.Text = obj.PickUp_Price;
             //image.Text = obj.Image.ToString();
             //d8Added.Text = obj.DateAdded.ToString();
+            lblResult.Text = "Record Updated Successfully!";
 
 
         }
@@ -135,6 +131,7 @@ namespace WRS2big_Web.Admin
             deleteStr = LstBoxProductGallon.SelectedValue;
             FirebaseResponse response = twoBigDB.Delete("WATER_GALLONS/" + deleteStr);
 
+            //lbl_result.Text = "Records Successfully deleted!";
             Response.Write("<script>alert ('Records successfully deleted!');</script>");
         }
     }

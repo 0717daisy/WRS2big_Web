@@ -223,7 +223,7 @@
                                                   <%--<%--commentDiri  table head--%>
                                                  <thead>
                                                  <tr id="trialtable">
-                                                  <th>Employee ID/th>
+                                                  <th>Employee ID</th>
                                                   <th>Full Name</th>
                                                   <th style="width:10%">Date of birth</th>
                                                   <th>Gender</th>

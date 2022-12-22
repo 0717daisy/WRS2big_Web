@@ -75,26 +75,30 @@ namespace WRS2big_Web.Admin
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            //FirebaseResponse response = twoBigDB.GetAsync("EMPLOYEERECORD").Result;
-            //Dictionary<string, Model.EmployeeData> data = response.ResultAs<Dictionary<string, Model.EmployeeData>>();
-            // Deserialize the data into a list of Customer objects
-            //List<Model.EmployeeData> data = response.ResultAs<List<Model.EmployeeData>>();
-            //Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
-
-            // Populate a DataTable with the list of EMPLOYEE objects
-            //DataTable data = new DataTable();
-            //data.Columns.Add("Employee ID", typeof(int));
-            //data.Columns.Add("Lastname", typeof(string));
-            //data.Columns.Add("Firstname", typeof(string)); 
-
-            //foreach (Model.EmployeeData employee in obj)
-            //{
-            //    data.Rows.Add(employee.emp_id, employee.emp_lastname, employee.emp_firstname);
-            //}
-            //ListView1.DataSource = data;
-            //ListView1.DataBind();
+            RetrieveEmployeeRecords();
 
 
+        }
+
+        private void RetrieveEmployeeRecords()
+        {
+            //Retrieve Data
+            FirebaseResponse response = twoBigDB.Get("WATER_GALLONS");
+            Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
+            var json = response.Body;
+            Dictionary<string, Model.WaterGallon> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterGallon>>(json);
+
+            foreach (KeyValuePair<string, Model.WaterGallon> item in list)
+            {
+                //LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString());
+                //LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString()
+                // + " " + item.Value.gallonType.ToString()
+                // + " " + item.Value.Quantity.ToString()
+                // + " " + item.Value.DeliveryPrice.ToString()
+                // + " " + item.Value.PickUp_Price.ToString()
+                //// + " " + item.Value.Image.ToString()
+                // + " " + item.Value.DateAdded.ToString());
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

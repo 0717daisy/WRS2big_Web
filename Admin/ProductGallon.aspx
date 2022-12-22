@@ -124,19 +124,21 @@
                                                                     <div class="card-box table-responsive">
                                                                     <%-- LISTBOX STARTS  HERE--%>
                                                                         <br />
-                                                                         <asp:ListBox ID="LstBoxProductGallon" runat="server" Width="1389px" Font-Bold="True" BackColor="#66FFFF" Height="204px"></asp:ListBox>
+                                                                         <asp:ListBox ID="LstBoxProductGallon" runat="server" Width="749px" Font-Bold="True" BackColor="#66FFFF" Height="204px"></asp:ListBox>
                                                                         <br />
+                                                                         <br />
                                                                         <asp:Button ID="Search" runat="server" Text="VIEW RECORD DETAIL" Width="249px"
                                                                         BackColor="Blue" OnClick="btnSearch_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display" />
                                                                          <%--<i class="fa fa-trash"> --%>
                                                                             <asp:Button ID="btnDelete" runat="server" Text="DELETE RECORD" Width="249px" 
                                                                         BackColor="Red" CssClass="btn btn-danger btn-sm" ForeColor="White" OnClick="btnDelete_Click" />
                                                                          <%--</i>--%>
-                                                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit"><i class="fa fa-edit"></i> UPDATE RECORD DETAIL </button>
-                                                                         <%--<asp:Button ID="btnUpdate" runat="server" Text="UPDATE RECORD DETAIL" Width="249px"
-                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit" />--%>
+                                                                        <%--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit"><i class="fa fa-edit"></i> UPDATE RECORD DETAIL </button>--%>
+                                                                         <asp:Button ID="Update" runat="server" Text="UPDATE RECORD DETAIL" Width="249px"
+                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display" />
                                                                         <br />
                                                                         <%--DISPLAY TABLE NI DIRI--%>
+                                                                        
                                                                         <%--<table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                                                             <thead>
                                                                                 <tr>
@@ -295,7 +297,7 @@
                                                                                         <div class="modal-footer">
                                                                                             <%--<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>--%>
                                                                                             <asp:Button ID="btnUpdate" runat="server" Text="UPDATE RECORD DETAIL" Width="249px"
-                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display" />
+                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm"  />
                                                                                             <%--<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>UPDATE RECORD</button>--%>
                                                                                         </div>
                                                                                     </div>

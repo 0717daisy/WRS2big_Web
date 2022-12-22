@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminProfile.aspx.cs" Inherits="WRS2big_Web.Admin.Profile" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminProfile.aspx.cs" Inherits="WRS2big_Web.Admin.AdminProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -107,6 +107,27 @@
                                             <div class="col-xl-8 col-md-12">
                                                 <div class="card" style="background-color:#f2e2ff">
                                                     <div class="card-header">
+                                                        <br />
+                                                        <br />
+                                                       <%-- BUTTON FOR VIEW, UPDATE, AND DELETE NI DIRI--%>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <asp:Button ID="Search" runat="server" Text="VIEW RECORD DETAIL" Width="163px"
+                                                                        BackColor="Blue" OnClick="btnSearch_Click" ForeColor="White" class="btn btn-primary btn-sm" />
+                                                         
+                                                         &nbsp;&nbsp;&nbsp;
+                                                         
+                                                         <asp:Button ID="btnDelete" runat="server" Text="DELETE RECORD" Width="163px" 
+                                                                        BackColor="Red" CssClass="btn btn-danger btn-sm" ForeColor="White" OnClick="btnDelete_Click" />
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        <asp:Button ID="Update" runat="server" Text="UPDATE RECORD DETAIL" Width="163px"
+                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm" />
+                                                        <br />
+                                                         <br />
+                                                       <%-- LISTBOX NI DIRI--%>
+                                                        <asp:ListBox ID="LstBoxAdminProfile" runat="server" Width="737px" Font-Bold="True" BackColor="#66FFFF" Height="204px"></asp:ListBox>
+                                                                        <br />
+                                                        <br />
+                                                                        
                                                         <h5>PROFILE MANAGEMENT</h5>
                                                         <div class="card-header-right">
                                                             <ul class="list-unstyled card-option">
@@ -127,20 +148,32 @@
                                                                   <form class="form" action="##" method="POST" id="ProfilePage">
                                                                       <div class="form-group">                
                                                                         <div class="col-xs-12" style="font-size:16px">
+                                                                          <%--  DISPLAY DATA STARTS HERE--%>
                                                                            <h5>Firstname:</h5> 
-                                                                              <p class=" btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">First Name</p>
+                                                                            <asp:Label ID="Lbl_fname" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                              <%--<p class=" btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">First Name</p>--%>
                                                                             <br>
                                                                             <h5>Middlename: </h5>
-                                                                            <p class=" btn   btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">Middle Name</p><br>
+                                                                             <asp:Label ID="Lbl_mname" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                            <br>
                                                                             <h5>Lastname: </h5>
-                                                                            <p class=" btn  btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">Last Name</p><br>
+                                                                            <asp:Label ID="Lbl_lname" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                            <br>
                                                                              <h5>Contact number:  </h5>
-                                                                            <p class=" btn  btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">Contact number</p><br> 
+                                                                            <asp:Label ID="Lbl_contact" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                            <br> 
                                                                               <h5>Email Address: </h5>
-                                                                            <p class=" btn  btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">Email Address</p><br>  
+                                                                            <asp:Label ID="Lbl_email" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                            <br>  
                                                                                <h5>Address:  </h5>
-                                                                            <p class=" btn  btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px">Address</p><br>  
-                                                                                             
+                                                                           <asp:Label ID="Lbl_address" runat="server" class=" btn btn-round waves-effect text-center" 
+                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:Label>
+                                                                            <br>           
                                                                           </div>
                                                                       </div>
 
@@ -169,40 +202,47 @@
                                                                   <form class="form" action="##" method="post" id="ManageProfilePage">
                                                                   <div class="form-group">                         
                                                                           <div class="col-xs-6">
+                                                                            <%--  EDIT DATA STARTS HERE--%>
                                                                               <label for="firstname"><h4>First name</h4></label>
-                                                                              <input type="text" class="form-control" name="first_name" id="firstname" placeholder="first name" title="enter your first name if any.">
-                                                                          </div>
+                                                                                 <asp:TextBox ID="firstname" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
+                                                                               </div>
                                                                       </div>
                                                                       <div class="form-group">                          
                                                                           <div class="col-xs-6">
-                                                                            <label for="lastname"><h4>Last name</h4></label>
-                                                                              <input type="text" class="form-control" name="last_name" id="lastname" placeholder="last name" title="enter your last name if any.">
+                                                                            <label for="midname"><h4>Middle name</h4></label>
+                                                                              <asp:TextBox ID="midname" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
                                                                           </div>
                                                                       </div>         
                                                                       <div class="form-group">                         
                                                                           <div class="col-xs-6">
-                                                                              <label for="mid_name"><h4>Middle Name (Optional)</h4></label>
-                                                                              <input type="text" class="form-control" name="mid_name" id="mid_name" placeholder="enter middle name " title="enter your middle name if any.">
+                                                                              <label for="lastname"><h4>Last Name (Optional)</h4></label>
+                                                                              <asp:TextBox ID="lastname" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
                                                                           </div>
                                                                       </div>
           
                                                                       <div class="form-group">
                                                                           <div class="col-xs-6">
                                                                              <label for="contactno"><h4>Mobile</h4></label>
-                                                                              <input type="number" class="form-control" name="contact_num" id="contactno" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                                                              <asp:TextBox ID="contactno" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
                                                                           </div>
                                                                       </div>
                                                                       <div class="form-group">
                           
                                                                           <div class="col-xs-6">
                                                                               <label for="email"><h4>Email</h4></label>
-                                                                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                                                              <asp:TextBox ID="email" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
                                                                           </div>
                                                                       </div>
                                                                          <div class="form-group">                          
                                                                           <div class="col-xs-6">
                                                                               <label for="address"><h4>Address</h4></label>
-                                                                              <input type="address" class="form-control" id="address" placeholder="enter address" title="enter your address">
+                                                                              <asp:TextBox ID="address" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                      style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
                                                                           </div>
                                                                       </div>
                                                                      
