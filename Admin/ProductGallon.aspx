@@ -189,9 +189,9 @@
                                                                                         </div>
                                                                                           <div class="item form-group">
                                                                                             <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Gallon Type: </h5>
-                                                                                     <asp:TextBox ID="gal_Type" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
+                                                                                             <h5>Gallon Type: </h5>
+                                                                                             <asp:TextBox ID="gal_Type" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
+                                                                                                 style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
                                                                                         </div>
                                                                                         </div>
                                                                                         <div class="item form-group">
@@ -242,6 +242,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <%--DISPLAY CONTENTS END HERE--%>
+
                                                                         <%--EDIT CONTENT STARTS HERE--%>
                                                                         <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
                                                                             <div class="modal-dialog modal-lg">

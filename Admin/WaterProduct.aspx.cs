@@ -9,6 +9,7 @@ using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
 
+
 namespace WRS2big_Web.Admin
 {
     public partial class WaterProduct : System.Web.UI.Page
@@ -25,41 +26,40 @@ namespace WRS2big_Web.Admin
         {
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
-
-
-            //RETRIEVE DATA FROM DATABASE = twoBigDB
-            var idnum = 6275; /*by calling a certain id only*/
-
-            var result = twoBigDB.Get("WATERPRODUCT/" + idnum);
-            Model.WaterProduct obj = result.ResultAs<Model.WaterProduct>();
-
-            water_idno.Text = obj.water_id.ToString();
-            desc.Text = obj.Description;
-            type.Text = obj.waterType;
-            dateAdded.Text = obj.DateAdded.ToString();
-
-            //try
-            //{ 
-            //FirebaseResponse response = twoBigDB.Get(@"WATERPRODUCT");
-            //    ////Dictionary<string, Model.WaterProduct> obj = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(response.Body.ToString());
-            //    Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-
-            //    //Model.WaterProduct obj = JsonConvert.DeserializeObject<Model.WaterProduct>(response.Body);
-
-            //    water_idno.Text = obj.water_id.ToString();
-            //    desc.Text = obj.Description;
-            //    type.Text = obj.waterType;
-            //    dateAdded.Text = obj.DateAdded.ToString();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Write("<pre>" + ex.ToString() + "</pre>");
-
-            //}
-
+            //RecordsRetrieval();
         }
-            public void btnAdd_Click(object sender, EventArgs e)
+
+        //private void RecordsRetrieval()
+        //{
+        //    FirebaseResponse response;
+        //    response = twoBigDB.Get("WATERPRODUCT");
+        //    Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+        //    var json = response.Body;
+        //    Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
+
+        //    foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
+        //    {
+        //        //ListBox1.Items.Add(entry.Value.water_id.ToString());
+        //        //ListBox1.Items.Add(entry.Value.water_id.ToString() + entry.Value.waterType.ToString());
+        //        ListBox1.Items.Add(entry.Value.water_id.ToString());
+        //    }
+        //}
+
+        
+
+        protected void btnDisplay_Click(object sender, EventArgs e)
+        {
+            String slected;
+            slected = ListBox1.SelectedValue;
+            FirebaseResponse response;
+            response = twoBigDB.Get("WATERPRODUCT/" + slected);
+            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+            LabelID.Text = obj.water_id.ToString();
+            waterName.Text = obj.waterType.ToString();
+            ProdDes.Text = obj.Description.ToString();
+            ProdDate.Text = obj.DateAdded.ToString();
+        }
+        public void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -70,8 +70,8 @@ namespace WRS2big_Web.Admin
                 var data = new Model.WaterProduct
                 {
                     water_id = idnum,
-                    waterType = drdwaterType.Text,
-                    Description = drdwaterDescription.Text,
+                    waterType = drdType.Text,
+                    Description = waterDes.Text,
                     DateAdded = DateTime.UtcNow
 
                 };
@@ -87,10 +87,46 @@ namespace WRS2big_Web.Admin
                 Response.Write("<script>alert('Data already exist'); window.location.href = '/Admin/WaterProduct.aspx';");
             }
         }
-        public void btnEdit_Click(object sender, EventArgs e)
+        protected void btnEdit_Click(object sender, EventArgs e)
         {
+            var data = new Model.WaterProduct();
+            
+
+            data.waterType = waterName.Text;
+            data.Description = ProdDes.Text;
+            data.DateAdded = DateTime.UtcNow;
+            FirebaseResponse response;
+            response = twoBigDB.Update("WATERPRODUCT/" + data.water_id, data);
+            var result = twoBigDB.Get("WATERPRODUCT/" + data.water_id);
+            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+
+            waterName.Text = obj.waterType;
+            ProdDes.Text = obj.Description;
+            ProdDate.Text = obj.DateAdded.ToString();
+
 
         }
 
+        protected void ViewID_Click(object sender, EventArgs e)
+        {
+            FirebaseResponse response;
+            response = twoBigDB.Get("WATERPRODUCT");
+            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+            var json = response.Body;
+            Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
+
+            foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
+            {
+                ListBox1.Items.Add(entry.Value.water_id.ToString());
+                //ListBox1.Items.Add(entry.Value.water_id.ToString() + entry.Value.waterType.ToString());
+
+            }
+        }
+        //protected void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    FirebaseResponse response;
+        //    //response = twoBigDB.Delete("WATERPRODUCT/" + );
+
+        //}
     }
 }

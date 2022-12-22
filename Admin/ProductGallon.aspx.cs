@@ -33,10 +33,9 @@ namespace WRS2big_Web.Admin
 
             foreach (KeyValuePair<string, Model.WaterGallon> item in list)
             {
-
                LstBoxProductGallon.Items.Add(item.Value.gallon_id.ToString());
             }
-            lbl_result.Text = "Choose employee id in a listbox you want to view and click the button view details to view records' details....";
+            //lbl_result.Text = "Choose employee id in a listbox you want to view and click the button view details to view records' details....";
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -116,16 +115,16 @@ namespace WRS2big_Web.Admin
                 //Image = FileUpload.Text,
                 DateAdded = DateTime.UtcNow
             };
-            FirebaseResponse response = twoBigDB.Update("WATER_GALLONS/" + DrdGallonType.Text, data);
+            FirebaseResponse response = twoBigDB.Update("WATER_GALLONS/" + data.gallon_id, data);
             lbResult.Text = "Record successfully updated!";
-            //var result = twoBigDB.Get("WATER_GALLONS/" + DrdGallonType.Text);
+            var result = twoBigDB.Get("WATER_GALLONS/" + data.gallon_id);
             Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
-            //gal_Type.Text = obj.gallonType;
-            //qty.Text = obj.Quantity;
-            //deliveryPrice.Text = obj.DeliveryPrice;
-            //pickUpPrice.Text = obj.PickUp_Price;
-            //image.Text = obj.Image.ToString();
-            //d8Added.Text = obj.DateAdded.ToString();
+            gal_Type.Text = obj.gallonType;
+            qty.Text = obj.Quantity;
+            deliveryPrice.Text = obj.DeliveryPrice;
+            pickUpPrice.Text = obj.PickUp_Price;
+            image.Text = obj.Image.ToString();
+            d8Added.Text = obj.DateAdded.ToString();
 
 
         }
