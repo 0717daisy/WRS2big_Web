@@ -44,8 +44,15 @@
                                     <div class="right_col" role="main">
                                         <div class="">
                                              <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red" Font-Size="Large" Font-Bold="True"></asp:Label>
-                                            <div class="clearfix"><button type="button" class="btn btn-success btn-sm" style="font-size:large" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add new Gallon</button></div>
-                                            <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="clearfix">
+                                                <button type="button" class="btn btn-success btn-sm"  style="font-size:14px;" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add new Gallon</button>
+                                            <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Product IDs" /> </div> 
+                                             <br />
+                                            </div>
+                                           
+                                            
+                                        
+                                        <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
@@ -60,11 +67,7 @@
                                                                     <div class="x_content">
                                                                         <div class="item form-group">
                                                                             <div class="col-md-12 col-sm-12 ">
-                                                                              <asp:DropDownList ID="drdgalType" runat="server" lass="form-control" Height="40px" Width="700px" >
-                                                                                <%--<asp:ListItem Text="Select Gallon Type" Value="select" Selected="False"></asp:ListItem>--%>
-                                                                                   <asp:ListItem Text="Slim" Value="Slim Gallon" Selected="False"></asp:ListItem>
-                                                                                   <asp:ListItem Text="Round" Value="RoundGallon" ></asp:ListItem>
-                                                                            </asp:DropDownList>                                              
+                                                                                 <asp:TextBox ID="galType" runat="server" class="form-control"  placeholder="-               Gallon Name           -" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="item form-group">
@@ -103,208 +106,94 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 ">
                                                     <div class="x_panel">
-                                                        <div class="x_content">
-                                                            <h5>Product List</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-12 ">
-                                                    <div class="x_panel">
                                                         <div class="x_title">
-                                                            <h2>Gallon Products</h2>
-                                                            <asp:Label ID="lbl_result" runat="server" Text="" ForeColor="Red" Font-Size="Large" Font-Bold="True"></asp:Label>
-                                                            <br />
-                                                            <div class="clearfix"></div>
-                                                        </div>
                                                         <div class="x_content">
                                                             <div class="row">
                                                                 <div class="col-sm-12">
                                                                     <div class="card-box table-responsive">
-                                                                    <%-- LISTBOX STARTS  HERE--%>
-                                                                        <br />
-                                                                         <asp:ListBox ID="LstBoxProductGallon" runat="server" Width="749px" Font-Bold="True" BackColor="#66FFFF" Height="204px"></asp:ListBox>
-                                                                        <br />
-                                                                         <br />
-                                                                        <asp:Button ID="Search" runat="server" Text="VIEW RECORD DETAIL" Width="249px"
-                                                                        BackColor="Blue" OnClick="btnSearch_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display" />
-                                                                         <%--<i class="fa fa-trash"> --%>
-                                                                            <asp:Button ID="btnDelete" runat="server" Text="DELETE RECORD" Width="249px" 
-                                                                        BackColor="Red" CssClass="btn btn-danger btn-sm" ForeColor="White" OnClick="btnDelete_Click" />
-                                                                         <%--</i>--%>
-                                                                        <%--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit"><i class="fa fa-edit"></i> UPDATE RECORD DETAIL </button>--%>
-                                                                         <asp:Button ID="Update" runat="server" Text="UPDATE RECORD DETAIL" Width="249px"
-                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display" />
-                                                                        <br />
-                                                                        <%--DISPLAY TABLE NI DIRI--%>
-                                                                        
-                                                                        <%--<table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th>Gallon ID</th>
-                                                                                    <th>Gallon Type</th>
-                                                                                    <th>Quantity</th>
-                                                                                    <th>Delivery Price</th>
-                                                                                    <th>Pick-up Price</th>
-                                                                                    <th>Image</th>
-                                                                                    <th>Date Added</th>
-                                                                                    <th>Action</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td> <asp:TextBox ID="gal_idno" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>               
-                                                                                    <td> <asp:TextBox ID="gal_Type" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                                                    <td> <asp:TextBox ID="qty" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                                                    <td> <asp:TextBox ID="deliveryPrice" runat="server" BorderColor="transparent" BackColor="transparent"></asp:TextBox> </td>
-                                                                                    <td> <asp:TextBox ID="pickUpPrice" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
-                                                                                    <td> <asp:TextBox ID="image" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
-                                                                                    <td> <asp:TextBox ID="d8Added" runat="server" BorderColor="transparent" BackColor="transparent" Width="250"></asp:TextBox> </td>
-                                                                                    
-                                                                                    <td align="center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit"><i class="fa fa-edit"></i> </button>
-                                                                                     <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>--%>
-                                                                        <%--TABLE END--%>
-                                                                        <%-- DISPLAY CONTENT STARTS HERE--%>
-                                                                        <div class="modal fade display" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-lg">
-                                                                                <div class="modal-content">
-                                                                                    <div id="demo-form" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                                                                        <div class="modal-header">
-                                                                                            <h4 class="modal-title" id="myModalLabel">Product Information</h4>
-                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                <span aria-hidden="true">X</span>
-                                                                                            </button>
+
+                                                                          <!--PAGE CONTENTS-->
+                                                                           <div class="row">
+                                                                               <div class="col-xl-3 col-md-12">
+                                                                                <div class="card ">
+                                                                                    <div class="card-header">
+                                                                                        <div class="card-header-right">
+                                                                                            <ul class="list-unstyled card-option">
+                                                                                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                                                <li><i class="fa fa-trash close-card"></i></li>
+                                                                                            </ul>
                                                                                         </div>
-                                                                            <div class="modal-body">
-                                                                                <div class="col-md-12 col-sm-12 ">
-                                                                                    <div class="x_content">
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                <h5>Gallon Idno:</h5> 
-                                                                                                <asp:TextBox ID="gal_idno" runat="server" BorderColor="transparent" BackColor="transparent"  class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                          <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Gallon Type: </h5>
-                                                                                     <asp:TextBox ID="gal_Type" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
-                                                                                        </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Quantity: </h5>
-                                                                                     <asp:TextBox ID="qty" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
-                                                                                         </div>
-                                                                                        </div>
-                                                                                         <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Delivery Price: </h5>
-                                                                                     <asp:TextBox ID="deliveryPrice" runat="server" BorderColor="transparent" BackColor="transparent" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
-                                                                                        </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Pick-Up Price: </h5>
-                                                                                     <asp:TextBox ID="pickUpPrice" runat="server" BorderColor="transparent" BackColor="transparent" Width="250" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
-                                                                                         </div>
-                                                                                        </div>
-                                                                                         <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Image: </h5>
-                                                                                     <asp:TextBox ID="image" runat="server" BorderColor="transparent" BackColor="transparent" Width="250" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"> </asp:TextBox> 
-                                                                                        </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                        <h5>Date Added: </h5>
-                                                                                     <asp:TextBox ID="d8Added" runat="server" BorderColor="transparent" BackColor="transparent" Width="250" class=" btn btn-round waves-effect text-center" 
-                                                                                         style="background-color:#bae1ff;font-size:18px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox> 
-                                                                                         </div>
+                                                                                        <h5>Gallon Product ID:</h5>
+                                                                                    </div>
+                                                                                    <div class="card-block">        
+                                                                                       <asp:ListBox ID="ListBox1" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="241px" Height="179px">
+                                                                                       </asp:ListBox> 
+                                                                                        <asp:Button ID="Button2" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
+                                                                                    </div>
+                                                                                <div class="card-footer">
+                                                       
+                                                        
+                                                                                </div>
+                                                                                </div>
+                                                                              </div>
+                                                   
+                                                                            <div class="col-xl-9 col-md-12">
+                                                                                <div class="card" style="background-color:#f2e2ff">
+                                                                                    <div class="card-header">
+                                                                                        <h5>GALLON PRODUCT INFORMATION</h5>
+                                                                                        <div class="card-header-right">
+                                                                                            <ul class="list-unstyled card-option">
+                                                                                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                                                <li><i class="fa fa-trash close-card"></i></li>
+                                                                                            </ul>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                            </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <%--<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>--%>
-                                                                                            <%--<i class="fa fa-trash"> 
-                                                                                                <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger btn-sm" Text="DELETE RECORD" OnClick="btnDelete_Click" /></i>--%>
+                                                                                    <div class="card-block">
+                                                                                        <div class="table-responsive">
+                                                                                            <div class="tab-content">
+                                                                                            <div class="tab-pane active">
+                                                                                                      <div class="form-group">                
+                                                                                                        <div class="col-xs-12" style="font-size:16px">
+                                                                                                           <h5>Product ID:</h5> 
+                                                                                                            <asp:Label ID="LabelID" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                                                            <br>
+                                                                                                            <h5>Gallon Name: </h5>
+                                                                                                            <asp:TextBox  ID="galName" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                          
+                                                                                                            <h5>Quantity: </h5>
+                                                                                                              <asp:TextBox  ID="galQuantity" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                                                                
+                                                                                                            <h5>Pick-up Price: </h5>
+                                                                                                              <asp:TextBox  ID="PckupPrice" runat="server"  class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"></asp:TextBox>
+                                                                                                             
+                                                                                                            <h5>Delivery Price:  </h5>
+                                                                                                            <asp:TextBox ID="DeliveryPrice" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:TextBox>
+
+                                                                                                            <h5>Date Added:</h5> 
+                                                                                                            <asp:Label ID="DateAdded" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                              </div><!--/tab-pane-->
+                                                                                          </div><!--/tab-content-->
+                                                           
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <%--DISPLAY CONTENTS END HERE--%>
-                                                                        <%--EDIT CONTENT STARTS HERE--%>
-                                                                        <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-lg">
-                                                                                <div class="modal-content">
-                                                                                    <div id="demo-form3" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                                                                        <div class="modal-header">
-                                                                                            <h4 class="modal-title" id="myModalLabel3">Edit Product Information</h4>
-                                                                                            <asp:Label ID="lbResult" runat="server" Text="" ForeColor="Red" Font-Size="Large" Font-Bold="True"></asp:Label>
-                                                            <br />
-                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                <span aria-hidden="true">X</span>
-                                                                                            </button>
-                                                                                        </div>
-                                                                            <div class="modal-body">
-                                                                                <div class="col-md-12 col-sm-12 ">
-                                                                                    <div class="x_content">
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                              <asp:DropDownList ID="DrdGallonType" runat="server" lass="form-control" Height="40px" Width="400px" >
-                                                                                                <%--<asp:ListItem Text="Select Gallon Type" Value="select" Selected="False"></asp:ListItem>--%>
-                                                                                                   <asp:ListItem Text="Slim" Value="Slim Gallon" Selected="True"></asp:ListItem>
-                                                                                                   <asp:ListItem Text="Round" Value="RoundGallon" ></asp:ListItem>
-                                                                                            </asp:DropDownList>                                              
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                <asp:TextBox ID="quantity" runat="server" class="form-control" TextMode="Number" placeholder="-               Quantity           -" ></asp:TextBox>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                <asp:TextBox ID="DelPrice" runat="server" class="form-control" TextMode="Number" placeholder="-         Delivery Price      -"></asp:TextBox>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                <asp:TextBox ID="PickUp_Price" TextMode="Number" runat="server" class="form-control" type="text" placeholder="-         Pick-up Price      -"></asp:TextBox>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="item form-group">
-                                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                                    <label class="small mb-1" ID="lblImage" for="imgUpload" runat="server">Product Image</label>
-                                                                                                     <asp:FileUpload ID="FileUpload" runat="server"/> <br/> 
-                                                                                                     <asp:Button ID="Button1" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File"/>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                    <div class="card-footer">
+                                                                                                     <asp:Button ID="EditBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="Edit details" OnClick="btnEdit_Click"/>
+                                                                                                       <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="Delete Product" OnClick="DeleteBtn_Click" /> 
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <%--<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>--%>
-                                                                                            <asp:Button ID="btnUpdate" runat="server" Text="UPDATE RECORD DETAIL" Width="249px"
-                                                                        BackColor="#009900" OnClick="btnUpdate_Click" ForeColor="White" class="btn btn-primary btn-sm"  />
-                                                                                            <%--<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>UPDATE RECORD</button>--%>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <%--EDIT CONTENT ENDS HERE--%>
+                                                                               </div> 
+                                                                             </div>
+                                                                      <!--PAGE CONTENTS END-->
+
+                                              
                                                                     </div>
                                                                 </div>
                                                             </div>

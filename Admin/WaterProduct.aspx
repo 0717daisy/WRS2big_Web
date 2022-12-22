@@ -59,7 +59,7 @@
                                                 </div> <%--closing tag ni header--%> 
                                                        <%--body ni diri ni modal--%>
                                                 <div class="modal-body">
-                                                 <div class="col-md-12 col-sm-12 ">
+                                                 <div class="col-md-4 col-sm-8 ">
                                                  <div class="x_content">
                                                   <div class="item form-group">
                                                     <div class="col-md-12 col-sm-12 ">
@@ -114,7 +114,7 @@
                                                             <asp:Button ID="Button1" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
                                                         </div>
                                                     <div class="card-footer">
-                                                        <%--<button onclick="btnDisplay_Click" type="button" id="displaybtn" style="font-size:14px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display"><i class="ti-notepad"></i>View Complete Details</button>  <br /> <br />--%>
+                                                       
                                                         
                                                     </div>
                                                     </div>
@@ -159,121 +159,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-footer">
-<%--                                                                     <button type="button" style="font-size:14px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".edit" title="Edit Record"><i class="fa fa-edit"></i>Edit</button> 
-                                                                     <button type="button" style="font-size:14px;" class="btn btn-danger btn-sm" title="Delete Record"><i class="fa fa-trash"></i>Delete</button>--%>
                                                                      <asp:Button ID="EditBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="Edit details" OnClick="btnEdit_Click"/>
                                                                        <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="Delete Product" OnClick="DeleteBtn_Click" /> 
                                                     </div>
                                                 </div>
-
                                                </div> 
+                                             </div>
+                                      <!--PAGE CONTENTS END-->
 
-
-
-                                               <%-- <div class="col-sm-12">
-
-                                                     <div class="card-box table-responsive">
-                                               <%--display table ni diring dapita--%>
-
-                                             <!--
-                                                        <%-- MODAL FOR EDIT--%>
-                                           <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
-                                           <div class="modal-dialog modal-sm">
-                                           <div class="modal-content">
-                                           <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                           <div class="modal-header">
-                                               <%--title ni diri sa edit information--%>
-                                           <h4 class="modal-title" id="myModalLabel2">Edit Product Information</h4>
-                                               <%--close button ni diring dapita--%>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                             <span aria-hidden="true">X</span> </button>
-                                           </div>
-                                           <div class="modal-body">
-                                             <div class="col-md-12 col-sm-12 ">
-                                                <div class="x_content">
-                                               <%--input textbox starts here--%>
-                                                     <div class="item form-group">
-                                                        <div class="col-md-12 col-sm-12 ">
-                                                             <asp:Label ID="editWaterType" runat="server" Text="Water Name:"></asp:Label>
-                                                            <asp:TextBox ID="waterType" runat="server"></asp:TextBox>
-                                                         </div>
-                                                     </div>
-                                                     <div class="item form-group">
-                                                       <div class="col-md-12 col-sm-12 ">
-                                                         <asp:Label ID="editDesc" runat="server" Text="Water Description: "></asp:Label>
-                                                          <asp:TextBox ID="Description" runat="server"></asp:TextBox>
-                                                        </div>
-                                                     </div>
-                                                </div>
-                                            </div>
-                                         </div>
-                                                            <div class="modal-footer">
-                                                                 <%--Button Edit ni diri--%>
-                                                                 <asp:Button ID="btnEdit" runat="server" Text="Edit Product" class="btn btn-primary btn-sm" OnClick="btnEdit_Click"/>
-                                                          <%--  <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-right: 46%"><i class="fa fa-times"></i>Close</button>
-                                                                                                                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Save</button>--%>
-                                                             </div>
-                                                        </form>
-                                                      </div>
-                                                     </div>
-                                                    </div><%-- EDIT MODAL END--%>   -->
-
-
-                                                         <!--MODAL FOR DISPLAY
-                                           <div class="modal fade display" tabindex="-1" role="dialog" aria-hidden="true">
-                                             <div class="modal-dialog modal-sm">
-                                                 <div class="modal-content">
-                                                     <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                                         <div class="modal-header">
-                                                       <%--title ni diri sa edit information--%>
-                                                      <h5 class="modal-title" id="myModalLabel2">Water Product Information</h5>
-                                                       <%--close button ni diring dapita--%>
-                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                               <span aria-hidden="true">X</span> </button>
-                                                          </div>
-                                                         <div class="modal-body">
-                                                              <div class="col-md-12 col-sm-12 ">
-                                                                <div class="x_content">
-                                                                  <%--input textbox starts here--%>
-                                                                      <div class="item form-group">
-                                                                        <div class="col-md-12 col-sm-12 ">
-                                                                           <asp:Label ID="Label3" runat="server" Text="Water ID:"></asp:Label>
-                                                                             <asp:TextBox ID="WaterID" runat="server">
-
-
-
-
-                                                                             </asp:TextBox>
-                                                                        </div>
-                                                                     </div>
-                                                            <div class="item form-group">
-                                                                <div class="col-md-12 col-sm-12 ">
-                                                                     <asp:Label ID="Label5" runat="server" Text="Water Name:"></asp:Label>
-                                                                    <asp:TextBox ID="WatName" runat="server"></asp:TextBox>
-                                                                 </div>
-                                                             </div>
-                                                             <div class="item form-group">
-                                                                <div class="col-md-12 col-sm-12 ">
-                                                                 <asp:Label ID="Label4" runat="server" Text="Water Description: "></asp:Label>
-                                                                  <asp:TextBox ID="WatDes" runat="server"></asp:TextBox>
-                                                                </div>
-                                                             </div>
-                                                             <div class="item form-group">
-                                                                <div class="col-md-12 col-sm-12 ">
-                                                                 <asp:Label ID="Label6" runat="server" Text="Date Added: "></asp:Label>
-                                                                  <asp:TextBox ID="WatDate" runat="server"></asp:TextBox>
-
-                                                                </div>
-                                                             </div>
-                                                           </div>
-                                                         </div>
-                                                        </div>
-                                                        </form>
-                                                      </div>
-                                                     </div>
-                                                    </div> DISPLAY MODAL END-->
-
-                                                   </div>
                                                   </div>
 
                                                </div>

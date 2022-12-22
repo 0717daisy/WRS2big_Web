@@ -92,7 +92,7 @@ namespace WRS2big_Web.Admin
                 //USER = tablename, Idno = key(PK ? )
                 response = twoBigDB.Set("WATERPRODUCT/" + data.water_id, data);
                 Model.WaterProduct result = response.ResultAs<Model.WaterProduct>();
-                Response.Write("<script>alert ('Water Product Id number" + data.water_id + " successfully added!'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
+                Response.Write("<script>alert ('Water Product with Id number: " + data.water_id + " is successfully added!'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
             }
             catch
             {
@@ -118,6 +118,8 @@ namespace WRS2big_Web.Admin
 
             LabelID.Text = obj.water_id.ToString();
             waterName.Text = obj.waterType;
+
+
             ProdDes.Text = obj.Description;
             LblDate.Text = obj.DateAdded.ToString();
 
@@ -133,6 +135,18 @@ namespace WRS2big_Web.Admin
             //lbl_result.Text = "Records Successfully deleted!";
             //Response.Write("<div>Successfully deleted product ID : "+ deleteStr +" </div>");
             Response.Write("<script>alert ('Successfully deleted product ID : " + deleteStr + "');</script>");
+
+            //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
+            int selected = ListBox1.SelectedIndex;
+            if (selected != 1)
+            {
+                ListBox1.Items.RemoveAt(selected);
+            }
+            //clears the textbox
+            LabelID.Text = "";
+            waterName.Text = "";
+            ProdDes.Text = "";
+            LblDate.Text = "";
 
         }
     }
