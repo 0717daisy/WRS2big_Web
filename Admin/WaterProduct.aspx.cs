@@ -26,7 +26,24 @@ namespace WRS2big_Web.Admin
         {
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
-            //RecordsRetrieval();
+            if (!IsPostBack)
+            {
+                DisplayID();
+            }
+        }
+
+        private void DisplayID()
+        {
+            FirebaseResponse response;
+            response = twoBigDB.Get("WATERPRODUCT");
+            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+            var json = response.Body;
+            Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
+
+            foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
+            {
+                ListBox1.Items.Add(entry.Value.water_id.ToString());
+            }
         }
 
         //private void RecordsRetrieval()
@@ -47,16 +64,16 @@ namespace WRS2big_Web.Admin
 
         protected void ViewID_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response;
-            response = twoBigDB.Get("WATERPRODUCT");
-            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-            var json = response.Body;
-            Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
+            //FirebaseResponse response;
+            //response = twoBigDB.Get("WATERPRODUCT");
+            //Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
+            //var json = response.Body;
+            //Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
 
-            foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
-            {
-                ListBox1.Items.Add(entry.Value.water_id.ToString());
-            }
+            //foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
+            //{
+            //    ListBox1.Items.Add(entry.Value.water_id.ToString());
+            //}
         }
 
         protected void btnDisplay_Click(object sender, EventArgs e)
@@ -134,7 +151,7 @@ namespace WRS2big_Web.Admin
 
             //lbl_result.Text = "Records Successfully deleted!";
             //Response.Write("<div>Successfully deleted product ID : "+ deleteStr +" </div>");
-            Response.Write("<script>alert ('Successfully deleted product ID : " + deleteStr + "');</script>");
+            Response.Write("<script>alert ('Successfully deleted product ID : " + deleteStr + "'); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
 
             //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
             int selected = ListBox1.SelectedIndex;
@@ -142,11 +159,7 @@ namespace WRS2big_Web.Admin
             {
                 ListBox1.Items.RemoveAt(selected);
             }
-            //clears the textbox
-            LabelID.Text = "";
-            waterName.Text = "";
-            ProdDes.Text = "";
-            LblDate.Text = "";
+
 
         }
     }

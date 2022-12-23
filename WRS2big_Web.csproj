@@ -448,6 +448,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\gallon.png" />
+    <Content Include="images\water.png" />
     <Content Include="LandingPage\Account.aspx" />
     <Content Include="LandingPage\Index.aspx" />
     <Content Include="LandingPage\Subscription.aspx" />
@@ -521,10 +523,6 @@
     <Content Include="images\textLogo.png" />
     <Content Include="images\twitter.png" />
     <Content Include="images\water.cartoon.png" />
-    <Content Include="images\water.jpg" />
-    <Content Include="images\water1.jpg" />
-    <Content Include="images\water2.jpg" />
-    <Content Include="images\water3.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -698,6 +696,7 @@
     <Compile Include="Model\AdminAccount.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
+    <Compile Include="Model\RefillProduct.cs" />
     <Compile Include="Model\WaterGallon.cs" />
     <Compile Include="Model\WaterProduct.cs" />
     <Compile Include="Site1.Master.cs">

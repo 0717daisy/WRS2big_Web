@@ -43,10 +43,10 @@
                                   <div class="clearfix">
                                         <%--BUTTON to ADD--%>
                                         <button type="button" style="font-size:14px;" class="btn btn-success btn-sm" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add Water Product</button>
-                                            <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Product IDs" /> </div> 
+                                            <%--<asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Product IDs" />--%> </div> 
 
                                            <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
+                                            <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                               <form id="demo-form" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
                                                        <%--header ni diri--%>
@@ -59,17 +59,17 @@
                                                 </div> <%--closing tag ni header--%> 
                                                        <%--body ni diri ni modal--%>
                                                 <div class="modal-body">
-                                                 <div class="col-md-4 col-sm-8 ">
+                                                 <div class="col-md-12 col-sm-12 ">
                                                  <div class="x_content">
                                                   <div class="item form-group">
                                                     <div class="col-md-12 col-sm-12 ">
-                                                        <asp:Label ID="Label1" runat="server" Text="Water Name: "></asp:Label>
+                                                        <asp:Label ID="Label1" runat="server" Text="Water Name: "></asp:Label><br />
                                                         <asp:TextBox ID="drdType" runat="server"></asp:TextBox>
                                                      </div>
                                                      </div>
                                                      <div class="item form-group">
                                                       <div class="col-md-12 col-sm-12 ">
-                                                          <asp:Label ID="Label2" runat="server" Text="Water Description:"></asp:Label>
+                                                          <asp:Label ID="Label2" runat="server" Text="Water Description:"></asp:Label> <br />
                                                         <asp:TextBox ID="waterDes" runat="server"></asp:TextBox>
                                                           </div>
                                                         </div>

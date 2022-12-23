@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -32,12 +31,13 @@ namespace WRS2big_Web.Admin
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            //RetrieveEmployeeRecords();
-
-
+            //METHODS TO DISPLAY THE IDs
+            if (!IsPostBack)
+            {
+                DisplayID();
+            }
         }
-        //RETRIEVE DATA
-        protected void ViewID_Click(object sender, EventArgs e)
+        private void DisplayID()
         {
             FirebaseResponse response;
             response = twoBigDB.Get("EMPLOYEERECORD");
@@ -50,6 +50,21 @@ namespace WRS2big_Web.Admin
                 ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
             }
         }
+        //RETRIEVE DATA
+        //protected void ViewID_Click(object sender, EventArgs e)
+        //{
+        //    FirebaseResponse response;
+        //    response = twoBigDB.Get("EMPLOYEERECORD");
+        //    Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
+        //    var json = response.Body;
+        //    Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
+
+        //    foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
+        //    {
+        //        ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+        //    }
+        //}
+
         //SEARCH DATA
         protected void btnDisplay_Click(object sender, EventArgs e)
         {
@@ -176,21 +191,8 @@ namespace WRS2big_Web.Admin
             {
                 ListBoxEmployeeRecord.Items.RemoveAt(selected);
             }
-            //clears the textbox
-            LblID.Text = "";
-            firstname.Text = "";
-            midname.Text = "";
-            lastname.Text = "";
-            LblDOB.Text = "";
-            LblGender.Text = "";
-            address.Text = "";
-            contactnum.Text = "";
-            email.Text = "";
-            LbldateHired.Text = "";
-            emergencycontact.Text = "";
-            drdPosition.Text = "";
 
-            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully deleted ! ');</script>");
+            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully deleted ! '); window.location.href = '/Admin/EmployeeRecord.aspx'; </script>");
 
         }
 

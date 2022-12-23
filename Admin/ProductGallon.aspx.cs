@@ -25,7 +25,11 @@ namespace WRS2big_Web.Admin
         {
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
-
+            //METHODS TO DISPLAY THE WATER AND GALLON TYPES FROM FIREBASE
+            if (!IsPostBack)
+            {
+                DisplayID();
+            }
 
             //Retrieve Data
             //FirebaseResponse response = twoBigDB.Get("WATER_GALLONS");
@@ -45,6 +49,20 @@ namespace WRS2big_Web.Admin
             //     + " " + item.Value.DateAdded.ToString());
             //}
             // lbl_result.Text = "Choose employee id in a listbox you want to view and click the button view details to view records' details....";
+        }
+
+        private void DisplayID()
+        {
+            FirebaseResponse response;
+            response = twoBigDB.Get("WATER_GALLONS");
+            Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
+            var json = response.Body;
+            Dictionary<string, Model.WaterGallon> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterGallon>>(json);
+
+            foreach (KeyValuePair<string, Model.WaterGallon> entry in list)
+            {
+                ListBox1.Items.Add(entry.Value.gallon_id.ToString());
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -164,7 +182,7 @@ namespace WRS2big_Web.Admin
             String deleteStr;
             deleteStr = ListBox1.SelectedValue;
             FirebaseResponse response = twoBigDB.Delete("WATER_GALLONS/" + deleteStr);
-            Response.Write("<script>alert ('Successfully deleted gallons ID : " + deleteStr + "');</script>");
+            Response.Write("<script>alert ('Successfully deleted gallons ID : " + deleteStr + "');location.reload(); window.location.href = '/Admin/ProductGallon.aspx'; </script>");
 
             //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
             int selected = ListBox1.SelectedIndex;
@@ -172,13 +190,7 @@ namespace WRS2big_Web.Admin
             {
                 ListBox1.Items.RemoveAt(selected);
             }
-            //clears the textbox
-            LabelID.Text = "";
-            galName.Text = "";
-            galQuantity.Text = "";
-            PckupPrice.Text = "";
-            DeliveryPrice.Text = "";
-            DateAdded.Text = "";
+
         }
         //DISPLAY
         protected void btnDisplay_Click(object sender, EventArgs e)
@@ -197,16 +209,16 @@ namespace WRS2big_Web.Admin
         }
         protected void ViewID_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response;
-            response = twoBigDB.Get("WATER_GALLONS");
-            Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
-            var json = response.Body;
-            Dictionary<string, Model.WaterGallon> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterGallon>>(json);
+            //FirebaseResponse response;
+            //response = twoBigDB.Get("WATER_GALLONS");
+            //Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
+            //var json = response.Body;
+            //Dictionary<string, Model.WaterGallon> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterGallon>>(json);
 
-            foreach (KeyValuePair<string, Model.WaterGallon> entry in list)
-            {
-                ListBox1.Items.Add(entry.Value.gallon_id.ToString());
-            }
+            //foreach (KeyValuePair<string, Model.WaterGallon> entry in list)
+            //{
+            //    ListBox1.Items.Add(entry.Value.gallon_id.ToString());
+            //}
         }
     }
 }

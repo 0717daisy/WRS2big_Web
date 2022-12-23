@@ -46,14 +46,12 @@
                                              <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red" Font-Size="Large" Font-Bold="True"></asp:Label>
                                             <div class="clearfix">
                                                 <button type="button" class="btn btn-success btn-sm"  style="font-size:14px;" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add new Gallon</button>
-                                            <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Product IDs" /> </div> 
+                                           <%-- <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Product IDs" />--%> </div> 
                                              <br />
                                             </div>
-                                           
-                                            
-                                        
+
                                         <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
+                                                <div class="modal-dialog modal-md">
                                                     <div class="modal-content">
                                                         <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
                                                             <div class="modal-header">
@@ -67,26 +65,26 @@
                                                                     <div class="x_content">
                                                                         <div class="item form-group">
                                                                             <div class="col-md-12 col-sm-12 ">
-                                                                                 <asp:TextBox ID="galType" runat="server" class="form-control"  placeholder="-               Gallon Name           -" ></asp:TextBox>
+                                                                                 <asp:TextBox ID="galType" runat="server" class="form-control"  placeholder="Gallon Name" ></asp:TextBox>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="item form-group">
+                                                                            <div class="col-md-21 col-sm-12 ">
+                                                                                <asp:TextBox ID="txtQty" runat="server" class="form-control" TextMode="Number" placeholder="Quantity" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="item form-group">
                                                                             <div class="col-md-12 col-sm-12 ">
-                                                                                <asp:TextBox ID="txtQty" runat="server" class="form-control" TextMode="Number" placeholder="-               Quantity           -" ></asp:TextBox>
+                                                                                <asp:TextBox ID="txtDeliveryPrice" runat="server" class="form-control" TextMode="Number" placeholder="Delivery Price"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="item form-group">
                                                                             <div class="col-md-12 col-sm-12 ">
-                                                                                <asp:TextBox ID="txtDeliveryPrice" runat="server" class="form-control" TextMode="Number" placeholder="-         Delivery Price      -"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPickUp_Price" TextMode="Number" runat="server" class="form-control" type="text" placeholder="Pick-up Price"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="item form-group">
-                                                                            <div class="col-md-12 col-sm-12 ">
-                                                                                <asp:TextBox ID="txtPickUp_Price" TextMode="Number" runat="server" class="form-control" type="text" placeholder="-         Pick-up Price      -"></asp:TextBox>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="item form-group">
-                                                                            <div class="col-md-12 col-sm-12 ">
+                                                                            <div class="col-md-12  col-sm-12 ">
                                                                                     <label class="small mb-1" ID="Label1" for="imgUpload" runat="server">Product Image</label>
                                                                                      <asp:FileUpload ID="ImgUpload" runat="server"/> <br/> 
                                                                                      <asp:Button ID="btnUpload" runat="server" class="form-control btn btn-dark btn-sm" Text="Upload File"/>

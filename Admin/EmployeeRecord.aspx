@@ -45,7 +45,7 @@
                                          <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target=".add"><i class="fa fa-plus"></i> Add Employee</button>
                                          <%--VIEW BUTTON --%>
                                           &nbsp;
-                                          <asp:Button ID="ViewID" runat="server" OnClick="ViewID_Click" style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Employee IDs" Height="41px" />
+                                          <%--<asp:Button ID="ViewID" runat="server"  style="font-size:14px;" class="btn btn-success btn-sm " Text="View List of Employee IDs" Height="41px" />--%>
                                        <%-- MODAL FOR ADD EMPLOYEE--%>
                                        <div class="modal fade add" tabindex="-1" role="dialog" aria-hidden="true">
                                        <div class="modal-dialog modal-dialog-centered modal-md">
@@ -186,7 +186,7 @@
                                                             <h5>EMPLOYEE ID:</h5>
                                                         </div>
                                                         <div class="card-block">        
-                                                           <asp:ListBox ID="ListBoxEmployeeRecord" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="273px" Height="179px">
+                                                           <asp:ListBox ID="ListBoxEmployeeRecord" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="243px" Height="179px">
                                                            </asp:ListBox> 
                                                             <asp:Button ID="btnDisplay" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
                                                         </div>
