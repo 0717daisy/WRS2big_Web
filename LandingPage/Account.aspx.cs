@@ -20,8 +20,9 @@ namespace WRS2big_Web.LandingPage
         //Initialize firebase client
         IFirebaseConfig config = new FirebaseConfig
         {
-            AuthSecret = "LIBhNTkVW1ksKJsiuR2RHCKB8xlllL98S0sBVTSS",//API Key
-            BasePath = "https://big-system-64b55-default-rtdb.firebaseio.com/"//database URL
+            AuthSecret = "LIBhNTkVW1ksKJsiuR2RHCKB8xlllL98S0sBVTSS",
+            BasePath = "https://big-system-64b55-default-rtdb.firebaseio.com/"
+
         };
         IFirebaseClient twoBigDB;
 
@@ -30,7 +31,9 @@ namespace WRS2big_Web.LandingPage
         {
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
+
         }
+
         //Function to store user data 
         public void btnSignup_Click(object sender, EventArgs e)
         {
@@ -49,7 +52,9 @@ namespace WRS2big_Web.LandingPage
                     Bdate = txtbirthdate.Text,
                     Address = txtaddress.Text,
                     Phone = txtphoneNum.Text,
+                    Username = txtusername.Text,
                     Email = txtEmail.Text,
+                    WRS_Name = txtStationName.Text,
                     Pass = id_passwordreg.Text,
                     Proof = ""
                 };
@@ -58,138 +63,98 @@ namespace WRS2big_Web.LandingPage
                 //USER = tablename, Idno = key(PK ? )
                 response = twoBigDB.Set("ADMIN/" + data.Idno, data);//Storing data to the database
                 Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();//Database Result
-                Response.Write("<script>alert ('Account created'); location.reload(); window.location.href = '/LandingPage/Account.aspx'; </script>");
+                Response.Write("<script>alert ('Account " + result.Idno + " created! Use this id number to log in.'); location.reload(); window.location.href = '/LandingPage/Account.aspx'; </script>");
             }
             catch
             {
                 Response.Write("<script>alert('ID No. already exist'); window.location.href = 'Account.aspx'; </script>");
             }
         }
-        //protected async void btnLogin_Click(object sender, EventArgs e)
-        //{
-        //    // Get the email and password entered by the user
-        //    string email = txt_email.Text; ;
-        //    string password = txt_password.Text;
-
-        //    // Check if the email and password are valid
-        //    FirebaseResponse response = await twoBigDB.GetAsync("ADMIN/" + email);
-        //    Model.AdminAccount user = response.ResultAs<Model.AdminAccount>();
-        //    if (user != null && user.Pass == password)
-        //    {
-        //        // Login successful, redirect to homepage
-        //        Response.Redirect("/Admin/AdminIndex.aspx");
-        //    }
-        //    else
-        //    {
-        //        // Login failed, display error message
-        //        lblError.Text = "Invalid email or password";
-        //    }
-        //}
-
-
-
-
-
-
-
-
+        
         public void btnLogin_Click(object sender, EventArgs e)
         {
+
             //Get the email and password entered by the user
-            string email = txt_email.Text;
+            //string username = txt_username.Text;
+            //string password = txt_password.Text;
+            string idno = txt_idno.Text;
             string password = txt_password.Text;
 
-            // Check if the email and password are valid
-            FirebaseResponse response = twoBigDB.Get("ADMIN/" + email);
-            Model.AdminAccount user = response.ResultAs<Model.AdminAccount>();
-            if (user != null && user.Pass == password)
+            // //Check if the email and password are valid
+            //FirebaseResponse response;
+            //response = twoBigDB.Get("ADMIN" + username);
+            ////response = twoBigDB.Get("ADMIN" );
+            //Model.AdminAccount user = response.ResultAs<Model.AdminAccount>();
+            ////if (user == null)
+            ////    user = new Model.AdminAccount();
+
+            //if (user.Username == username && user.Pass == password)
+            //{
+            //    Session["username"] = username;
+            //    Session["password"] = password;
+            //    Session["WRSname"] = user.WRS_Name;
+            //    // Login successful, redirect to admin homepage
+            //    Response.Redirect("/Admin/AdminIndex.aspx");
+
+            //}
+            //else
+            //{
+            //    // Login failed, display error message
+            //    //lblError.Text = "Invalid email or password!";
+            //    Response.Write("<script>alert('Invalid username or password');</script>");
+            //}
+
+            //string email = txtEmail.Text;
+            //string password = txtPassword.Text;
+
+            //FirebaseResponse response = await twoBigDB.GetAsync("ADMIN/" + txt_username.Text);
+            //var result = twoBigDB.Get("ADMIN/" + username);
+            //Model.AdminAccount user = result.ResultAs<Model.AdminAccount>();
+            ////lblError.Text = result;
+
+            //Response.Write("<script>alert('Response: ' " + result + ");</script>");
+            //if (user.Username != null)
+            //{
+            //    Response.Write("<script>alert('Password: ' "+ user.Pass + ");</script>");
+
+            //    if (user.Pass == password)
+            //    {
+            //        // Login successful
+            //        Session["user"] = user;
+            //        Session["WRSname"] = user.WRS_Name;
+            //        Response.Redirect("/Admin/Account.aspx");
+            //    }
+            //    else
+            //    {
+            //        // Incorrect password
+            //        lblError.Text = "Incorrect username or password";
+            //    }
+            //}
+            //else
+            //{
+            //    // User not found
+            //    lblError.Text = " User not found";
+            //}
+
+            FirebaseResponse response;
+            response = twoBigDB.Get("ADMIN/" + idno);
+            Model.AdminAccount obj = response.ResultAs<Model.AdminAccount>();
+            if (obj.Idno == int.Parse(idno) && obj.Pass == password)
             {
+                Session["idno"] = idno;
+                Session["password"] = password;
+                Session["WRSname"] = obj.WRS_Name;
                 // Login successful, redirect to admin homepage
                 Response.Redirect("/Admin/AdminIndex.aspx");
             }
             else
             {
                 // Login failed, display error message
-                lblError.Text = "Invalid email or password!";
+                //lblError.Text = "Invalid email or password!";
+                Response.Write("<script>alert('Invalid username or password');</script>");
             }
         }
-        //    //RETRIEVE DATA FROM ADMIN TBL
-        //    string email = txt_email.Text;
-        //    string password = txt_password.Text;
-
-        //    //Session["Email"] = email;
-        //    //Session["Pass"] = password;
-
-        //    //((Session["Email"] != null) && (Session["Pass"] != null))
-        //    if (Session["Email"] != null) 
-        //    {            
-        //        Session["Email"] = email;
-        //        Session["Pass"] = password;
-        //       // lblAdmin.Text = " + email + ";
-        //        Response.Redirect("/Admin/AdminIndex.aspx");
-        //    }
-        //    else
-        //    {
-        //        lblMes.Text = "Please enter valid email or password!";
-        //        //Response.Write("<script>alert ('Please enter valid email or password');</script>");
-        //        //Model.AdminAccount.showError();
-        //    }
-
-
-        //    //try
-        //    //{
-        //    //RETRIEVE DATA FROM ADMIN TBL
-        //    //string email = txt_email.Text;
-        //    //string password = txt_password.Text;
-
-        //    //Session["Email"] = email;
-        //    //Session["Pass"] = password;
-        //    //Response.Redirect("/Admin/AdminIndex.aspx");
-
-        //    //FirebaseResponse response;
-        //    //response = twoBigDB.Get(@"ADMIN/" + email);
-        //    //Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();//Database Result
-
-        //    //Model.AdminAccount curResult = new Model.AdminAccount //User Given Info
-        //    //{
-        //    //    Email = txt_email.Text,
-        //    //    Pass = txt_password.Text
-        //    //};
-
-        //    //if (result != null && result.Pass == password)
-        //    //{
-        //    //    Response.Redirect("/Admin/AdminIndex.aspx");
-        //    //}
-        //    //else
-        //    //{
-        //    //    Model.AdminAccount.showError();
-        //    //}
-
-
-        //    //}
-        //    //    catch (Exception ex)
-        //    //    {
-        //    //        Response.Write("<pre>" + ex.ToString() + "</pre>");
-        //    //    }
-
-        //}
-
-        //IsValidUser method checks if the provided email and password are valid querying 
-        //the firebase database for a user with the given email and comparing the password  
-        //provided with the password stored in the database
-        //public async Task<bool> IsValidUser(string email, string password)
-        //{
-        //        FirebaseResponse response = await twoBigDB.GetAsync("ADMIN/" + email);
-        //        Model.AdminAccount user = response.ResultAs<Model.AdminAccount>();
-
-        //        if (user != null && user.Pass == password)
-        //        {
-        //            return true;
-        //        }
-
-        //        return false;
-        //}
-
-
     }
-}
+   
+}       
+  

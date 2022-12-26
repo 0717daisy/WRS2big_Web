@@ -25,6 +25,21 @@ namespace WRS2big_Web
         {
             // Connection to database
             twoBigDB = new FireSharp.FirebaseClient(config);
+
+
+            //if (Session["username"] == null)
+            //{
+            //    Response.Redirect("Account.aspx");
+            //}
+            if (Session["idno"] == null)
+            {
+                Response.Redirect("Account.aspx");
+            }
+            else
+            {
+                string WRSname = (string)Session["WRSname"];
+                lblWRSname.Text = WRSname;
+            }
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
@@ -37,8 +52,8 @@ namespace WRS2big_Web
 
             Session.Abandon();
             Session.RemoveAll();
-            Session["Email"] = null;
-            Session["Pass"] = null;
+            Session["idno"] = null;
+            Session["password"] = null;
             Session.Clear();
             Response.Redirect("/LandingPage/Index.aspx");
         }
