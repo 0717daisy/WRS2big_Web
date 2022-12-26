@@ -15,7 +15,9 @@ namespace WRS2big_Web.Model
         public string Bdate { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
+        public string Username { get; set; }
         public string Email { get; set; }
+        public string WRS_Name { get; set; }
         public string Pass { get; set; }
         public string Proof { get; set; }
 

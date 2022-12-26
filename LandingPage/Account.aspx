@@ -96,7 +96,7 @@
         <!-- Container-fluid starts -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <form class="md-float-material form-material">
                         <div class="text-center">
                             <img src="/images/2ndLogo.png" style="width:500px" alt="logo.png">
@@ -190,6 +190,27 @@
                                             <label>Email</label> 
                                             <div class="input-group-sm">
                                             <asp:TextBox runat="server" TextMode="Email" placeholder="example@gmail.com" class="form-control" ID="txtEmail"></asp:TextBox> <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                       <%-- @*username*@--%>
+                                        <div class="col">
+                                        <div class="form-group">
+                                            <label>Username</label> 
+                                            <div class="input-group-sm">
+                                            <asp:TextBox runat="server" placeholder="enter username" class="form-control" ID="txtusername">
+                                            </asp:TextBox> <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="^[\w.\-]{2,18}$" ControlToValidate="txtusername" ErrorMessage="Invalid Username"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+<%--                                    @*WRS NAME*@--%>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Water Station Name</label> 
+                                            <div class="input-group-sm">
+                                            <asp:TextBox runat="server" placeholder="Station Name" class="form-control" ID="txtStationName"></asp:TextBox> <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -303,14 +324,17 @@
                                 <%--LOG IN FIELD--%>
                                     <div id="login" style="display:none;">
                                         <div class="row">
-<%--                                            @*email*@--%>
+<%--                                            @*username*@--%>
                                             <div class="col">
                                                 <div class="">
-                                                    <label>Email:</label>
-                                                    <div class="input-group">  
-                                                        <asp:TextBox runat="server" class="form-control" TextMode="Email" ID="txt_email"> </asp:TextBox>
+                                                    <%--<label>Username:</label>--%>
+                                                    <label>ID Number:</label>
+                                                    <div class="input-group">
+                                            <%--<asp:TextBox runat="server"  type="usrname" class="form-control" id="txt_username" ValidationGroup="a"></asp:TextBox>--%> 
+                                                        <asp:TextBox runat="server" type="idno" TextMode="Number" class="form-control" ID="txt_idno" ValidationGroup="a" > </asp:TextBox>
+                                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ValidationExpression="^[\w.\-]{2,18}$" ControlToValidate="txt_username"  ErrorMessage="Invalid Username"></asp:RegularExpressionValidator>--%>
                                                     </div>
-                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txt_email"  ErrorMessage="Invalid Email Format" ValidationGroup="a" ></asp:RegularExpressionValidator>
+                                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ControlToValidate="txt_idno" ValidationGroup="a"></asp:RegularExpressionValidator>--%>
 
                                                 </div>
                                             </div>
@@ -321,7 +345,7 @@
                                                 <div class="form-group">
                                                     <label>Password:</label>
                                                     <div class="input-group">
-                                            <asp:TextBox runat="server"  type="password" class="form-control" TextMode="Password" id="txt_password" ValidationGroup="a"></asp:TextBox> 
+                                            <asp:TextBox runat="server" type="password" class="form-control" TextMode="Password" id="txt_password" ValidationGroup="a"></asp:TextBox> 
 
                                                     </div>
                                                 </div>
@@ -357,7 +381,7 @@
                </script>
             <div class="d-flex justify-content-center">
                 <%--LOGIN BUTTON--%>
-                <asp:Button ID="btnLogin" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click" ValidationGroup="a"/> 
+                <asp:Button ID="Login" runat="server" Text="Login"  class="btn" style="background: linear-gradient(to right, #5bc0de, #9dd9eb);"  OnClick="btnLogin_Click" ValidationGroup="a"/> 
             </div>
           </div>
          </div>
