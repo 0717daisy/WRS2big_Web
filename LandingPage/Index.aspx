@@ -289,7 +289,7 @@
                                 <a href="#theteam" class="waves-effect waves-light"> The Team </a>
                             </li>
                             <li>
-                                <a href="#stations" class="waves-effect waves-light"> Refilling Stations </a>
+                                <a href="#subscription" class="waves-effect waves-light"> Subscribe </a>
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="/LandingPage/Account.aspx" class="waves-effect waves-light">
@@ -305,7 +305,7 @@
                 <div class="pcoded-wrapper">
                     <!-- Page-header start -->
                     <div class="page-header">
-                        <div class="page-block">
+                        <div class="">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
                                     <div class="page-header-title">
@@ -531,6 +531,64 @@
                                 </div>
                             </div>
                         </section>
+                        <!-- SUBSCRIPTION-->
+                        <section class="cell medium-8 padding-vertical-4">
+                            <a name="subscription"> </a>
+                            <div>
+                                <h1 class="h3 text-center">
+                                    <br> SUBSCRIPTION <br>
+                                </h1>
+                                <h4 style="color:black"> Pick the Best Plan</h4>
+                                <h2 class="texts text-center " style="font-size:20px;">Take your desired plan to get access to our service easily</h2><br />
+
+                            </div>
+                            <br>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3" style="background-color: white;">
+                                    </div>
+
+                                    <div class="col-sm-3" style="background-color: pink;">
+                                        <div class="">
+                                            <div class="text-center">
+                                                <img src="/images/BasicPlan.PNG" style="width:100%">
+                                            </div>
+                                            <p class="h3 text-center">BASIC PLAN</p>
+                                            <h2 class="texts text-center " style="font-size:20px;"> Grow your Water Refilling Business for only ₱3000 good for 6 Months ! Enjoy a hassle-free business process and attract new and loyal customers</h2> <br>
+                                            <div cell small-24 class="text-center">
+                                                <a href="BasicPlanSub.aspx" class="button" style="color:darkblue;font-size: 18px;background-color: lightskyblue;padding: 10px;">
+                                                    SUBSCRIBE
+                                                </a>
+                                            </div> <br>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-3" style="background-color: lightskyblue;">
+                                        <div class="service-item second-service">
+                                            <div class="text-center">
+                                                <img src="/images/PremiumPlan.PNG" style="width:100%">
+                                            </div>
+                                            <p class="h3 text-center">PREMIUM PLAN</p>
+                                            <h2 class="texts text-center" style="font-size:20px;">
+                                               Grow your Water Refilling Business for only ₱5500 good for 1 year ! Enjoy a hassle-free business process and attract new and loyal customers
+                                            </h2> <br>
+                                            <div cell small-24 class="text-center">
+                                                <a href="PremiumPlanSub" class="button" style="color:darkblue;font-size: 18px;background-color: pink;padding: 10px;">
+                                                    SUBSCRIBE
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3" style="background-color: white;">
+                                        <div class="service-item second-service">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
                         <a name="theteam" > </a>
                         </section class="login-block">
                         <!-- WHY 2BIG?-->
@@ -614,61 +672,8 @@
                             </div> <br>
                         </section>
 
-                        <!-- SUBSCRIPTION-->
-                        <section class="cell medium-8 padding-vertical-4">
-                            <a name="subscription"> </a>
-                            <div>
-                                <h1 class="h3 text-center">
-                                    <br> SUBSCRIPTION <br>
-                                </h1>
-                            </div>
-                            <br>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-sm-3" style="background-color: white;">
-                                    </div>
 
-                                    <div class="col-sm-3" style="background-color: pink;">
-                                        <div class="">
-                                            <div class="text-center">
-                                                <img src="/images/delivery.PNG" style="width:50%">
-                                            </div>
-                                            <p class="h3 text-center">BASIC PLAN</p>
-                                            <h2 class="texts text-center " style="font-size:20px;">Provides reliable and efficient service to residential and </h2> <br>
-                                            <div cell small-24 class="text-center">
-                                                <a href="#subscription" class="button" style="color:darkblue;font-size: 18px;background-color: lightskyblue;padding: 10px;">
-                                                    SUBSCRIBE
-                                                </a>
-                                            </div> <br>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-sm-3" style="background-color: lightskyblue;">
-                                        <div class="service-item second-service">
-                                            <div class="text-center">
-                                                <img src="/images/orders.PNG" style="width:50%">
-                                            </div>
-                                            <p class="h3 text-center">PREMIUM PLAN</p>
-                                            <h2 class="texts text-center" style="font-size:20px;">
-                                                Online ordering is critical for your business’ success.
-                                            </h2> <br>
-                                            <div cell small-24 class="text-center">
-                                                <a href="#subscription" class="button" style="color:darkblue;font-size: 18px;background-color: pink;padding: 10px;">
-                                                    SUBSCRIBE
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3" style="background-color: white;">
-                                        <div class="service-item second-service">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </section>
+                        <br />
                         <section class="cell medium-8 teal-gradient padding-vertical-4">
                             <div class="row">
                                 <div class="col-sm-4">

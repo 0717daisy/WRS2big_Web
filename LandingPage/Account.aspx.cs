@@ -145,7 +145,7 @@ namespace WRS2big_Web.LandingPage
                 Session["password"] = password;
                 Session["WRSname"] = obj.WRS_Name;
                 // Login successful, redirect to admin homepage
-                Response.Redirect("/Admin/AdminIndex.aspx");
+                Response.Redirect("/Admin/WaitingPage.aspx");
             }
             else
             {
