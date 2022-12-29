@@ -117,7 +117,11 @@
                                 <br><br>
 <%--                                @*      SIGN UP     *@--%>
                             <div class="active" id="register">
+                              <div class="card-header">
+	                               <h5>PERSONAL INFORMATION</h5>
+                               </div>
                                 <div class="row ">
+
 <%--                                    @*last name*@--%>
                                     <div class="col">
                                     <div class="form-group">  
@@ -182,9 +186,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-<%--                                    @*email*@--%>
+                                         <%--                                    @*email*@--%>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Email</label> 
@@ -193,6 +195,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div class="row">
+
                                        <%-- @*username*@--%>
                                         <div class="col">
                                         <div class="form-group">
@@ -204,28 +209,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-<%--                                    @*WRS NAME*@--%>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Water Station Name</label> 
-                                            <div class="input-group-sm">
-                                            <asp:TextBox runat="server" placeholder="Station Name" class="form-control" ID="txtStationName"></asp:TextBox> <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                   <%-- Upload File--%>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Upload Proof of Legitimacy</label> 
-                                            <div class="input-group-sm">
-                                <asp:FileUpload ID="txtproof" runat="server" Font-Size="Medium" Height="38px" Width="301px"  />  
-                                 </div>
-                                 </div>
-                                </div>
-                                    </div>
                                 <div class="row">
 <%--                                    @*password*@--%>
                                     <div class="col">
@@ -252,9 +235,9 @@
 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-<%--                                @*Show Password checkbox*@--%>
+ <%--                                @*Show Password checkbox*@--%>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-md-12">
                                         <div class="checkbox-fade fade-in-primary">
@@ -266,6 +249,36 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <!--REFILLING STATION-->
+                                 <div class="card-header">
+	                               <h5>REFILLING STATION INFORMATION</h5>
+                               </div>
+                                <div class="row">
+<%--                                    @*WRS NAME*@--%>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Water Station Name</label> 
+                                            <div class="input-group-sm">
+                                            <asp:TextBox runat="server" placeholder="Station Name" class="form-control" ID="txtStationName"></asp:TextBox> <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail"  ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   <%-- Upload File--%>
+                                    <div class="col">
+                                        <div class="form-group">
+                                           <label>Upload Valid Business Documents</label> 
+                                            <div class="input-group-sm">
+                                                <asp:FileUpload ID="txtproof" runat="server" Font-Size="Medium" Height="38px" Width="301px"  />  
+                                            </div>
+                                         </div>
+                                     </div>
+                                </div>
+
+
 <%--                                @*Show Password script*@--%>
                                 <script>
                                     const toggleregPassword = document.querySelector('#togglePasswordreg');
