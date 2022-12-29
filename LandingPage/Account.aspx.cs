@@ -71,7 +71,7 @@ namespace WRS2big_Web.LandingPage
             }
         }
         
-        public void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
 
             //Get the email and password entered by the user
@@ -138,12 +138,39 @@ namespace WRS2big_Web.LandingPage
 
             FirebaseResponse response;
             response = twoBigDB.Get("ADMIN/" + idno);
-            Model.AdminAccount obj = response.ResultAs<Model.AdminAccount>();
-            if (obj.Idno == int.Parse(idno) && obj.Pass == password)
+            Model.AdminAccount user = response.ResultAs<Model.AdminAccount>();
+            //if (user.Idno == int.Parse(idno) && user.Pass == password)
+            //{
+            //    Session["idno"] = idno;
+            //    Session["password"] = password;
+            //    Session["WRSname"] = user.WRS_Name;
+            //    // Login successful, redirect to admin homepage
+            //    Response.Redirect("/Admin/AdminIndex.aspx");
+            //}
+            //else
+            //{
+            //    // Login failed, display error message
+            //    //lblError.Text = "Invalid email or password!";
+            //    Response.Write("<script>alert('Invalid username or password');</script>");
+            //}
+
+            //Check if the id number and password are valid
+            if (user != null)
+            {
+             if (user.Pass == password)
             {
                 Session["idno"] = idno;
                 Session["password"] = password;
-                Session["WRSname"] = obj.WRS_Name;
+                Session["WRSname"] = user.WRS_Name;
+                Session["WRSname"] = user.WRS_Name;
+                Session["fname"] = user.Fname;
+                Session["mname"] = user.Mname;
+                Session["lname"] = user.Lname;
+                Session["fullName"] = user.Fname + " " + user.Mname + " " + user.Lname;
+                Session["dob"] = user.Bdate;
+                Session["contactNumber"] = user.Phone;
+                Session["email"] = user.Email;
+                Session["address"] = user.Address;
                 // Login successful, redirect to admin homepage
                 Response.Redirect("/Admin/WaitingPage.aspx");
             }
@@ -152,6 +179,12 @@ namespace WRS2big_Web.LandingPage
                 // Login failed, display error message
                 //lblError.Text = "Invalid email or password!";
                 Response.Write("<script>alert('Invalid username or password');</script>");
+            }
+            else
+            {
+                // User not found
+                //lblError.Text = " User not found";
+                Response.Write("<script>alert('User not found');</script>");
             }
         }
     }

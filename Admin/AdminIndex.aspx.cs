@@ -17,10 +17,10 @@ namespace WRS2big_Web.Admin
         {
             Session.Abandon();
             Session.RemoveAll();
-            Session["email"] = null;
+            Session["idno"] = null;
             Session["password"] = null;
             Session.Clear();
-            Response.Redirect("LandingPage/Account.aspx");
+            Response.Redirect("LandingPage/Index.aspx");
         }
     }
 }

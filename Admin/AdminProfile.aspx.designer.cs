@@ -15,6 +15,15 @@ namespace WRS2big_Web.Admin
     {
 
         /// <summary>
+        /// btnSubscription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubscription;
+
+        /// <summary>
         /// ImageButton_new control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace WRS2big_Web.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_new;
+
+        /// <summary>
+        /// Lbl_user control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_user;
 
         /// <summary>
         /// FileUpload1 control.
@@ -33,147 +51,93 @@ namespace WRS2big_Web.Admin
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
-        /// Search control.
+        /// Lbl_Idno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Search;
+        protected global::System.Web.UI.WebControls.Label Lbl_Idno;
 
         /// <summary>
-        /// btnDelete control.
+        /// txtfname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.TextBox txtfname;
 
         /// <summary>
-        /// Update control.
+        /// txtmname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Update;
+        protected global::System.Web.UI.WebControls.TextBox txtmname;
 
         /// <summary>
-        /// LstBoxAdminProfile control.
+        /// txtlname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxAdminProfile;
+        protected global::System.Web.UI.WebControls.TextBox txtlname;
 
         /// <summary>
-        /// Lbl_fname control.
+        /// txtdob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_fname;
+        protected global::System.Web.UI.WebControls.TextBox txtdob;
 
         /// <summary>
-        /// Lbl_mname control.
+        /// txtcontact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_mname;
+        protected global::System.Web.UI.WebControls.TextBox txtcontact;
 
         /// <summary>
-        /// Lbl_lname control.
+        /// txtemail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lname;
+        protected global::System.Web.UI.WebControls.TextBox txtemail;
 
         /// <summary>
-        /// Lbl_contact control.
+        /// txtaddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_contact;
+        protected global::System.Web.UI.WebControls.TextBox txtaddress;
 
         /// <summary>
-        /// Lbl_email control.
+        /// lblStationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_email;
+        protected global::System.Web.UI.WebControls.Label lblStationName;
 
         /// <summary>
-        /// Lbl_address control.
+        /// btnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_address;
-
-        /// <summary>
-        /// firstname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstname;
-
-        /// <summary>
-        /// midname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox midname;
-
-        /// <summary>
-        /// lastname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastname;
-
-        /// <summary>
-        /// contactno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contactno;
-
-        /// <summary>
-        /// email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
-
-        /// <summary>
-        /// address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox address;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
     }
 }

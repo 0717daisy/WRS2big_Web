@@ -70,65 +70,91 @@ chart.render();
                                       <h2>Order List</h2>
                                        <div class="clearfix"></div>
                                         </div>
-                                         <div class="x_content">
-                                          <div class="row">
-                                           <div class="col-sm-12">
-                                             <div class="card-box table-responsive">
-                                                   <%-- DISPLAY TABLE STARTS HERE--%>
-                                              <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                                               <thead>
-                                                 <tr>
-                                                  <th>Order ID.</th>
-                                                  <th>Customer Name</th>
-                                                  <th>Category</th>
-                                                  <th>Type</th>
-                                                  <th>Quantity</th>
-                                                  <th>Date and Time</th>
-                                                  <th>Status</th>
-                                                  <th style="width: 10%"></th>
-                                                  </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                  <tr>
-                                                  <td>10001</td>
-                                                  <td>Rania Dejacto</td>
-                                                  <td>Liter</td>
-                                                  <td>Purified</td>
-                                                  <td>2</td>
-                                                  <td>10/18/2022</td>
-                                                  <td align="center"><span class="badge badge-secondary">Pending</span></td>
-                                                  <td align="center">
-                                                      <%--PLEASE CHANGE TO ASP BUTTON--%>
-                                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".accept"><i class="fa fa-check-square-o"></i>Acccept</button> 
-                                             <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash">Decline</i></button></td>
-                                                 </tr>
-                                               </tbody>
-                                                     <tbody>
-                                                     <tr>
-                                                     <th>Order ID.</th>
-                                                     <th>Customer Name</th>
-                                                     <th>Category</th>
-                                                     <th>Type</th>
-                                                     <th>Quantity</th>
-                                                     <th>Date and Time</th>
-                                                     <th>Status</th>
-                                                     <th style="width: 10%"></th>
-                                                     </tr>
-                                                     </tbody>
-                                                     </table>
-                                                     <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
-                                                     <div class="modal-dialog modal-sm">
-                                                     <div class="modal-content">
-                                                     <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                         <!--PAGE CONTENTS-->
+                                               <div class="row">
+                                                   <div class="col-xl-3 col-md-12">
+                                                    <div class="card ">
+                                                        <div class="card-header">
+                                                            <div class="card-header-right">
+                                                                <ul class="list-unstyled card-option">
+                                                                    <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                    <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                    <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                    <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                    <li><i class="fa fa-trash close-card"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <h5>Water Order ID:</h5>
+                                                        </div>
+                                                        <div class="card-block">        
+                                                           <asp:ListBox ID="ListBox1" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="273px" Height="179px">
+                                                           </asp:ListBox> 
+                                                            <asp:Button ID="Button1" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
+                                                        </div>
+                                                    <div class="card-footer">
+                                                       
+                                                        
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                                   
+                                            <div class="col-xl-9 col-md-12">
+                                                <div class="card" style="background-color:#f2e2ff">
+                                                    <div class="card-header">
+                                                        <h5>WATER ORDER LIST</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                <li><i class="fa fa-trash close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="table-responsive">
+                                                            <div class="tab-content">
+                                                            <div class="tab-pane active">
+                                                                      <div class="form-group">                
+                                                                        <div class="col-xs-12" style="font-size:16px">
+                                                                           <h5>Order ID:</h5> 
+                                                                            <asp:Label ID="LabelID" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                            <h5>Borrow Gallons: </h5>
+                                                                            <asp:Label ID="LblBorrowGal" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                          <br>
+                                                                            <h5>Own Gallons: </h5>
+                                                                              <asp:Label ID="Lbl_OwnGallons" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                             <h5>Product Type:  </h5>
+                                                                            <asp:Label ID="Lbl_ProdType" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                            <h5>Order Quantity:  </h5>
+                                                                            <asp:Label ID="Lbl_OrderQty" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                            <h5>Reservation Date:  </h5>
+                                                                            <asp:Label ID="Lbl_ReservDate" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                            <h5>Order Type:  </h5>
+                                                                            <asp:Label ID="Lbl_OrderType" runat="server" class="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" ></asp:Label>
+                                                                            <br>
+                                                                          </div>
+                                                                      </div>
+                                                              </div><!--/tab-pane-->
+                                                          </div><!--/tab-content-->
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                                     <asp:Button ID="AcceptBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="ACCEPT"/>
+                                                                       <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="DECLINE" OnClick="DeleteBtn_Click" /> 
+                                                    </div>
+                                                </div>
+                                               </div> 
+                                             </div>
+                                      <!--PAGE CONTENTS END-->
+
                                                                  <!-- /page content -->
                                                              </div>
                                                         </div>

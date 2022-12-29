@@ -28,46 +28,22 @@ namespace WRS2big_Web.Admin
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
 
-            //RetrieveRecords();
-            //displayRecords();
-
-            //Retrieve Data
-            FirebaseResponse response = twoBigDB.Get("ADMIN");
-            Model.AdminAccount obj = response.ResultAs<Model.AdminAccount>();
-            var json = response.Body;
-            Dictionary<string, Model.AdminAccount> list = JsonConvert.DeserializeObject<Dictionary<string, Model.AdminAccount>>(json);
-
-            foreach (KeyValuePair<string, Model.AdminAccount> item in list)
-            {
-                LstBoxAdminProfile.Items.Add(item.Value.Idno.ToString());
-                //LstBoxAdminProfile.Items.Add(item.Value.Idno.ToString() 
-                //+ " " + item.Value.Fname.ToString()
-                //+ " " + item.Value.Mname.ToString()
-                //+ " " + item.Value.Lname.ToString()
-                //+ " " + item.Value.Phone.ToString()
-                //+ " " + item.Value.Email.ToString()
-                //+ " " + item.Value.Address.ToString());
-            }
-            
+            Lbl_Idno.Text = (string)Session["idno"];
+            txtfname.Text = (string)Session["fname"];
+            txtmname.Text = (string)Session["mname"];
+            txtlname.Text = (string)Session["lname"];
+            txtcontact.Text = (string)Session["contactNumber"];
+            txtemail.Text = (string)Session["email"];
+            txtaddress.Text = (string)Session["address"];
+            txtdob.Text = (string)Session["dob"];
+            lblStationName.Text = (string)Session["WRSname"];
+            Lbl_user.Text = (string)Session["fullName"];
 
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void btnSubscription_Click(object sender, EventArgs e)
         {
-            String searchStr;
-            searchStr = LstBoxAdminProfile.SelectedValue;
-            //FirebaseResponse response;
-            //response = twoBigDB.Get(@"WATER_GALLONS/" + LstBoxAdminProfile.SelectedValue);
-            //Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
-            FirebaseResponse response = twoBigDB.Get("ADMIN/" + searchStr);
-            Model.AdminAccount obj = response.ResultAs<Model.AdminAccount>();
            
-            Lbl_fname.Text = obj.Fname.ToString();
-            Lbl_mname.Text = obj.Mname.ToString();
-            Lbl_lname.Text = obj.Lname.ToString();
-            Lbl_contact.Text = obj.Phone.ToString();
-            Lbl_email.Text = obj.Email.ToString();
-            Lbl_address.Text = obj.Address.ToString();
 
 
         }
@@ -100,7 +76,7 @@ namespace WRS2big_Web.Admin
         //}
         //protected void btnSearch_Click(object sender, EventArgs e)
         //{
-           
+
         //    String searchStr;
         //    searchStr = LstBoxAdminProfile.SelectedValue;
         //    FirebaseResponse response;
@@ -116,38 +92,46 @@ namespace WRS2big_Web.Admin
         //}
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            
             Model.AdminAccount data = new Model.AdminAccount()
             {
-                Fname = firstname.Text,
-                Mname = midname.Text,
-                Lname = lastname.Text,
-                Phone = contactno.Text,
-                Email = email.Text,
-                Address = address.Text
+                Idno = int.Parse(Lbl_Idno.Text),
+                Fname = txtfname.Text,
+                Mname = txtmname.Text,
+                Lname = txtlname.Text,
+                Bdate = txtdob.Text,
+                Phone = txtcontact.Text,
+                Email = txtemail.Text,
+                Address = txtaddress.Text,
+                WRS_Name = lblStationName.Text
 
             };
-            twoBigDB.Update("ADMIN/" + firstname.Text, data);
+            twoBigDB.Update("ADMIN/" + Lbl_Idno.Text, data);//Update Product Data
             //lbResult.Text = "Record successfully updated!";
-            var result = twoBigDB.Get("ADMIN/" + firstname.Text.ToString());
-            Model.AdminAccount obj = result.ResultAs<Model.AdminAccount>();
-            Lbl_fname.Text = obj.Fname;
-            Lbl_mname.Text = obj.Mname;
-            Lbl_lname.Text = obj.Lname;
-            Lbl_contact.Text = obj.Phone;
-            Lbl_email.Text = obj.Email;
-            Lbl_address.Text = obj.Address;
-            //lblResult.Text = "Record Updated Successfully!";
+            var result = twoBigDB.Get("ADMIN/" + Lbl_Idno.Text);//Retrieve Updated Data From ADMIN TBL
+            Model.AdminAccount obj = result.ResultAs<Model.AdminAccount>();//Database Result
+
+            Lbl_Idno.Text = obj.Idno.ToString();
+            txtfname.Text = obj.Fname.ToString();
+            txtmname.Text = obj.Mname.ToString();
+            txtlname.Text = obj.Lname.ToString();
+            txtcontact.Text = obj.Phone.ToString();
+            txtemail.Text = obj.Email.ToString();
+            txtaddress.Text = obj.Address.ToString();
+            txtdob.Text = obj.Bdate.ToString();
+            lblStationName.Text = obj.WRS_Name.ToString();
 
 
         }
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-            String deleteStr;
-            deleteStr = LstBoxAdminProfile.SelectedValue;
-            FirebaseResponse response = twoBigDB.Delete("ADMIN/" + deleteStr);
+        //protected void btnLogout_Click(object sender, EventArgs e)
+        //{
+        //    Session.Abandon();
+        //    Session.RemoveAll();
+        //    Session["idno"] = null;
+        //    Session["password"] = null;
+        //    Session.Clear();
+        //    Response.Redirect("/LandingPage/Index.aspx");
 
-            //lbl_result.Text = "Records Successfully deleted!";
-            Response.Write("<script>alert ('Records successfully deleted!');</script>");
-        }
+        //}
     }
 }

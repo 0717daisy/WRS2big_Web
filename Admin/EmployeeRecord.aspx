@@ -86,7 +86,9 @@
                                           <div class="col-md-12 col-sm-12">
                                               <%--date of birth--%>
                                           <strong>Date of Birth:</strong>
-                                            <asp:TextBox ID="txtbirthdate" runat="server" class="form-control" placeholder="Employees' Date of Birth" TextMode="Date"></asp:TextBox>                                         <asp:RequiredFieldValidator ID="reqdob" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="txtbirthdate" ValidationGroup="a"></asp:RequiredFieldValidator>    
+                                            <asp:TextBox ID="txtbirthdate" runat="server" class="form-control" placeholder="Employees' Date of Birth" TextMode="Date"></asp:TextBox>
+                                              <%--<asp:RangeValidator ID="RangeValidator1" runat="server"  ErrorMessage="Age must be 18 years and above!" ControlToValidate="txtbirthdate" MaximumValue="01/01/2004"  Display="Dynamic" ForeColor="Red" ValidationGroup="a"></asp:RangeValidator>--%>
+                                              <asp:RequiredFieldValidator ID="reqdob" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="txtbirthdate" ValidationGroup="a"></asp:RequiredFieldValidator>    
                                            </div>
                                            <%--</div>--%>
                                           <%-- <div class="item form-group">--%>
@@ -153,6 +155,13 @@
                                                </asp:DropDownList>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="drdrole" ValidationGroup="a"></asp:RequiredFieldValidator>
                                             <%--  </div>--%>
+                                                <strong>Status:</strong>
+                                               <asp:DropDownList ID="Drd_status" runat="server" Height="40px" Width="364px" OnSelectedIndexChanged="statusDropdown_SelectedIndexChanged">
+                                                    <%-- <asp:ListItem Text="Select Employee Status" Enabled="False"></asp:ListItem>--%>
+                                                     <asp:ListItem Text="Active" Value="Active" Selected="True" ></asp:ListItem>
+                                                     <asp:ListItem Text="Inactive" Value="Inactive" ></asp:ListItem>
+                                                     </asp:DropDownList>
+                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="Drd_status" ValidationGroup="a"></asp:RequiredFieldValidator>
                                               </div>
                                             </div>
                                           </div>
@@ -171,6 +180,7 @@
                                          <br />
                                          <%--PAGE CONTENTS FOR LISTBOX--%> 
                                                <div class="row">
+                                                  <%-- ACTIVE EMPLOYEE PAGE --%>
                                                    <div class="col-xl-3 col-md-12">
                                                     <div class="card ">
                                                         <div class="card-header">
@@ -183,12 +193,38 @@
                                                                     <li><i class="fa fa-trash close-card"></i></li>
                                                                 </ul>
                                                             </div>
-                                                            <h5>EMPLOYEE ID:</h5>
+                                                            <h5>ACTIVE EMPLOYEE ID:</h5>
                                                         </div>
                                                         <div class="card-block">        
                                                            <asp:ListBox ID="ListBoxEmployeeRecord" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="243px" Height="179px">
                                                            </asp:ListBox> 
                                                             <asp:Button ID="btnDisplay" onclick="btnDisplay_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
+                                                        </div>
+                                                    <div class="card-footer">
+                                                        <%--<button onclick="btnDisplay_Click" type="button" id="displaybtn" style="font-size:14px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display"><i class="ti-notepad"></i>View Complete Details</button>  <br /> <br />--%>
+                                                        
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                                     <%-- INACTIVE EMPLOYEE PAGE --%>
+                                                   <div class="col-xl-3 col-md-12">
+                                                    <div class="card ">
+                                                        <div class="card-header">
+                                                            <div class="card-header-right">
+                                                                <ul class="list-unstyled card-option">
+                                                                    <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                                    <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                                    <li><i class="fa fa-minus minimize-card"></i></li>
+                                                                    <li><i class="fa fa-refresh reload-card"></i></li>
+                                                                    <li><i class="fa fa-trash close-card"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <h5>INACTIVE EMPLOYEE ID:</h5>
+                                                        </div>
+                                                        <div class="card-block">        
+                                                           <asp:ListBox ID="ListBox1" runat="server" style="border:transparent; font-size:20px;padding:4px 7px 2px 4px;" Width="243px" Height="179px">
+                                                           </asp:ListBox> 
+                                                            <asp:Button ID="Button1" onclick="btnInActiveEmp_Click" type="button" style="font-size:14px;" class="btn btn-primary btn-sm" runat="server" Text="View Complete Details" />
                                                         </div>
                                                     <div class="card-footer">
                                                         <%--<button onclick="btnDisplay_Click" type="button" id="displaybtn" style="font-size:14px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".display"><i class="ti-notepad"></i>View Complete Details</button>  <br /> <br />--%>
@@ -247,6 +283,12 @@
                                                                            <asp:ListItem Text="Water Refiller" Value="Water Refiller" ></asp:ListItem>
                                                                            <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
                                                                        </asp:DropDownList>
+                                                                            <h5>Status: </h5>
+                                                                            <asp:DropDownList ID="drdStatus" runat="server" CssClass="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" OnSelectedIndexChanged="EmployeeStatusDropdown_SelectedIndexChanged"> 
+                                                                           <asp:ListItem Text="Select Employee Status" Value="Cashier" Enabled="False"></asp:ListItem>
+                                                                           <asp:ListItem Text="Active" Value="Active" Selected="True" ></asp:ListItem>
+                                                                           <asp:ListItem Text="Inactive" Value="Inactive" ></asp:ListItem>
+                                                                       </asp:DropDownList>
                                                                           </div>
                                                                       </div>
                                                               </div><!--/tab-pane-->
@@ -256,7 +298,7 @@
                                                     </div>
                                                     <div class="card-footer">
                                                                      <asp:Button ID="EditBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="Update Records" OnClick="btnEdit_Click"/>
-                                                                       <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="Delete Records" OnClick="DeleteBtn_Click" /> 
+                                                                       <%--<asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="Delete Records" OnClick="DeleteBtn_Click" />--%> 
                                                     </div>
                                                 </div>
 
