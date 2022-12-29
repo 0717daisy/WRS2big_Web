@@ -29,11 +29,13 @@ namespace WRS2big_Web
 
             //if (Session["username"] == null)
             //{
-            //    Response.Redirect("Account.aspx");
+            //    Response.Redirect("/LandingPage/Account.aspx");
             //}
             if (Session["idno"] == null)
             {
-                Response.Redirect("Account.aspx");
+                // User not found
+                Response.Write("<script>alert('User not found');</script>");
+                //Response.Redirect("/LandingPage/Account.aspx");
             }
             else
             {

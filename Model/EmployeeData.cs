@@ -19,5 +19,6 @@ namespace WRS2big_Web.Model
         public string emp_dateHired { get; set; }
         public string emp_emergencycontact { get; set; }
         public string emp_role { get; set; }
+        public string emp_status { get; set; }
     }
 }

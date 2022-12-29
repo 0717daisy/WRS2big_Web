@@ -25,7 +25,6 @@ namespace WRS2big_Web.Admin
         };
         IFirebaseClient twoBigDB;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //connection to database 
@@ -36,7 +35,10 @@ namespace WRS2big_Web.Admin
             {
                 DisplayID();
             }
+
+           
         }
+
         private void DisplayID()
         {
             FirebaseResponse response;
@@ -45,28 +47,85 @@ namespace WRS2big_Web.Admin
             var json = response.Body;
             Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
 
+           
             foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
             {
                 ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+                //if (entry.Value.emp_status)
+                //{
+                //    ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+                //}
+                //else
+                //{
+                //    ListBox1.Items.Add(entry.Value.emp_id.ToString());
+                //}
+
             }
         }
-        //RETRIEVE DATA
-        //protected void ViewID_Click(object sender, EventArgs e)
-        //{
-        //    FirebaseResponse response;
-        //    response = twoBigDB.Get("EMPLOYEERECORD");
-        //    Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
-        //    var json = response.Body;
-        //    Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
+        protected void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //bool showActive = Drd_status.SelectedValue == "Active";
+            //bool showInactive = Drd_status.SelectedValue == "Inactive";
 
-        //    foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
-        //    {
-        //        ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
-        //    }
-        //}
+            //ListBoxEmployeeRecord.Visible = showActive;
+            //ListBox1.Visible = showInactive;
 
-        //SEARCH DATA
-        protected void btnDisplay_Click(object sender, EventArgs e)
+            // Get the selected value of the dropdown
+            string selectedValue = Drd_status.SelectedValue;
+
+            // Create a new list to store the filtered items
+            List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
+
+            // Loop through the items in the listbox and filter the list
+            foreach (Model.EmployeeData employee in ListBoxEmployeeRecord.Items)
+            {
+                if (employee.emp_status == selectedValue)
+                {
+                    filteredEmployees.Add(employee);
+                }
+            }
+        }
+        protected void EmployeeStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //bool showActive = Drd_status.SelectedValue == "Active";
+            //bool showInactive = Drd_status.SelectedValue == "Inactive";
+
+            //ListBoxEmployeeRecord.Visible = showActive;
+            //ListBox1.Visible = showInactive;
+
+            // Get the selected value of the dropdown
+            string selectedValue = drdStatus.SelectedValue;
+
+            // Create a new list to store the filtered items
+            List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
+
+            // Loop through the items in the listbox and filter the list
+            foreach (Model.EmployeeData employee in ListBox1.Items)
+            {
+                if (employee.emp_status == selectedValue)
+                {
+                    filteredEmployees.Add(employee);
+                }
+            }
+        }
+    
+    //RETRIEVE DATA
+    //protected void ViewID_Click(object sender, EventArgs e)
+    //{
+    //    FirebaseResponse response;
+    //    response = twoBigDB.Get("EMPLOYEERECORD");
+    //    Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
+    //    var json = response.Body;
+    //    Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
+
+    //    foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
+    //    {
+    //        ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+    //    }
+    //}
+
+    //SEARCH DATA
+    protected void btnDisplay_Click(object sender, EventArgs e)
         {
             String slected;
             slected = ListBoxEmployeeRecord.SelectedValue;
@@ -87,6 +146,31 @@ namespace WRS2big_Web.Admin
             LbldateHired.Text = obj.emp_dateHired.ToString();
             emergencycontact.Text = obj.emp_emergencycontact.ToString();
             drdPosition.Text = obj.emp_role.ToString();
+            drdStatus.Text = obj.emp_status.ToString();
+        }
+
+        protected void btnInActiveEmp_Click(object sender, EventArgs e)
+        {
+            String slected;
+            slected = ListBox1.SelectedValue;
+
+            FirebaseResponse response;
+            response = twoBigDB.Get("EMPLOYEERECORD/" + slected);
+            Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
+
+            LblID.Text = obj.emp_id.ToString();
+            firstname.Text = obj.emp_firstname.ToString();
+            midname.Text = obj.emp_midname.ToString();
+            lastname.Text = obj.emp_lastname.ToString();
+            LblDOB.Text = obj.emp_birthdate.ToString();
+            LblGender.Text = obj.emp_gender.ToString();
+            address.Text = obj.emp_address.ToString();
+            contactnum.Text = obj.emp_contactnum.ToString();
+            email.Text = obj.emp_email.ToString();
+            LbldateHired.Text = obj.emp_dateHired.ToString();
+            emergencycontact.Text = obj.emp_emergencycontact.ToString();
+            drdPosition.Text = obj.emp_role.ToString();
+            drdStatus.Text = obj.emp_status.ToString();
         }
 
         // STORE/ADD DATA
@@ -110,23 +194,15 @@ namespace WRS2big_Web.Admin
                     emp_email = txtemail.Text,
                     emp_dateHired = txtdateHired.Text,
                     emp_emergencycontact = txtemergencycontact.Text,
-                    emp_role = drdrole.Text
+                    emp_role = drdrole.Text,
+                    emp_status = Drd_status.Text
                 };
                 SetResponse response;
                 // Employee Records = tablename, emp_id = key ( PK? )
-                response = twoBigDB.Set("EMPLOYEERECORD/" + data.emp_id, data);//Store Data to database     
-
-                //FirebaseResponse result = twoBigDB.Get("EMPLOYEERECORD");//Retrieve data from the database
+                response = twoBigDB.Set("EMPLOYEERECORD/" + data.emp_id, data);//Store Data to database   
                 Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();//Database Result
-                //var json = response.Body;
-                //Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
-
-                //foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
-                //{
-                //    ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
-                //}
-
-                Response.Write("<script> alert ('Employee record successfully added! </script>");
+               
+                Response.Write("<script> alert ('Employee record: " + data.emp_id + " successfully added!' </script>");
             }
             catch (Exception ex)
             {
@@ -137,8 +213,8 @@ namespace WRS2big_Web.Admin
         //UPDATE DATA
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            String deleteStr;
-            deleteStr = ListBoxEmployeeRecord.SelectedValue;
+            String EditStr;
+            EditStr = ListBoxEmployeeRecord.SelectedValue;
 
             var data = new Model.EmployeeData();
 
@@ -154,11 +230,12 @@ namespace WRS2big_Web.Admin
             data.emp_dateHired = LbldateHired.Text;
             data.emp_emergencycontact = emergencycontact.Text;
             data.emp_role = drdPosition.Text;
+            data.emp_status = drdStatus.Text;
 
             FirebaseResponse response;
-            response = twoBigDB.Update("EMPLOYEERECORD/" + deleteStr, data);//Update Product Data 
+            response = twoBigDB.Update("EMPLOYEERECORD/" + EditStr, data);//Update Product Data 
 
-            var result = twoBigDB.Get("EMPLOYEERECORD/" + deleteStr);//Retrieve Updated Data From WATERPRODUCT TBL
+            var result = twoBigDB.Get("EMPLOYEERECORD/" + EditStr);//Retrieve Updated Data From WATERPRODUCT TBL
             Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();//Database Result
 
             LblID.Text = obj.emp_id.ToString();
@@ -173,28 +250,28 @@ namespace WRS2big_Web.Admin
             LbldateHired.Text = obj.emp_dateHired.ToString();
             emergencycontact.Text = obj.emp_emergencycontact.ToString();
             drdPosition.Text = obj.emp_role.ToString();
+            drdStatus.Text = obj.emp_status.ToString();
 
-
-            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully updated!');</script>");
+            Response.Write("<script>alert ('Employee ID : " + EditStr + " successfully updated!');</script>");
         }
 
         //DELETE DATA
-        protected void DeleteBtn_Click(object sender, EventArgs e)
-        {
-            String deleteStr;
-            deleteStr = ListBoxEmployeeRecord.SelectedValue;
-            FirebaseResponse response = twoBigDB.Delete("EMPLOYEERECORD/" + deleteStr);
+        //protected void DeleteBtn_Click(object sender, EventArgs e)
+        //{
+        //    String deleteStr;
+        //    deleteStr = ListBoxEmployeeRecord.SelectedValue;
+        //    FirebaseResponse response = twoBigDB.Delete("EMPLOYEERECORD/" + deleteStr);
 
-            //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
-            int selected = ListBoxEmployeeRecord.SelectedIndex;
-            if (selected != 1)
-            {
-                ListBoxEmployeeRecord.Items.RemoveAt(selected);
-            }
+        //    //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
+        //    int selected = ListBoxEmployeeRecord.SelectedIndex;
+        //    if (selected != 1)
+        //    {
+        //        ListBoxEmployeeRecord.Items.RemoveAt(selected);
+        //    }
 
-            Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully deleted ! '); window.location.href = '/Admin/EmployeeRecord.aspx'; </script>");
+        //    Response.Write("<script>alert ('Employee ID : " + deleteStr + " successfully deleted ! '); window.location.href = '/Admin/EmployeeRecord.aspx'; </script>");
 
-        }
+        //}
 
     }
 }

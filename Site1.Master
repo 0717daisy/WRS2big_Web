@@ -141,6 +141,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <%--ADMIN PROFILE IMAGE--%>
+                                    <%--<asp:Image ID="Image1" runat="server" />--%>
                                     <img src="/images/rhea.png" class="img-radius" alt="User-Profile-Image">
                                     <%--LABEL NAME--%>
                                     <asp:Label ID="lblWRSname" runat="server"></asp:Label>
