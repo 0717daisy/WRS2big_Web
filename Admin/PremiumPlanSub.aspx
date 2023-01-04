@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PremiumPlanSub.aspx.cs" Inherits="WRS2big_Web.LandingPage.PremiumPlanSub" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PremiumPlanSub.aspx.cs" Inherits="WRS2big_Web.Admin.PremiumPlanSub" %>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -7,7 +7,6 @@
         <div class="pcoded-container navbar-wrapper">
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
- 
                     <div class="pcoded-content">
                         <!-- Page-header start -->
                         <div class="page-header">
@@ -51,9 +50,14 @@
                                                                                 <h3 class="text-left font-weight-light my-2">Waiting for Approval</h3>   
                                
                                                                             </div>
-                                                                             <h2 class="texts text-center " style="font-size:20px;"> Please wait for your account to be approved </h2> 
+                                                                             <h2 class="texts text-center " style="font-size:20px;"> "Please wait for your account to be approved. You will receive a notification once your account is approved" </h2> 
                                                                         </div>               
-
+                                                                         <!-- cancel button -->
+                                                                           <div class="container pt-4 px-0">
+                                                                           <a href="SubscriptionPlans.aspx" class="button btn btn-prinary">
+                                                                            View Subscription Plans
+                                                                            </a>
+                                                                        </div>
                                                                         </div>
                                                                     </div>
 
@@ -68,6 +72,7 @@
                                                     </div>
                                                 <!-- end of container-fluid -->
                                                     </section>
+
                                         <div class="row">
                                             <div class="col-xl-3 col-md-6">
                                                 <div class="card">

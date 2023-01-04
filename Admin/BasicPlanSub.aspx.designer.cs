@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WRS2big_Web.LandingPage
+namespace WRS2big_Web.Admin
 {
 
 

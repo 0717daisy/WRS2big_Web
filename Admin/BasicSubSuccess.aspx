@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PremiumSubSuccess.aspx.cs" Inherits="WRS2big_Web.LandingPage.PremiumSubSuccess" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicSubSuccess.aspx.cs" Inherits="WRS2big_Web.Admin.BasicSubSuccess" %>
 
 
 <!DOCTYPE html>
@@ -109,22 +108,25 @@
                             </div>
                              <h2 class="texts text-center " style="font-size:20px;"> You successfully subscribed to 2BiG's</h2> 
                                             <div class="text-center">
-                                                <img src="/images/PremiumPlan.PNG" style="width:70%">
+                                                <img src="/images/BasicPlan.PNG" style="width:70%">
                                             </div>
-                                <div class="text-center">
-                                     <p class="h3 text-center">PREMIUM PLAN</p>
-                                </div>
-                                   <div class="jumbotron h4" style="background-color:cornsilk"> 
-                                    <center>
-                                     Thank you for subscribing with TechNique!!
-                                    </center>   
-                                    </div>
-                               <div class="col text-center">
-                                     <asp:Button ID="btnContinue" CssClass="btn btn-primary" OnClick="btnContinue_Click" runat="server" Text="Proceed" />
+                                  <div class="text-center">
+                                     <p class="h3 text-center">BASIC PLAN</p>
                                 </div>
                         </div>               
-                        </div>
+                        <div class="card-body">
 
+                            <div class="jumbotron h4" style="background-color:cornsilk"> 
+                                <center>
+                                 Thank you for subscribing with TechNique!!
+                                </center>
+                               
+                            </div>
+                        </div> 
+                        </div>
+                         <div class="col text-center">
+                             <asp:Button ID="btnContinue" CssClass="btn btn-primary" OnClick="btnContinue_Click" runat="server" Text="Proceed" />
+                        </div>
                     </div>
 
                 </div>
@@ -163,6 +165,4 @@
 </form>
 </body>
 </html>
-
-
 

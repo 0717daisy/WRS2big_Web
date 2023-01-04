@@ -294,6 +294,7 @@
     <Content Include="Admin\Reviews.aspx" />
     <Content Include="Admin\Rewards.aspx" />
     <Content Include="Admin\Station.aspx" />
+    <Content Include="Admin\SubscriptionPlans.aspx" />
     <Content Include="Admin\WaitingPage.aspx" />
     <Content Include="Admin\WaterOrders.aspx" />
     <Content Include="Admin\WaterProduct.aspx" />
@@ -454,11 +455,11 @@
     <Content Include="images\PremiumPlan.png" />
     <Content Include="images\water.png" />
     <Content Include="LandingPage\Account.aspx" />
+    <Content Include="Admin\BasicSubSuccess.aspx" />
     <Content Include="LandingPage\Index.aspx" />
-    <Content Include="LandingPage\BasicPlanSub.aspx" />
-    <Content Include="LandingPage\PremiumPlanSub.aspx" />
-    <Content Include="LandingPage\BasicSubSuccess.aspx" />
-    <Content Include="LandingPage\PremiumSubSuccess.aspx" />
+    <Content Include="Admin\BasicPlanSub.aspx" />
+    <Content Include="Admin\PremiumPlanSub.aspx" />
+    <Content Include="Admin\PremiumSubSuccess.aspx" />
     <Content Include="LandingPage\Terms.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -662,6 +663,13 @@
     <Compile Include="Admin\Station.aspx.designer.cs">
       <DependentUpon>Station.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\SubscriptionPlans.aspx.cs">
+      <DependentUpon>SubscriptionPlans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SubscriptionPlans.aspx.designer.cs">
+      <DependentUpon>SubscriptionPlans.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\WaitingPage.aspx.cs">
       <DependentUpon>WaitingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -699,6 +707,13 @@
     <Compile Include="LandingPage\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\BasicSubSuccess.aspx.cs">
+      <DependentUpon>BasicSubSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BasicSubSuccess.aspx.designer.cs">
+      <DependentUpon>BasicSubSuccess.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LandingPage\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -706,35 +721,29 @@
     <Compile Include="LandingPage\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LandingPage\BasicPlanSub.aspx.cs">
+    <Compile Include="Admin\BasicPlanSub.aspx.cs">
       <DependentUpon>BasicPlanSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LandingPage\BasicPlanSub.aspx.designer.cs">
+    <Compile Include="Admin\BasicPlanSub.aspx.designer.cs">
       <DependentUpon>BasicPlanSub.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LandingPage\PremiumPlanSub.aspx.cs">
+    <Compile Include="Admin\PremiumPlanSub.aspx.cs">
       <DependentUpon>PremiumPlanSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LandingPage\PremiumPlanSub.aspx.designer.cs">
+    <Compile Include="Admin\PremiumPlanSub.aspx.designer.cs">
       <DependentUpon>PremiumPlanSub.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LandingPage\BasicSubSuccess.aspx.cs">
-      <DependentUpon>BasicSubSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LandingPage\BasicSubSuccess.aspx.designer.cs">
-      <DependentUpon>BasicSubSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LandingPage\PremiumSubSuccess.aspx.cs">
+    <Compile Include="Admin\PremiumSubSuccess.aspx.cs">
       <DependentUpon>PremiumSubSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LandingPage\PremiumSubSuccess.aspx.designer.cs">
+    <Compile Include="Admin\PremiumSubSuccess.aspx.designer.cs">
       <DependentUpon>PremiumSubSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\AdminAccount.cs" />
+    <Compile Include="Model\CustomerAcc.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
     <Compile Include="Model\RefillProduct.cs" />
