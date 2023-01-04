@@ -158,7 +158,16 @@
                                         <div class="form-group">
                                             <label>Birthdate</label> <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtbirthdate" ForeColor="Red" ErrorMessage="*" Font-Bold="true"></asp:RequiredFieldValidator>
                                             <div class="input-group-sm">
-                                            <asp:TextBox runat="server" TextMode="Date" class="form-control" ID="txtbirthdate" Placeholder="YYYY/MM/D"></asp:TextBox> 
+                                            <asp:TextBox runat="server" TextMode="Date" class="form-control" ID="txtbirthdate" onchange="validateDate()"></asp:TextBox> 
+                                                <script>
+                                                    function validateDate() {
+                                                        var date = new Date(document.getElementById("txtbirthdate").value);
+                                                        if ((date.getFullYear() >= 2004) || (date.getFullYear() <= 1922)) {
+                                                            alert("Please select a date in between 1922 and 2004. You must be 18 years and above!");
+                                                            document.getElementById("txtbirthdate").value = "";
+                                                        }
+                                                    }
+                                                </script>
 
                                             </div>
                                         </div>
@@ -272,7 +281,7 @@
                                         <div class="form-group">
                                            <label>Upload Valid Business Documents</label> 
                                             <div class="input-group-sm">
-                                                <asp:FileUpload ID="txtproof" runat="server" Font-Size="Medium" Height="38px" Width="301px"  />  
+                                                <asp:FileUpload ID="txtproof" runat="server" Font-Size="Medium" Height="38px" Width="301px" OnChange="UploadFile"  />  
                                             </div>
                                          </div>
                                      </div>

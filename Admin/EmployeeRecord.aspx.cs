@@ -62,68 +62,48 @@ namespace WRS2big_Web.Admin
 
             }
         }
-        protected void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        protected void drdgender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //bool showActive = Drd_status.SelectedValue == "Active";
-            //bool showInactive = Drd_status.SelectedValue == "Inactive";
-
-            //ListBoxEmployeeRecord.Visible = showActive;
-            //ListBox1.Visible = showInactive;
-
-            // Get the selected value of the dropdown
-            string selectedValue = Drd_status.SelectedValue;
-
-            // Create a new list to store the filtered items
-            List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
-
-            // Loop through the items in the listbox and filter the list
-            foreach (Model.EmployeeData employee in ListBoxEmployeeRecord.Items)
+            if (drdgender.SelectedIndex != 0)
             {
-                if (employee.emp_status == selectedValue)
-                {
-                    filteredEmployees.Add(employee);
-                }
+                drdgender.SelectedIndex = 0;
             }
         }
-        protected void EmployeeStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //bool showActive = Drd_status.SelectedValue == "Active";
-            //bool showInactive = Drd_status.SelectedValue == "Inactive";
+        //protected void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // Get the selected value of the dropdown
+        //    string selectedValue = Drd_status.SelectedValue;
 
-            //ListBoxEmployeeRecord.Visible = showActive;
-            //ListBox1.Visible = showInactive;
+        //    // Create a new list to store the filtered items
+        //    List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
 
-            // Get the selected value of the dropdown
-            string selectedValue = drdStatus.SelectedValue;
+        //    // Loop through the items in the listbox and filter the list
+        //    foreach (Model.EmployeeData employee in ListBoxEmployeeRecord.Items)
+        //    {
+        //        if (employee.emp_status == selectedValue)
+        //        {
+        //            filteredEmployees.Add(employee);
+        //        }
+        //    }
+        //}
+        //protected void EmployeeStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // Get the selected value of the dropdown
+        //    string selectedValue = drdStatus.SelectedValue;
 
-            // Create a new list to store the filtered items
-            List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
+        //    // Create a new list to store the filtered items
+        //    List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
 
-            // Loop through the items in the listbox and filter the list
-            foreach (Model.EmployeeData employee in ListBox1.Items)
-            {
-                if (employee.emp_status == selectedValue)
-                {
-                    filteredEmployees.Add(employee);
-                }
-            }
-        }
+        //    // Loop through the items in the listbox and filter the list
+        //    foreach (Model.EmployeeData employee in ListBox1.Items)
+        //    {
+        //        if (employee.emp_status == selectedValue)
+        //        {
+        //            filteredEmployees.Add(employee);
+        //        }
+        //    }
+        //}
     
-    //RETRIEVE DATA
-    //protected void ViewID_Click(object sender, EventArgs e)
-    //{
-    //    FirebaseResponse response;
-    //    response = twoBigDB.Get("EMPLOYEERECORD");
-    //    Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
-    //    var json = response.Body;
-    //    Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
-
-    //    foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
-    //    {
-    //        ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
-    //    }
-    //}
-
     //SEARCH DATA
     protected void btnDisplay_Click(object sender, EventArgs e)
         {
@@ -187,7 +167,7 @@ namespace WRS2big_Web.Admin
                     emp_lastname = txtlastname.Text,
                     emp_firstname = txtfirstname.Text,
                     emp_midname = txtmidname.Text,
-                    emp_birthdate = txtbirthdate.Text,
+                    emp_birthdate = BirthDate.Text,
                     emp_gender = drdgender.Text,
                     emp_address = txtaddress.Text,
                     emp_contactnum = txtcontactnum.Text,

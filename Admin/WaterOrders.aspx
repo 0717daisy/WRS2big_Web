@@ -148,7 +148,7 @@ chart.render();
                                                     </div>
                                                     <div class="card-footer">
                                                                      <asp:Button ID="AcceptBtn" style="font-size:14px;" class="btn btn-primary btn-sm"  runat="server" Text="ACCEPT"/>
-                                                                       <asp:Button ID="DeleteBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="DECLINE" OnClick="DeleteBtn_Click" /> 
+                                                                       <asp:Button ID="DeclineBtn" style="font-size:14px;" class="btn btn-danger btn-sm" runat="server"  Text="DECLINE" OnClick="DeclineBtn_Click" /> 
                                                     </div>
                                                 </div>
                                                </div> 
