@@ -7,7 +7,7 @@ namespace WRS2big_Web.Model
 {
     public class Subscription
     {
-        public int Idno { get; set; }
+        public string Idno { get; set; }
         public string Lname { get; set; }
         public string Fname { get; set; }
         public string Phone { get; set; }

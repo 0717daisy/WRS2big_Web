@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicPlanSub.aspx.cs" Inherits="WRS2big_Web.LandingPage.Subscriptions" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SubscriptionPlans.aspx.cs" Inherits="WRS2big_Web.Admin.SubscriptionPlans" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,55 +96,68 @@
                <div class="text-center">
                      <img src="/images/2ndLogo.png" style="width:500px" alt="logo.png">
                 </div>
-                <div class="text-center">
-                    <h2 style="color:black">2BiG SUBSCRIPTION</h2>
-                </div>
         <!-- Container-fluid starts -->
         <div class="container-fluid ">
             <div class="row">
                 <div class="col-md-12">
                     <form class="md-float-material form-material">
+                        <!-- SUBSCRIPTION-->
+                        <section class="cell medium-8 padding-vertical-4">
+                            <a name="subscription"> </a>
+                            <div>
+                                <h1 class="h3 text-center">
+                                    <br> SUBSCRIPTION PLANS <br>
+                                </h1>
+                                <h2 class="texts text-center " style="font-size:20px;">Pick the best plan and start growing your business NOW !</h2><br />
 
-                        <div class="auth-box card">
-                            <div class="card-block">
-                                    <div class="col-md-12" style="background-color: pink;">
+                            </div>
+                            <br>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3" style="background-color: white;">
+                                    </div>
+
+                                    <div class="col-sm-3" style="background-color: pink;">
                                         <div class="">
                                             <div class="text-center">
                                                 <img src="/images/BasicPlan.PNG" style="width:100%">
                                             </div>
                                             <p class="h3 text-center">BASIC PLAN</p>
-                                            <h2 class="texts text-center " style="font-size:20px;">
-                                                ₱3000 / 6 Months
-                                            </h2> 
-                                                <div class="auth-box card">
-                                                    <div class="card-block text-left" style="font-size:20px; background-color:papayawhip">
-                                                        <i class="ti-check-box"> Admin Dashboard</i> <br />
-                                                        <i class="ti-check-box"> Point of Sale</i><br />
-                                                        <i class="ti-check-box"> Reports</i><br />
-                                                        <i class="ti-check-box"> Admin Profile</i><br />
-                                                         <i class="ti-check-box"> Employee Records</i><br />
-                                                        <i class="ti-check-box"> Water Orders</i><br />
-                                                        <i class="ti-check-box"> Deliveries</i><br />
-                                                        <i class="ti-check-box"> Reservations</i><br />
-                                                        <i class="ti-check-box"> Refilling Station</i><br />
-                                                        <i class="ti-check-box"> Products</i><br />
-                                                        <i class="ti-check-box"> Customer Reviews</i><br />
-                                                        <i class="ti-check-box"> Loyalty Program</i><br />
-                                                    </div>
-                                                </div>
-                                            <br>
-                                                <div class="container pt-4 px-0">
-                                                    <div id="paypal-button"></div>
-                                                </div>
-                                                  <div class="container pt-4 px-0">
-                                                   <a href="Index.aspx" class="button btn btn-danger">
-                                                    CANCEL
-                                                    </a>
-                                                </div> <br />
+                                            <h2 class="texts text-center " style="font-size:20px;"> Grow your Water Refilling Business for only ₱3000 good for 6 Months ! Enjoy a hassle-free business process and attract new and loyal customers</h2> <br>
+                                            <div cell small-24 class="text-center">
+                                                <a href="BasicPlanSub.aspx" class="button" style="color:darkblue;font-size: 18px;background-color: lightskyblue;padding: 10px;">
+                                                    SUBSCRIBE
+                                                </a>
+                                            </div> <br>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-sm-3" style="background-color: lightskyblue;">
+                                        <div class="service-item second-service">
+                                            <div class="text-center">
+                                                <img src="/images/PremiumPlan.PNG" style="width:100%">
+                                            </div>
+                                            <p class="h3 text-center">PREMIUM PLAN</p>
+                                            <h2 class="texts text-center" style="font-size:20px;">
+                                               Grow your Water Refilling Business for only ₱5500 good for 1 year ! Enjoy a hassle-free business process and attract new and loyal customers
+                                            </h2> <br>
+                                            <div cell small-24 class="text-center">
+                                                <a href="PremiumPlanSub" class="button" style="color:darkblue;font-size: 18px;background-color: pink;padding: 10px;">
+                                                    SUBSCRIBE
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3" style="background-color: white;">
+                                        <div class="service-item second-service">
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+                        </section>
                   </form>
               </div>
      <!-- end of col-sm-12 -->
@@ -153,48 +166,6 @@
     </div>
 <!-- end of container-fluid -->
     </section>
-        <script type="text/javascript" src="https://www.paypal.com/sdk/js?client-id=AYAFhn0XmpP6EiQM_GVzmj2KIUjfOPS_jgzExbE8Ssmim0KMrdhdzESAlmgYUmSVLfCia0vrDaPPvJBZ&currency=PHP">
-    </script>
-            <!--BASIC PLAN-->
-            <script>
-                var name = '<%= Session["Lname"] %>';
-                var lname = '<%= Session["Fname"] %>';
-                paypal.Buttons({
-                    createOrder: function (data, actions) {
-                        return actions.order.create({
-                            payee: {
-                                name: {
-                                    given_name: '<%= Session["Fname"] %>',
-                                    surname: '<%= Session["Lname"] %>'
-                                },
-                                phone: {
-                                    phone_type: "MOBILE",
-                                    phone_num: '<%= Session["Phone"] %>'
-                                },
-                                email: '<%= Session["Email"] %>',
-                            },
-                            purchase_units: [{
-                                amount: {
-                                    value: '3000'
-
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function (data, actions) {
-                        return actions.order.capture().then(function (details) {
-                            console.log(details)
-                            sessionStorage.setItem("plan", "basic");
-                            window.location.replace("SubscriptionSuccess.aspx");
-                        });
-                    },
-                    onCancel: function (data) {
-                        window.location.replace("/pages/PaymentFailed.aspx");
-                    }
-                }).render("#paypal-button");
-            </script>
-
-
 
     <!-- Required Jquery -->
     <script type="text/javascript" src="/assets/js/jquery/jquery.min.js"></script>

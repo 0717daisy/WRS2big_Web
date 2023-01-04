@@ -10,9 +10,9 @@ using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
 
-namespace WRS2big_Web.LandingPage
+namespace WRS2big_Web.Admin
 {
-    public partial class SubscriptionSuccess : System.Web.UI.Page
+    public partial class BasicSubSuccess : System.Web.UI.Page
     {
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -21,42 +21,44 @@ namespace WRS2big_Web.LandingPage
 
         };
         IFirebaseClient twoBigDB;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //connection to database 
+            twoBigDB = new FireSharp.FirebaseClient(config);
         }
         public void btnContinue_Click(object sender, EventArgs e)
         {
-            //DateTime now = DateTime.Now;
-            //DateTime OneMonth = now.AddMonths(6);
-            //var Fname = Session["Fname"].ToString();
-            //var Lname = Session["Lname"].ToString();
-            //DateTime startDate = now;
-            //string type = "Basic";
-
             try
             {
+                DateTime now = DateTime.Now;
+                DateTime SubBasic = now.AddMonths(6);
+                var idnum = Session["idno"].ToString();
+                DateTime startDate = now;
+                string type = "BASIC";
+
                 var data = new Model.Subscription
                 {
-                    Lname = Session["Lname"].ToString(),
-                    Fname = Session["Fname"].ToString(),
-                    SubsDate = DateTime.UtcNow,
-                    SubType = "Basic",
-                    SubEnd = DateTime.UtcNow.AddMonths(6),
+                    Idno = idnum,
+                    SubType = type,
+                    SubsDate = now,
+                    SubEnd = SubBasic,
 
                 };
+
                 SetResponse response;
-                // GALLONS = tablename, emp_id = key ( PK? )
-                response = twoBigDB.Set("SUBSCRIPTION" + data.Lname, data);
+                response = twoBigDB.Set("SUBSCRIPTION/" + data.Idno, data);
                 Model.Subscription result = response.ResultAs<Model.Subscription>();
 
-                Response.Write("<script>alert ('" + data.Lname + "  successfully SUBSCRIBED to BASIC PLAN!'); location.reload(); window.location.href = '/Admin/AdminIndex.aspx'; </script>");
+                Response.Write("<script>alert ('Thankyou for Subscribing ! You successfully subscribed to: " + data.SubType + " PLAN '); location.reload(); window.location.href = '/Admin/AdminProfile.aspx'; </script>");
                 //Response.Write("<script> alert ('New Gallon added successfully'); location.reload(); window.location.href = 'ProductGallon.aspx' </script>");
+
             }
-            catch (Exception ex)
+            catch
             {
-                Response.Write("<script>alert ('Under Maintenance')</script><pre>" + ex.ToString() + "</pre>");
+
             }
+
         }
     }
 }

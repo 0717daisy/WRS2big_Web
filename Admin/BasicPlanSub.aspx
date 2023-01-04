@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicSubSuccess.aspx.cs" Inherits="WRS2big_Web.LandingPage.SubscriptionSuccess" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicPlanSub.aspx.cs" Inherits="WRS2big_Web.Admin.Subscriptions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +81,6 @@
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
-
                     <div class="gap-patch">
                         <div class="circle"></div>
                     </div>
@@ -98,48 +96,104 @@
                <div class="text-center">
                      <img src="/images/2ndLogo.png" style="width:500px" alt="logo.png">
                 </div>
-                   <div class="row justify-content-center" >
-                    <div class="col-lg-5" >
-                        <div class="card shadow-lg border-0 rounded-lg mb-4 bgColor">
-                        <div class="card-header">
-                            <div class="form-group d-flex justify-content-between">
-                                <h3 class="text-left font-weight-light my-2">Subscription Complete</h3>   
-                               
-                            </div>
-                             <h2 class="texts text-center " style="font-size:20px;"> You successfully subscribed to 2BiG's</h2> 
-                                            <div class="text-center">
-                                                <img src="/images/BasicPlan.PNG" style="width:70%">
-                                            </div>
-                                  <div class="text-center">
-                                     <p class="h3 text-center">BASIC PLAN</p>
-                                </div>
-                        </div>               
-                        <div class="card-body">
-
-                            <div class="jumbotron h4" style="background-color:cornsilk"> 
-                                <center>
-                                 Thank you for subscribing with TechNique!!
-                                </center>
-                               
-                            </div>
-                        </div> 
-                        </div>
-                         <div class="col text-center">
-                             <asp:Button ID="btnContinue" CssClass="btn btn-primary" OnClick="btnContinue_Click" runat="server" Text="Proceed" />
-                        </div>
-                    </div>
-
+                <div class="text-center">
+                    <h2 style="color:black">2BiG SUBSCRIPTION</h2>
                 </div>
         <!-- Container-fluid starts -->
         <div class="container-fluid ">
             <div class="row">
+                <div class="col-md-12">
+                    <form class="md-float-material form-material">
 
+                        <div class="auth-box card">
+                            <div class="card-block">
+                                    <div class="col-md-12" style="background-color: pink;">
+                                        <div class="">
+                                            <div class="text-center">
+                                                <img src="/images/BasicPlan.PNG" style="width:100%">
+                                            </div>
+                                            <p class="h3 text-center">BASIC PLAN</p>
+                                            <h2 class="texts text-center " style="font-size:20px;">
+                                                ₱3000 / 6 Months
+                                            </h2> 
+                                                <div class="auth-box card">
+                                                    <div class="card-block text-left" style="font-size:20px; background-color:papayawhip">
+                                                        <i class="ti-check-box"> Admin Dashboard</i> <br />
+                                                        <i class="ti-check-box"> Point of Sale</i><br />
+                                                        <i class="ti-check-box"> Reports</i><br />
+                                                        <i class="ti-check-box"> Admin Profile</i><br />
+                                                         <i class="ti-check-box"> Employee Records</i><br />
+                                                        <i class="ti-check-box"> Water Orders</i><br />
+                                                        <i class="ti-check-box"> Deliveries</i><br />
+                                                        <i class="ti-check-box"> Reservations</i><br />
+                                                        <i class="ti-check-box"> Refilling Station</i><br />
+                                                        <i class="ti-check-box"> Products</i><br />
+                                                        <i class="ti-check-box"> Customer Reviews</i><br />
+                                                        <i class="ti-check-box"> Loyalty Program</i><br />
+                                                    </div>
+                                                </div>
+                                            <br>
+                                                <div class="container pt-4 px-0">
+                                                    <div id="paypal-button"></div>
+                                                </div>
+                                                  <div class="container pt-4 px-0">
+                                                   <a href="SubscriptionPlans.aspx" class="button btn btn-danger">
+                                                    CANCEL
+                                                    </a>
+                                                </div> <br />
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                  </form>
+              </div>
      <!-- end of col-sm-12 -->
             </div>
    <!-- end of row -->
     </div>
 <!-- end of container-fluid -->
     </section>
+        <script type="text/javascript" src="https://www.paypal.com/sdk/js?client-id=AYAFhn0XmpP6EiQM_GVzmj2KIUjfOPS_jgzExbE8Ssmim0KMrdhdzESAlmgYUmSVLfCia0vrDaPPvJBZ&currency=PHP">
+    </script>
+            <!--BASIC PLAN-->
+            <script>
+                var name = '<%= Session["Lname"] %>';
+                var lname = '<%= Session["Fname"] %>';
+                paypal.Buttons({
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            payee: {
+                                name: {
+                                    given_name: '<%= Session["Fname"] %>',
+                                    surname: '<%= Session["Lname"] %>'
+                                },
+                                phone: {
+                                    phone_type: "MOBILE",
+                                    phone_num: '<%= Session["Phone"] %>'
+                                },
+                                email: '<%= Session["Email"] %>',
+                            },
+                            purchase_units: [{
+                                amount: {
+                                    value: '3000'
+
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            console.log(details)
+                            sessionStorage.setItem("plan", "basic");
+                            window.location.replace("BasicSubSuccess.aspx");
+                        });
+                    },
+                    onCancel: function (data) {
+                       window.location.replace("BasicPlanSub.aspx");
+                      
+                    }
+                }).render("#paypal-button");
+            </script>
 
 
 
@@ -165,6 +219,4 @@
 </form>
 </body>
 </html>
-
-
 
