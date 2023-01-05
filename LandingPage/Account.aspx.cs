@@ -12,6 +12,9 @@ using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text;
+using Firebase.Storage;
 
 namespace WRS2big_Web.LandingPage
 {
@@ -33,10 +36,56 @@ namespace WRS2big_Web.LandingPage
             twoBigDB = new FireSharp.FirebaseClient(config);
 
         }
+       
+        public void UploadFile(object sender, EventArgs e)
+        {
+            if (txtproof.HasFile)
+            {
+                // Get the file that was uploaded
+                HttpPostedFile postedFile = txtproof.PostedFile;
+
+                // Get the file name and content type
+                string fileName = Path.GetFileName(postedFile.FileName);
+                string contentType = postedFile.ContentType;
+
+                // Get the file content as a byte array
+                byte[] fileData = new byte[postedFile.ContentLength];
+                postedFile.InputStream.Read(fileData, 0, postedFile.ContentLength);
+
+                // Save the file to the Firebase database
+                //string databaseUrl = "https://big-system-64b55-default-rtdb.firebaseio.com/";
+                //string storageBucket = "gs://big-system-64b55.appspot.com";
+                //FirebaseStorage storage = FirebaseStorage.(storageBucket);
+                //StorageReference storageRef = storage.RootReference;
+                //StorageReference fileRef = storageRef.Child(fileName);
+                //fileRef.PutAsync(new MemoryStream(fileData), new Model.AdminAccount()
+                //{
+                //    Proof = contentType
+                //}).Wait();
+
+                // Get the file data from Firebase
+                //var fileData = twoBigDB.Get("ADMIN/" + fileName).ResultAs<byte[]>();
+
+                // Convert the file data to a string
+                string fileString = Encoding.UTF8.GetString(fileData);
+
+                //// Get the file data
+                //var fileData = txtproof.FileBytes;
+                //var fileName = txtproof.FileName;
+
+                //// Convert the file data to a base64-encoded string
+                //var fileDataBase64 = Convert.ToBase64String(fileData);
+
+                //// Upload the file to Firebase Cloud Storage
+                //twoBigDB.Push("/ADMIN/" + fileName, fileDataBase64);
+            }
+        }
 
         //Function to store user data 
         public void btnSignup_Click(object sender, EventArgs e)
         {
+            //txtbirthdate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+
             try
             {
                 // INSERT
@@ -155,13 +204,12 @@ namespace WRS2big_Web.LandingPage
             //}
 
             //Check if the id number and password are valid
-            if (user != null)
+             if (user != null)
             {
                 if (user.Pass == password)
                 {
                     Session["idno"] = idno;
                     Session["password"] = password;
-                    Session["WRSname"] = user.WRS_Name;
                     Session["WRSname"] = user.WRS_Name;
                     Session["fname"] = user.Fname;
                     Session["mname"] = user.Mname;
@@ -172,8 +220,8 @@ namespace WRS2big_Web.LandingPage
                     Session["email"] = user.Email;
                     Session["address"] = user.Address;
                     // Login successful, redirect to admin homepage
-                    //Response.Redirect("/Admin/WaitingPage.aspx");
                     Response.Write("<script>alert ('Login Successfull! Your account is currently pending, Please wait for your account approval'); location.reload(); window.location.href = '/Admin/WaitingPage.aspx'; </script>");
+                    //Response.Redirect("/Admin/WaitingPage.aspx");
                 }
                 else
                 {
@@ -182,8 +230,13 @@ namespace WRS2big_Web.LandingPage
                     Response.Write("<script>alert('Invalid username or password');</script>");
                 }
             }
+            else
+            {
+                // User not found
+                //lblError.Text = " User not found";
+                Response.Write("<script>alert('User not found');</script>");
+            }             
         }
-
     }
 }
-  
+

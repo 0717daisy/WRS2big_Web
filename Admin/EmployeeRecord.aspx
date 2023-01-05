@@ -86,20 +86,28 @@
                                           <div class="col-md-12 col-sm-12">
                                               <%--date of birth--%>
                                           <strong>Date of Birth:</strong>
-                                            <asp:TextBox ID="txtbirthdate" runat="server" class="form-control" placeholder="Employees' Date of Birth" TextMode="Date"></asp:TextBox>
+                                            <asp:TextBox ID="BirthDate" runat="server" class="form-control" TextMode="Date" onchange="validateBirthDate()"> </asp:TextBox>
                                               <%--<asp:RangeValidator ID="RangeValidator1" runat="server"  ErrorMessage="Age must be 18 years and above!" ControlToValidate="txtbirthdate" MaximumValue="01/01/2004"  Display="Dynamic" ForeColor="Red" ValidationGroup="a"></asp:RangeValidator>--%>
-                                              <asp:RequiredFieldValidator ID="reqdob" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="txtbirthdate" ValidationGroup="a"></asp:RequiredFieldValidator>    
+                                              <asp:RequiredFieldValidator ID="reqdob" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="BirthDate" ValidationGroup="a"></asp:RequiredFieldValidator>    
+                                                                                                  
                                            </div>
                                            <%--</div>--%>
                                           <%-- <div class="item form-group">--%>
                                            <div class="col-md-12 col-sm-12">
                                                <%--gender--%>
                                            <strong>Gender:</strong>
-                                               <asp:DropDownList ID="drdgender" runat="server" Height="40px" Width="364px">
-                                                   <%--<asp:ListItem Text="Select" Value="select" Selected="True"></asp:ListItem>--%>
-                                                   <asp:ListItem Text="Male" Value="Male" Selected="True"></asp:ListItem>
+                                               <asp:DropDownList ID="drdgender" OnSelectedIndexChanged="drdgender_SelectedIndexChanged" runat="server" Height="40px" Width="364px">
+                                                   <asp:ListItem Selected="True" Text="Select" Value="0"></asp:ListItem>
+                                                   <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
                                                    <asp:ListItem Text="Female" Value="Female" ></asp:ListItem>
                                                </asp:DropDownList>
+                                               <%--<script> 
+                                                   $(function () {
+                                                       $("#drdgender option:first").prop("disabled", true);
+                                                       //alert("Invalid gender selection!");
+                                                   });
+                                               </script>--%>
+
                                            <%--</div>--%>
                                            </div>
                                           <%-- <div class="item form-group">--%> 
@@ -147,8 +155,8 @@
                                                 <%--role--%>
                                                 <strong>Position:</strong>
                                                <asp:DropDownList ID="drdrole" runat="server" Height="40px" Width="364px">
-                                                   <%--<asp:ListItem Text="-----Choose One-----" Value="select" Selected="True"></asp:ListItem>--%>
-                                                   <asp:ListItem Text="Cashier" Value="Cashier" Selected="True"></asp:ListItem>
+                                                   <asp:ListItem Selected="True">-----Choose One-----</asp:ListItem>
+                                                   <asp:ListItem Text="Cashier" Value="Cashier"></asp:ListItem>
                                                    <asp:ListItem Text="Driver" Value="Driver" ></asp:ListItem>
                                                    <asp:ListItem Text="Water Refiller" Value="Water Refiller" ></asp:ListItem>
                                                    <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
@@ -156,9 +164,9 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="drdrole" ValidationGroup="a"></asp:RequiredFieldValidator>
                                             <%--  </div>--%>
                                                 <strong>Status:</strong>
-                                               <asp:DropDownList ID="Drd_status" runat="server" Height="40px" Width="364px" OnSelectedIndexChanged="statusDropdown_SelectedIndexChanged">
-                                                    <%-- <asp:ListItem Text="Select Employee Status" Enabled="False"></asp:ListItem>--%>
-                                                     <asp:ListItem Text="Active" Value="Active" Selected="True" ></asp:ListItem>
+                                               <asp:DropDownList ID="Drd_status" runat="server" Height="40px" Width="364px">
+                                                     <asp:ListItem Selected="True" > ------ Select Employee Status ------ </asp:ListItem>
+                                                     <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                                      <asp:ListItem Text="Inactive" Value="Inactive" ></asp:ListItem>
                                                      </asp:DropDownList>
                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="***" ForeColor="Red" Font-Bold="true" ControlToValidate="Drd_status" ValidationGroup="a"></asp:RequiredFieldValidator>
@@ -284,7 +292,7 @@
                                                                            <asp:ListItem Text="WRS Helper" Value="WRS Helper" ></asp:ListItem>
                                                                        </asp:DropDownList>
                                                                             <h5>Status: </h5>
-                                                                            <asp:DropDownList ID="drdStatus" runat="server" CssClass="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px" OnSelectedIndexChanged="EmployeeStatusDropdown_SelectedIndexChanged"> 
+                                                                            <asp:DropDownList ID="drdStatus" runat="server" CssClass="btn btn-round waves-effect text-center" style="background-color:#bae1ff;font-size:16px;color:black;font-family:Bahnschrift;width:700px"> 
                                                                            <asp:ListItem Text="Select Employee Status" Value="Cashier" Enabled="False"></asp:ListItem>
                                                                            <asp:ListItem Text="Active" Value="Active" Selected="True" ></asp:ListItem>
                                                                            <asp:ListItem Text="Inactive" Value="Inactive" ></asp:ListItem>

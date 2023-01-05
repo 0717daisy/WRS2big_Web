@@ -51,7 +51,7 @@ namespace WRS2big_Web.Admin
             FirebaseResponse response;
             response = twoBigDB.Get("WATER_ORDER/" + slected);
             Model.OrderData obj = response.ResultAs<Model.OrderData>();
-            //LabelID.Text = obj.Order_id.ToString();
+            LabelID.Text = obj.Order_id.ToString();
             LblBorrowGal.Text = obj.OrderBorrowGallons.ToString();
             Lbl_OrderType.Text = obj.OrderType.ToString();
             Lbl_OwnGallons.Text = obj.OrderOwnGallons.ToString();
@@ -59,23 +59,25 @@ namespace WRS2big_Web.Admin
             Lbl_ReservDate.Text = obj.OrderReservationDate.ToString();
             Lbl_OrderQty.Text = obj.OrderQuantity.ToString();
         }
-        protected void DeleteBtn_Click(object sender, EventArgs e)
+        protected void DeclineBtn_Click(object sender, EventArgs e)
         {
-            String deleteStr;
-            deleteStr = ListBox1.SelectedValue;
-            FirebaseResponse response = twoBigDB.Delete("WATER_ORDER/" + deleteStr);
+            // Update order status in the database
+            // ...
 
-            //lbl_result.Text = "Records Successfully deleted!";
-            //Response.Write("<div>Successfully deleted product ID : "+ deleteStr +" </div>");
-            Response.Write("<script>alert ('Successfully deleted Order ID : " + deleteStr + "'); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
+            // Create a notification payload using the Firebase Notification object
+        //    var notification = new FirebaseNotification
+        //    {
+        //        Title = "Order Declined",
+        //        Body = "Unfortunately, we are unable to process your order at this time.",
+        //        Data = new Dictionary<string, string>
+        //{
+        //    { "orderId", Order.Order_Id.ToString() },
+        //    { "status", "declined" }
+        //}
+        //    };
 
-            //TO DELETE THE ID IN THE LISTBOX AFTER DELETED
-            int selected = ListBox1.SelectedIndex;
-            if (selected != 1)
-            {
-                ListBox1.Items.RemoveAt(selected);
-            }
-
+        //    // Send the notification to the customer's device
+        //    twoBigDB.Push("/devices/CUSTOMER_DEVICE_REGISTRATION_TOKEN", notification);
 
         }
     }

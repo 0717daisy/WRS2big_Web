@@ -7,7 +7,7 @@ namespace WRS2big_Web.Model
 {
     public class OrderData
     {
-        //public string Order_id { get; set; }
+        public int Order_id { get; set; }
         public string OrderBorrowGallons { get; set; }
         public string OrderOwnGallons { get; set; }
         public string OrderProductType { get; set; }
