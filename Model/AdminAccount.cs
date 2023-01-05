@@ -24,7 +24,7 @@ namespace WRS2big_Web.Model
         public string SubType { get; set; }
         public DateTimeOffset SubEnd { get; set; }
 
-        public StorageReference RootReference { get; internal set;
+        public StorageReference RootReference { get; internal set; }
 
     }
 }

@@ -42,7 +42,7 @@ namespace WRS2big_Web.Admin
         private void DisplayID()
         {
             FirebaseResponse response;
-            response = twoBigDB.Get("EMPLOYEERECORD");
+            response = twoBigDB.Get("EMPLOYEERECORD/");
             Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
             var json = response.Body;
             Dictionary<string, Model.EmployeeData> list = JsonConvert.DeserializeObject<Dictionary<string, Model.EmployeeData>>(json);
@@ -50,25 +50,25 @@ namespace WRS2big_Web.Admin
            
             foreach (KeyValuePair<string, Model.EmployeeData> entry in list)
             {
-                ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
-                //if (entry.Value.emp_status)
-                //{
-                //    ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
-                //}
-                //else
-                //{
-                //    ListBox1.Items.Add(entry.Value.emp_id.ToString());
-                //}
+                //ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+                if (entry.Value.emp_status == "Active")
+                {
+                    ListBoxEmployeeRecord.Items.Add(entry.Value.emp_id.ToString());
+                }
+                else if (entry.Value.emp_status == "Inactive")
+                {
+                    ListBox1.Items.Add(entry.Value.emp_id.ToString());
+                }
 
             }
         }
-        protected void drdgender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (drdgender.SelectedIndex != 0)
-            {
-                drdgender.SelectedIndex = 0;
-            }
-        }
+        //protected void drdgender_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (drdgender.SelectedIndex != 0)
+        //    {
+        //        drdgender.SelectedIndex = 0;
+        //    }
+        //}
         //protected void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    // Get the selected value of the dropdown
@@ -134,7 +134,7 @@ namespace WRS2big_Web.Admin
             String slected;
             slected = ListBox1.SelectedValue;
 
-            FirebaseResponse response;
+            FirebaseResponse response; 
             response = twoBigDB.Get("EMPLOYEERECORD/" + slected);
             Model.EmployeeData obj = response.ResultAs<Model.EmployeeData>();
 
@@ -151,6 +151,31 @@ namespace WRS2big_Web.Admin
             emergencycontact.Text = obj.emp_emergencycontact.ToString();
             drdPosition.Text = obj.emp_role.ToString();
             drdStatus.Text = obj.emp_status.ToString();
+
+            if (obj.emp_status.ToString() == "Inactive")
+            {
+                firstname.ReadOnly = true;
+                midname.ReadOnly = true;
+                lastname.ReadOnly = true;
+                address.ReadOnly = true;
+                contactnum.ReadOnly = true;
+                email.ReadOnly = true;
+                emergencycontact.ReadOnly = true;
+                drdPosition.Enabled = false;
+                drdStatus.Enabled = false;
+            }
+            else if (obj.emp_status.ToString() == "Active")
+            {
+                firstname.ReadOnly = false;
+                midname.ReadOnly = false;
+                lastname.ReadOnly = false;
+                address.ReadOnly = false;
+                contactnum.ReadOnly = false;
+                email.ReadOnly = false;
+                emergencycontact.ReadOnly = false;
+                drdPosition.Enabled = true;
+                drdStatus.Enabled = true;
+            }
         }
 
         // STORE/ADD DATA

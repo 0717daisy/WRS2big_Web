@@ -96,7 +96,7 @@
                                            <div class="col-md-12 col-sm-12">
                                                <%--gender--%>
                                            <strong>Gender:</strong>
-                                               <asp:DropDownList ID="drdgender" OnSelectedIndexChanged="drdgender_SelectedIndexChanged" runat="server" Height="40px" Width="364px">
+                                               <asp:DropDownList ID="drdgender" runat="server" Height="40px" Width="364px">
                                                    <asp:ListItem Selected="True" Text="Select" Value="0"></asp:ListItem>
                                                    <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
                                                    <asp:ListItem Text="Female" Value="Female" ></asp:ListItem>
