@@ -70,7 +70,7 @@ namespace WRS2big_Web.LandingPage
                 Response.Write("<script>alert('ID No. already exist'); window.location.href = 'Account.aspx'; </script>");
             }
         }
-        
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
 
@@ -157,37 +157,33 @@ namespace WRS2big_Web.LandingPage
             //Check if the id number and password are valid
             if (user != null)
             {
-             if (user.Pass == password)
-            {
-                Session["idno"] = idno;
-                Session["password"] = password;
-                Session["WRSname"] = user.WRS_Name;
-                Session["WRSname"] = user.WRS_Name;
-                Session["fname"] = user.Fname;
-                Session["mname"] = user.Mname;
-                Session["lname"] = user.Lname;
-                Session["fullName"] = user.Fname + " " + user.Mname + " " + user.Lname;
-                Session["dob"] = user.Bdate;
-                Session["contactNumber"] = user.Phone;
-                Session["email"] = user.Email;
-                Session["address"] = user.Address;
-                // Login successful, redirect to admin homepage
-                Response.Redirect("/Admin/WaitingPage.aspx");
-            }
-            else
-            {
-                // Login failed, display error message
-                //lblError.Text = "Invalid email or password!";
-                Response.Write("<script>alert('Invalid username or password');</script>");
-            }
-            else
-            {
-                // User not found
-                //lblError.Text = " User not found";
-                Response.Write("<script>alert('User not found');</script>");
+                if (user.Pass == password)
+                {
+                    Session["idno"] = idno;
+                    Session["password"] = password;
+                    Session["WRSname"] = user.WRS_Name;
+                    Session["WRSname"] = user.WRS_Name;
+                    Session["fname"] = user.Fname;
+                    Session["mname"] = user.Mname;
+                    Session["lname"] = user.Lname;
+                    Session["fullName"] = user.Fname + " " + user.Mname + " " + user.Lname;
+                    Session["dob"] = user.Bdate;
+                    Session["contactNumber"] = user.Phone;
+                    Session["email"] = user.Email;
+                    Session["address"] = user.Address;
+                    // Login successful, redirect to admin homepage
+                    //Response.Redirect("/Admin/WaitingPage.aspx");
+                    Response.Write("<script>alert ('Login Successfull! Your account is currently pending, Please wait for your account approval'); location.reload(); window.location.href = '/Admin/WaitingPage.aspx'; </script>");
+                }
+                else
+                {
+                    // Login failed, display error message
+                    //lblError.Text = "Invalid email or password!";
+                    Response.Write("<script>alert('Invalid username or password');</script>");
+                }
             }
         }
+
     }
-   
-}       
+}
   

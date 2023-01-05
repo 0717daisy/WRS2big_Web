@@ -34,21 +34,41 @@ namespace WRS2big_Web.Admin
                 DateTime now = DateTime.Now;
                 DateTime SubBasic = now.AddMonths(6);
                 var idnum = Session["idno"].ToString();
+                var firstname = Session["Fname"].ToString();
                 DateTime startDate = now;
                 string type = "BASIC";
 
-                var data = new Model.Subscription
-                {
-                    Idno = idnum,
-                    SubType = type,
-                    SubsDate = now,
-                    SubEnd = SubBasic,
+                //var data = new Model.AdminAccount
+                //{
+                //    Idno = int.Parse(idnum),
+                //    Fname = firstname,
+                //    SubType = type,
+                //    SubsDate = now,
+                //    SubEnd = SubBasic,
 
-                };
+                //};
+                var data = new Model.Subscription();
 
-                SetResponse response;
-                response = twoBigDB.Set("SUBSCRIPTION/" + data.Idno, data);
-                Model.Subscription result = response.ResultAs<Model.Subscription>();
+                data.Idno = idnum;
+                data.SubType = type;
+                data.SubsDate = now;
+                data.SubEnd = SubBasic;
+                FirebaseResponse response;
+                response = twoBigDB.Update("ADMIN/" + idnum, data);//Update Product Data 
+
+                //Model.AdminAccount data = new Model.AdminAccount()
+                //{
+                //    Idno = int.Parse(idnum),
+                //    SubType = type,
+                //    SubsDate = now,
+                //    SubEnd = SubBasic,
+
+                //};
+                //twoBigDB.Update("ADMIN/" + idnum, data);
+
+                //FirebaseResponse response;
+                //response = twoBigDB.Update("ADMIN/" + data.Idno, data);
+                //Model.AdminAccount result = response.ResultAs<Model.AdminAccount>();
 
                 Response.Write("<script>alert ('Thankyou for Subscribing ! You successfully subscribed to: " + data.SubType + " PLAN '); location.reload(); window.location.href = '/Admin/AdminProfile.aspx'; </script>");
                 //Response.Write("<script> alert ('New Gallon added successfully'); location.reload(); window.location.href = 'ProductGallon.aspx' </script>");

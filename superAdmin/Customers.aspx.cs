@@ -39,11 +39,11 @@ namespace WRS2big_Web.SuperAdmin
         {
             FirebaseResponse response;
             response = twoBigDB.Get("CUSTOMER");
-            Model.CustomerAcc obj = response.ResultAs<Model.CustomerAcc>();
+            Model.Customer obj = response.ResultAs<Model.Customer>();
             var json = response.Body;
-            Dictionary<string, Model.CustomerAcc> list = JsonConvert.DeserializeObject<Dictionary<string, Model.CustomerAcc>>(json);
+            Dictionary<string, Model.Customer> list = JsonConvert.DeserializeObject<Dictionary<string, Model.Customer>>(json);
 
-            foreach (KeyValuePair<string, Model.CustomerAcc> entry in list)
+            foreach (KeyValuePair<string, Model.Customer> entry in list)
             {
                 ListBox1.Items.Add(entry.Value.CusID.ToString());
                 //ListBox1.Items.Add(entry.Value. Fname.ToString());
@@ -58,7 +58,7 @@ namespace WRS2big_Web.SuperAdmin
             //response = twoBigDB.Get(@"WATER_GALLONS/" + LstBoxAdminProfile.SelectedValue);
             //Model.WaterGallon obj = response.ResultAs<Model.WaterGallon>();
             FirebaseResponse response = twoBigDB.Get("CUSTOMER/" + searchStr);
-            Model.CustomerAcc obj = response.ResultAs<Model.CustomerAcc>();
+            Model.Customer obj = response.ResultAs<Model.Customer>();
 
             Lbl_fname.Text = obj.CusFirstName.ToString();
             Lbl_lname.Text = obj.CusLastName.ToString();

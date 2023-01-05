@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -24,6 +23,23 @@ namespace WRS2big_Web.Admin
         IFirebaseClient twoBigDB;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idno"] == null)
+            {
+                // User not found
+                Response.Write("<script>alert('User not found');</script>");
+                //Response.Redirect("/LandingPage/Account.aspx");
+            }
+            else
+            {
+                //string SubPlan = (string)Session["SubType"];
+                //LblSubPlan.Text = SubPlan;
+
+                //string SubDate = (string)Session["SubsDate"];
+                //LblDateStarted.Text = SubDate;
+
+                //string SubsEnd = (string)Session["SubEnd"];
+                //LblSubEnd.Text = SubsEnd;
+            }
 
             //connection to database 
             twoBigDB = new FireSharp.FirebaseClient(config);
@@ -38,6 +54,19 @@ namespace WRS2big_Web.Admin
             txtdob.Text = (string)Session["dob"];
             lblStationName.Text = (string)Session["WRSname"];
             Lbl_user.Text = (string)Session["fullName"];
+
+            //LblSubPlan.Text = (string)Session["SubType"];
+            //LblDateStarted.Text = (string)Session["SubsDate"];
+            //LblSubEnd.Text = (string)Session["SubEnd"];
+
+            FirebaseResponse response;
+            response = twoBigDB.Get("ADMIN/");
+            Model.AdminAccount obj = response.ResultAs<Model.AdminAccount>();
+
+            LblSubPlan.Text = obj.SubType.ToString();
+            LblDateStarted.Text = obj.SubsDate.ToString();
+            LblSubEnd.Text = obj.SubEnd.ToString();
+
 
         }
 

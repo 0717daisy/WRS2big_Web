@@ -20,6 +20,9 @@ namespace WRS2big_Web.Model
         public string WRS_Name { get; set; }
         public string Pass { get; set; }
         public string Proof { get; set; }
+        public DateTimeOffset SubsDate { get; set; }
+        public string SubType { get; set; }
+        public DateTimeOffset SubEnd { get; set; }
 
         //private static string error = "There are some error!";
 

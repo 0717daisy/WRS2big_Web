@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WRS2big_Web.Model
 {
-    public class CustomerAcc
+    public class Customer
     {
         public int CusID { get; set; }
         public string CusLastName { get; set; }
