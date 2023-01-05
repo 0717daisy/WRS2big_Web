@@ -15,6 +15,33 @@ namespace WRS2big_Web.Admin
     {
 
         /// <summary>
+        /// LblSubPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSubPlan;
+
+        /// <summary>
+        /// LblDateStarted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDateStarted;
+
+        /// <summary>
+        /// LblSubEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSubEnd;
+
+        /// <summary>
         /// btnSubscription control.
         /// </summary>
         /// <remarks>

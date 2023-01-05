@@ -119,7 +119,7 @@ namespace WRS2big_Web.LandingPage
                 Response.Write("<script>alert('ID No. already exist'); window.location.href = 'Account.aspx'; </script>");
             }
         }
-        
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
 
@@ -204,7 +204,7 @@ namespace WRS2big_Web.LandingPage
             //}
 
             //Check if the id number and password are valid
-            if (user != null)
+             if (user != null)
             {
                 if (user.Pass == password)
                 {
@@ -220,7 +220,8 @@ namespace WRS2big_Web.LandingPage
                     Session["email"] = user.Email;
                     Session["address"] = user.Address;
                     // Login successful, redirect to admin homepage
-                    Response.Redirect("/Admin/WaitingPage.aspx");
+                    Response.Write("<script>alert ('Login Successfull! Your account is currently pending, Please wait for your account approval'); location.reload(); window.location.href = '/Admin/WaitingPage.aspx'; </script>");
+                    //Response.Redirect("/Admin/WaitingPage.aspx");
                 }
                 else
                 {
@@ -234,9 +235,8 @@ namespace WRS2big_Web.LandingPage
                 // User not found
                 //lblError.Text = " User not found";
                 Response.Write("<script>alert('User not found');</script>");
-            }            
+            }             
         }
     }
 }
-
 

@@ -59,22 +59,31 @@
                                             <hr>                        
                                            <%-- basic plan--%>
                                         <h4 style="color:black;font-family:Bahnschrift"> Subscription Plan:</h4>
-                                                                 <center>
-                                                                           <p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"><i class=" ti-credit-card "></i> BASIC PLAN</p> 
-                                                                 </center>
+                                             <center>
+                                                 <asp:Label ID="LblSubPlan" runat="server" class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift">
+                                                     <%--<i class=" ti-credit-card "></i>--%>
+                                                 </asp:Label>
+                                               <%-- <p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"> BASIC PLAN</p> --%>
+                                             </center>
                                         </div>
                                          <div class="col-md-12 col-sm-12">
                                              <%--date subscribed--%>
                                         <h4 style="color:black;font-family:Bahnschrift"> Date Subscribed:</h4>
-                                                                 <center>
-                                                                           <p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"><i class=" ti-credit-card "></i> December 10, 2022</p> 
-                                                                 </center> 
+                                              <center>
+                                                  <asp:Label ID="LblDateStarted" runat="server" class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift">
+                                                     <i class=" ti-credit-card "></i>
+                                                 </asp:Label>
+                                                 <%--<p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"><i class=" ti-credit-card "></i> December 10, 2022</p> --%>
+                                              </center> 
                                           </div>
                                          <div class="col-md-12 col-sm-12">
                                              <%--subscription end--%>
                                           <h4 style="color:black;font-family:Bahnschrift">Subscription End:</h4>
                                                                  <center>
-                                                                           <p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"><i class=" ti-credit-card "></i> March 10, 2022</p> 
+                                                                     <asp:Label ID="LblSubEnd" runat="server" class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift">
+                                                     <i class=" ti-credit-card "></i>
+                                                 </asp:Label>
+                                                                          <%-- <p class="active btn waves-effect text-center" style="background-color:#bae1ff;font-size:20px;color:black;font-family:Bahnschrift"><i class=" ti-credit-card "></i> March 10, 2022</p> --%>
                                                                  </center>
                                           </div>
                                         </div>
@@ -111,6 +120,7 @@
                                                      <asp:ImageButton ID="ImageButton_new" class="img-100 img-radius" style="width:200px" src="/images/rhea.png" runat="server" />
                                                           <br />
                                                           <asp:Label ID="Lbl_user" runat="server" style="color:black;font-size:16px"></asp:Label>
+                                                          
                                                           <%--<h6 style="color:black;font-size:16px"> TRINIDAD, RHEA MAE A.</h6> <h8>Admin</h8>--%>
                                                           <br />
                                                            <br />
@@ -122,6 +132,7 @@
                                                           </center>
                                                   </div>
                                                     <hr />
+
                                                     <div class="nav-tabs col-xl-8 ">
                                                             <div class="nav nav-tabs" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black">
                                                                  <%-- Update button--%>

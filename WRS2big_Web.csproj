@@ -573,7 +573,6 @@
     <Content Include="superAdmin\RefillingStations.aspx" />
     <Content Include="superAdmin\Reports.aspx" />
     <Content Include="superAdmin\SAdminIndex.aspx" />
-    <Content Include="superAdmin\SAdminProfile.aspx" />
     <Content Include="superAdmin\Subscribed.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -747,7 +746,7 @@
       <DependentUpon>PremiumSubSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\AdminAccount.cs" />
-    <Compile Include="Model\CustomerAcc.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
     <Compile Include="Model\RefillProduct.cs" />
@@ -814,13 +813,6 @@
     </Compile>
     <Compile Include="superAdmin\SAdminIndex.aspx.designer.cs">
       <DependentUpon>SAdminIndex.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="superAdmin\SAdminProfile.aspx.cs">
-      <DependentUpon>SAdminProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="superAdmin\SAdminProfile.aspx.designer.cs">
-      <DependentUpon>SAdminProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="superAdmin\Subscribed.aspx.cs">
       <DependentUpon>Subscribed.aspx</DependentUpon>
