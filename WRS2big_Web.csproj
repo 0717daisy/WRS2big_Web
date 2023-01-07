@@ -749,11 +749,11 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\EmployeeData.cs" />
     <Compile Include="Model\OrderData.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\RefillProduct.cs" />
     <Compile Include="Model\StorageReference.cs" />
     <Compile Include="Model\Subscription.cs" />
     <Compile Include="Model\WaterGallon.cs" />
-    <Compile Include="Model\WaterProduct.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -62,49 +62,6 @@ namespace WRS2big_Web.Admin
 
             }
         }
-        //protected void drdgender_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (drdgender.SelectedIndex != 0)
-        //    {
-        //        drdgender.SelectedIndex = 0;
-        //    }
-        //}
-        //protected void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // Get the selected value of the dropdown
-        //    string selectedValue = Drd_status.SelectedValue;
-
-        //    // Create a new list to store the filtered items
-        //    List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
-
-        //    // Loop through the items in the listbox and filter the list
-        //    foreach (Model.EmployeeData employee in ListBoxEmployeeRecord.Items)
-        //    {
-        //        if (employee.emp_status == selectedValue)
-        //        {
-        //            filteredEmployees.Add(employee);
-        //        }
-        //    }
-        //}
-        //protected void EmployeeStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // Get the selected value of the dropdown
-        //    string selectedValue = drdStatus.SelectedValue;
-
-        //    // Create a new list to store the filtered items
-        //    List<Model.EmployeeData> filteredEmployees = new List<Model.EmployeeData>();
-
-        //    // Loop through the items in the listbox and filter the list
-        //    foreach (Model.EmployeeData employee in ListBox1.Items)
-        //    {
-        //        if (employee.emp_status == selectedValue)
-        //        {
-        //            filteredEmployees.Add(employee);
-        //        }
-        //    }
-        //}
-    
-    //SEARCH DATA
     protected void btnDisplay_Click(object sender, EventArgs e)
         {
             String slected;

@@ -29,7 +29,9 @@ namespace WRS2big_Web
 
             //if (Session["username"] == null)
             //{
-            //    Response.Redirect("/LandingPage/Account.aspx");
+            //    //User not found
+            //     Response.Write("<script>alert('User not found');</script>");
+            //    //Response.Redirect("/LandingPage/Account.aspx");
             //}
             if (Session["idno"] == null)
             {
@@ -54,7 +56,7 @@ namespace WRS2big_Web
 
             Session.Abandon();
             Session.RemoveAll();
-            Session["idno"] = null;
+            Session["username"] = null;
             Session["password"] = null;
             Session.Clear();
             Response.Redirect("/LandingPage/Index.aspx");

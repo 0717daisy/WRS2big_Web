@@ -31,89 +31,66 @@ namespace WRS2big_Web.Admin
                 DisplayID();
             }
         }
-
-        private void DisplayID()
-        {
-            FirebaseResponse response;
-            response = twoBigDB.Get("WATERPRODUCT");
-            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-            var json = response.Body;
-            Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
-
-            foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
-            {
-                ListBox1.Items.Add(entry.Value.water_id.ToString());
-            }
-        }
-
-        //private void RecordsRetrieval()
-        //{
-        //    FirebaseResponse response;
-        //    response = twoBigDB.Get("WATERPRODUCT");
-        //    Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-        //    var json = response.Body;
-        //    Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
-
-        //    foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
-        //    {
-        //        //ListBox1.Items.Add(entry.Value.water_id.ToString());
-        //        //ListBox1.Items.Add(entry.Value.water_id.ToString() + entry.Value.waterType.ToString());
-        //        ListBox1.Items.Add(entry.Value.water_id.ToString());
-        //    }
-        //}
-
-        protected void ViewID_Click(object sender, EventArgs e)
-        {
-            //FirebaseResponse response;
-            //response = twoBigDB.Get("WATERPRODUCT");
-            //Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-            //var json = response.Body;
-            //Dictionary<string, Model.WaterProduct> list = JsonConvert.DeserializeObject<Dictionary<string, Model.WaterProduct>>(json);
-
-            //foreach (KeyValuePair<string, Model.WaterProduct> entry in list)
-            //{
-            //    ListBox1.Items.Add(entry.Value.water_id.ToString());
-            //}
-        }
-
         protected void btnDisplay_Click(object sender, EventArgs e)
         {
             String slected;
             slected = ListBox1.SelectedValue;
             FirebaseResponse response;
-            response = twoBigDB.Get("WATERPRODUCT/" + slected);
-            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();
-            LabelID.Text = obj.water_id.ToString();
-            waterName.Text = obj.waterType.ToString();
-            ProdDes.Text = obj.Description.ToString();
+            response = twoBigDB.Get("PRODUCT/" + slected);
+            Model.Product obj = response.ResultAs<Model.Product>();
+            LabelID.Text = obj.productId.ToString();
+            DrdprodType.Text = obj.productType.ToString();
+            DrdprodSize.Text = obj.productSize.ToString();
+            prodPrice.Text = obj.productPrice.ToString();
+            prodAvailable.Text = obj.productAvailable.ToString();
             LblDate.Text = obj.DateAdded.ToString();
         }
         public void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                // INSERT DATA TO TABLE = WATERPRODUCT
+                // INSERT DATA TO TABLE = PRODUCT
                 Random rnd = new Random();
                 int idnum = rnd.Next(1, 10000);
 
-                var data = new Model.WaterProduct
+                var data = new Model.Product
                 {
-                    water_id = idnum,
-                    waterType = drdType.Text,
-                    Description = waterDes.Text,
+                    productId = idnum,
+                    productType = int.Parse(DrdproductType.Text),
+                    productSize = int.Parse(DrdproductSize.Text),
+                    productPrice = float.Parse(productPrice.Text),
+                    productAvailable = int.Parse(productAvailable.Text),
                     DateAdded = DateTime.UtcNow
-
                 };
-
-                SetResponse response;
-                //USER = tablename, Idno = key(PK ? )
-                response = twoBigDB.Set("WATERPRODUCT/" + data.water_id, data);
-                Model.WaterProduct result = response.ResultAs<Model.WaterProduct>();
-                Response.Write("<script>alert ('Water Product with Id number: " + data.water_id + " is successfully added!'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
+                if(data.productType != 0 && data.productSize != 0)
+                {
+                    SetResponse response;
+                    //USER = tablename, Idno = key(PK ? )
+                    response = twoBigDB.Set("WATERPRODUCT/" + data.productId, data);
+                    Model.Product result = response.ResultAs<Model.Product>();
+                    Response.Write("<script>alert ('Water Product with Id number: " + data.productId + " is successfully added!'); location.reload(); window.location.href = '/Admin/WaterProduct.aspx'; </script>");
+                }
+                else
+                {
+                    Response.Write("<script> alert ('Invalid Product Type! Please select one.. ') </script>");
+                }   
             }
             catch
             {
                 Response.Write("<script>alert('Data already exist'); window.location.href = '/Admin/WaterProduct.aspx';");
+            }
+        }
+        private void DisplayID()
+        {
+            FirebaseResponse response;
+            response = twoBigDB.Get("PRODUCT/");
+            Model.Product obj = response.ResultAs<Model.Product>();
+            var json = response.Body;
+            Dictionary<string, Model.Product> list = JsonConvert.DeserializeObject<Dictionary<string, Model.Product>>(json);
+
+            foreach (KeyValuePair<string, Model.Product> entry in list)
+            {
+                ListBox1.Items.Add(entry.Value.productId.ToString());
             }
         }
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -121,33 +98,43 @@ namespace WRS2big_Web.Admin
             String deleteStr;
             deleteStr = ListBox1.SelectedValue;
 
-            var data = new Model.WaterProduct();
+            var data = new Model.Product();
 
-            data.water_id = int.Parse(LabelID.Text);
-            data.waterType = waterName.Text;
-            data.Description = ProdDes.Text;
+            data.productId = int.Parse(LabelID.Text);
+            data.productType = int.Parse(DrdprodType.Text);
+            data.productSize = int.Parse(DrdprodSize.Text);
+            data.productPrice = float.Parse(prodPrice.Text);
+            data.productAvailable = int.Parse(prodAvailable.Text);
             data.DateAdded = DateTime.UtcNow;
-            FirebaseResponse response;
-            response = twoBigDB.Update("WATERPRODUCT/" + deleteStr, data);//Update Product Data 
 
-            var result = twoBigDB.Get("WATERPRODUCT/" + deleteStr);//Retrieve Updated Data From WATERPRODUCT TBL
-            Model.WaterProduct obj = response.ResultAs<Model.WaterProduct>();//Database Result
+            if (data.productType != 0 && data.productSize != 0)
+            {
+                FirebaseResponse response;
+            response = twoBigDB.Update("PRODUCT/" + deleteStr, data);//Update Product Data 
 
-            LabelID.Text = obj.water_id.ToString();
-            waterName.Text = obj.waterType;
+            var result = twoBigDB.Get("PRODUCT/" + deleteStr);//Retrieve Updated Data From WATERPRODUCT TBL
+            Model.Product obj = response.ResultAs<Model.Product>();//Database Result
 
-
-            ProdDes.Text = obj.Description;
+            LabelID.Text = obj.productId.ToString();
+            DrdprodType.Text = obj.productType.ToString();
+            DrdprodSize.Text = obj.productSize.ToString();
+            prodPrice.Text = obj.productPrice.ToString();
+            prodAvailable.Text = obj.productAvailable.ToString();
             LblDate.Text = obj.DateAdded.ToString();
 
             Response.Write("<script>alert ('Product ID : " + deleteStr + " successfully updated!');</script>");
+            }
+            else
+            {
+                Response.Write("<script> alert ('Invalid Product Type! Please select one.. ') </script>");
+            }
         }
       
         protected void DeleteBtn_Click(object sender, EventArgs e)
         {
             String deleteStr;
             deleteStr = ListBox1.SelectedValue;
-            FirebaseResponse response = twoBigDB.Delete("WATERPRODUCT/" + deleteStr);
+            FirebaseResponse response = twoBigDB.Delete("PRODUCT/" + deleteStr);
 
             //lbl_result.Text = "Records Successfully deleted!";
             //Response.Write("<div>Successfully deleted product ID : "+ deleteStr +" </div>");
